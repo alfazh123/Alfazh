@@ -1,8 +1,14 @@
 import Link from "next/link";
 
+import { projects, hobbys } from "./lib/lib";
+
 import { AboutButton, ProjectButton } from "@/app/components/button";
+import ProjectCard from "@/app/components/project/project-card";
+import TechStack from "./components/tech-stack";
+import CardHobby from "./components/card-hobby";
 
 import { FaArrowDown } from "react-icons/fa";
+import { FaBookAtlas } from "react-icons/fa6";
 
 export default function Home() {
     return (
@@ -29,6 +35,42 @@ export default function Home() {
                     <div className="p-2 bg-slate600 rounded-full animate-ping absolute hidden group-hover:block"></div>
                 </Link>
             </div>
+
+            <section className="space-y-2 pt-32 mb-10" id="content">
+                <h3 className="text-2xl font-semibold">Some Project</h3>
+                <p className="text-gray-500">
+                    Here&apos;s latest project that I&apos;ve been working on
+                </p>
+                <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
+                    {projects.map((project, id) => (
+                        <div className={`${id <= 2 ? "" : "hidden"}`} key={id}>
+                            <ProjectCard key={id} {...project} />
+                        </div>
+                    ))}
+                    <ProjectButton />
+                </div>
+            </section>
+
+            <section id="tech-stack" className="my-10">
+                <h3 className="text-2xl font-semibold my-4">Tech Stack</h3>
+                <TechStack />
+            </section>
+
+            <section id="hobby" className="my-10">
+                <h3 className="text-2xl font-semibold my-4">Hobby</h3>
+                <div className="flex mx-auto justify-center gap-4">
+                    {hobbys.map((hobby, id) => (
+                        <CardHobby
+                            key={id}
+                            title={hobby.title}
+                            description={hobby.description}
+                            image={hobby.image}
+                            link={hobby.link}
+                            icon={<FaBookAtlas />}
+                        />
+                    ))}
+                </div>
+            </section>
         </main>
     );
 }

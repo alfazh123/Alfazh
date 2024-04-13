@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { Viewport } from "next";
 
-import { Inter, Source_Code_Pro, Maven_Pro, Fira_Code } from "next/font/google";
+import { Maven_Pro } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
-const inter = Inter({ subsets: ["latin"] });
-const sourceCodePro = Source_Code_Pro({ subsets: ["latin"] });
 const mavenPro = Maven_Pro({ subsets: ["latin"], weight: ["400"] });
 
 export const viewport: Viewport = {
