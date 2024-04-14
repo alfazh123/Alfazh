@@ -16,7 +16,7 @@ export const AboutButton = () => {
 export const ProjectButton = () => {
     return (
         <Link href="/project">
-            <div className="group dark:bg-slate600 border-solid border-2 border-slate800 dark:border-0 rounded-lg p-5 h-full flex flex-col justify-center items-center">
+            <div className="group dark:bg-slate700 border-solid border-2 border-slate800 dark:border-0 rounded-lg p-5 h-full flex flex-col justify-center items-center">
                 <h3 className="text-2xl font-semibold">More Project</h3>
                 <p className="text-gray-500 group-hover:underline">
                     You can see more project on my github
