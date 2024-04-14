@@ -2,13 +2,9 @@ import fs from "fs";
 import matter from "gray-matter";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
-import path from "path";
 
 function getPost({ slug }: { slug: string }) {
-    const source = fs.readFileSync(
-        path.join("./app/posts", `${slug}.mdx`),
-        "utf8"
-    );
+    const source = fs.readFileSync(`./app/posts${slug}.mdx`, "utf8");
     const { content, data } = matter(source);
 
     return { content, data };
