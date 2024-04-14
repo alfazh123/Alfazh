@@ -11,7 +11,7 @@ function getPost({ slug }: { slug: string }) {
 }
 
 export default function Blog({ params }: { params: { slug: string } }) {
-    const props = getPost({ slug: params.slug });
+    const props = getPost(params);
     return (
         <div className="px-4 pt-32">
             <h1 className="font-bold text-4xl">Blog</h1>
