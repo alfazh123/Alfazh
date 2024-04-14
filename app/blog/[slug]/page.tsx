@@ -1,10 +1,24 @@
 import fs from "fs";
 import matter from "gray-matter";
+import path from "path";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
 
+export async function generateStaticParams() {
+    const files = fs.readdirSync(path.join("./app/posts"));
+
+    const paths = files.map((filename) => ({
+        slug: filename.replace(".mdx", ""),
+    }));
+
+    return paths;
+}
+
 function getPost({ slug }: { slug: string }) {
-    const source = fs.readFileSync(`./app/posts/${slug}.mdx`, "utf8");
+    const source = fs.readFileSync(
+        path.join("./app/posts", `${slug}.mdx`),
+        "utf8"
+    );
     const { content, data } = matter(source);
 
     return { content, data };

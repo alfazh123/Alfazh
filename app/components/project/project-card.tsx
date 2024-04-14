@@ -21,7 +21,7 @@ export default function ProjectCard({
     tag,
 }: ProjectCardProps) {
     return (
-        <div className="group flex flex-col dark:outline dark:outline-2 dark:outline-slate600 transition ease-in-out delay-150  hover:scale-105  duration-300 w-full rounded-lg shadow-xl">
+        <div className="group flex flex-col dark:outline dark:outline-1 dark:outline-slate200 transition ease-in-out delay-150  hover:scale-105  duration-300 w-full rounded-lg shadow-xl">
             <Link href={href} className="m-2">
                 <Suspense
                     fallback={

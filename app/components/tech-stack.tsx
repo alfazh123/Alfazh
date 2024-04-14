@@ -15,19 +15,19 @@ export default function TechStack() {
         >
             <ul className="flex [&_li]:mx-8 md:justify-start max-w-none animate-infinite-scroll">
                 <li>
-                    <SiNextdotjs className="md:text-6xl text-4xl" />
+                    <SiNextdotjs className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <SiMdx className="md:text-6xl text-4xl" />
+                    <SiMdx className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <SiNeo4J className="md:text-6xl text-4xl" />
+                    <SiNeo4J className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <TbBrandTailwind className="md:text-6xl text-4xl" />
+                    <TbBrandTailwind className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <FaReact className="md:text-6xl text-4xl" />
+                    <FaReact className="md:text-5xl text-4xl" />
                 </li>
             </ul>
             <ul
@@ -35,19 +35,19 @@ export default function TechStack() {
                 aria-hidden="true"
             >
                 <li>
-                    <SiNextdotjs className="md:text-6xl text-4xl" />
+                    <SiNextdotjs className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <SiMdx className="md:text-6xl text-4xl" />
+                    <SiMdx className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <SiNeo4J className="md:text-6xl text-4xl" />
+                    <SiNeo4J className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <TbBrandTailwind className="md:text-6xl text-4xl" />
+                    <TbBrandTailwind className="md:text-5xl text-4xl" />
                 </li>
                 <li>
-                    <FaReact className="md:text-6xl text-4xl" />
+                    <FaReact className="md:text-5xl text-4xl" />
                 </li>
             </ul>
         </div>
