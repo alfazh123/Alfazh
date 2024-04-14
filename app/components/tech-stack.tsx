@@ -13,7 +13,7 @@ export default function TechStack() {
     })"
             className="md:w-full sm:w-96 w-60 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
         >
-            <ul className="flex [&_li]:mx-8 md:justify-start max-w-none animate-infinite-scroll">
+            <ul className="flex [&_li]:mx-8 [&_li]:cursor-pointer md:justify-start max-w-none animate-infinite-scroll">
                 <li>
                     <SiNextdotjs className="md:text-5xl text-4xl" />
                 </li>
@@ -31,7 +31,7 @@ export default function TechStack() {
                 </li>
             </ul>
             <ul
-                className="flex [&_li]:mx-8 md:justify-start max-w-none animate-infinite-scroll"
+                className="flex [&_li]:mx-8 [&_li]:cursor-pointer md:justify-start max-w-none animate-infinite-scroll"
                 aria-hidden="true"
             >
                 <li>
