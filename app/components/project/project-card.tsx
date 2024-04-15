@@ -21,7 +21,7 @@ export default function ProjectCard({
     tag,
 }: ProjectCardProps) {
     return (
-        <div className="group flex flex-col dark:outline dark:outline-1 dark:outline-slate200 transition ease-in-out delay-150  hover:scale-105  duration-300 w-full rounded-lg shadow-xl">
+        <div className="group flex flex-col h-full transition ease-in-out delay-150  hover:scale-105  duration-300 w-full rounded-lg shadow-md shadow-slate300 dark:shadow-slate800 hover:shadow-lg hover:shadow-slate300">
             <Link href={href} className="m-2">
                 <Suspense
                     fallback={
@@ -35,7 +35,7 @@ export default function ProjectCard({
                         alt={title}
                         width={500}
                         height={500}
-                        className="w-full rounded-2xl blur-sm group-hover:blur-none transition-all ease-in-out duration-300 p-2"
+                        className="w-full rounded-2xl p-2"
                         loading="lazy"
                     />
                 </Suspense>

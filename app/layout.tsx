@@ -34,7 +34,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="relative lg:max-w-[1600px] mx-auto">
-            <body className={mavenPro.className}>
+            <body
+                className={`transition-all ease-linear duration-300 ${mavenPro.className}`}
+            >
                 <Navbar />
                 <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-11/12 justify-center items-center min-h-screen">
                     {children}

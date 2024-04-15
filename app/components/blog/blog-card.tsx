@@ -16,7 +16,7 @@ export default function BlogCard({
     tags,
 }: BlogCardProps) {
     return (
-        <div className="group rounded-md bg-sand100 hover:bg-sand dark:bg-slate900 dark:hover:bg-slate800 hover:shadow-lg transition ease-in-out duration-700 py-4">
+        <div className="group rounded-md bg-sand100 hover:bg-sand dark:bg-slate900 dark:hover:bg-slate800 hover:shadow-lg transition-all ease-in-out duration-500 py-4 cursor-pointer shadow-lg shadow-slate300 dark:shadow-slate800 hover:shadow-slate300">
             <Link href={`/blog/${slug}`}>
                 <div className="mx-3 my-2">
                     <div className="flex justify-between">

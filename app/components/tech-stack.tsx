@@ -11,7 +11,7 @@ export default function TechStack() {
         ul.insertAdjacentHTML('afterend', ul.outerHTML);
         ul.nextSibling.setAttribute('aria-hidden', 'true');
     })"
-            className="md:w-full sm:w-96 w-60 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
+            className="w-5/6 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]"
         >
             <ul className="flex [&_li]:mx-8 [&_li]:cursor-pointer md:justify-start max-w-none animate-infinite-scroll">
                 <li>

@@ -69,19 +69,16 @@ const hobbys = [
     {
         title: "Book",
         description: "Books i've read.",
-        image: "/bookcard.svg",
         link: "/books",
     },
     {
         title: "Blogs",
         description: "Blogs",
-        image: "/blogcard.svg",
         link: "/blog",
     },
     {
         title: "Art & Photography",
         description: "Art & Photography by Alfazh",
-        image: "",
         link: "/art",
     },
 ];

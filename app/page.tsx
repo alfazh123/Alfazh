@@ -7,8 +7,7 @@ import ProjectCard from "@/app/components/project/project-card";
 import TechStack from "./components/tech-stack";
 import CardHobby from "./components/card-hobby";
 
-import { FaArrowDown } from "react-icons/fa";
-import { FaBookAtlas } from "react-icons/fa6";
+import { FaArrowDown, FaBook } from "react-icons/fa";
 
 export default function Home() {
     return (
@@ -21,7 +20,7 @@ export default function Home() {
                             Front-end Developer
                         </h1>
                     </div>
-                    <p className="md:text-base text-xs pt-4">
+                    <p className="md:text-base text-xs pt-4 md:w-5/6">
                         Build a website with NextJs and TailwindCSS. I&apos;m a
                         student at State University of Surabaya.
                     </p>
@@ -66,9 +65,8 @@ export default function Home() {
                             key={id}
                             title={hobby.title}
                             description={hobby.description}
-                            image={hobby.image}
                             link={hobby.link}
-                            icon={<FaBookAtlas />}
+                            icon={<FaBook />}
                         />
                     ))}
                 </div>

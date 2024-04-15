@@ -26,7 +26,7 @@ export default function ThemeButton() {
     return (
         <button
             onClick={() => setTheme(!theme)}
-            className="transition-all ease-in-out duration-700 md:px-4 px-3 py-2 border-solid border-2 border-slate-700 dark:border-slate-100 rounded-full"
+            className="group transition-all ease-in-out duration-300 md:px-4 px-3 py-2 border-solid md:border-2 border border-slate700 dark:border-slate200 rounded-full"
             name="theme-button"
             type="button"
             title="Change theme"
