@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 import Image from "next/image";
+import { Source_Serif_4 } from "next/font/google";
+
+const sourceSerif = Source_Serif_4({ subsets: ["latin"], weight: ["400"] });
 
 interface BookProps {
     title: string;
@@ -19,25 +22,18 @@ export default function Book({ title, src, year }: BookProps) {
         <div>
             <button
                 type="button"
-                className="dark:bg-slate600 bg-sand shadow-lg rounded-md md:h-80 h-full w-full"
+                className="group dark:bg-slate700 bg-sand200 shadow-lg rounded-md h-80 w-full"
                 onClick={TogleModal}
             >
-                <Image
-                    src={src}
-                    alt={title}
-                    width={500}
-                    height={500}
-                    className={`w-full aspect-auto rounded-sm dark:bg-slate700 h-full object-cover object-left md:block hidden`}
-                />
-                <div className="md:hidden block my-5">
+                <div className="my-5 flex flex-col justify-center items-center space-y-4">
                     <Image
                         src={src}
                         alt={title}
                         width={500}
                         height={500}
-                        className={`mx-auto rounded-sm sm:w-60 w-32`}
+                        className={`mx-auto rounded-md w-32 group-hover:skew-x-6 group-hover:-skew-y-6 transition-transform duration-300 ease-in-out`}
                     />
-                    <p>
+                    <p className={`text-lg ${sourceSerif.className}`}>
                         {title},{year}
                     </p>
                 </div>
@@ -54,7 +50,7 @@ export default function Book({ title, src, year }: BookProps) {
                             alt={title}
                             width={500}
                             height={500}
-                            className="md:w-80 w-44 aspect-auto rounded-md dark:bg-slate700 h-full"
+                            className="md:w-80 w-44 aspect-auto rounded-sm dark:bg-slate700 h-full"
                             onClick={(e) => e.stopPropagation()}
                         />
                     </div>

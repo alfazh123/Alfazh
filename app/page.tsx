@@ -59,7 +59,7 @@ export default function Home() {
 
             <section id="hobby" className="my-10">
                 <h3 className="text-2xl font-semibold my-4">Hobby</h3>
-                <div className="flex mx-auto items-center justify-center gap-4 flex-wrap flex-col sm:flex-row">
+                <div className="flex items-center justify-center gap-4 flex-wrap">
                     {hobbys.map((hobby, id) => (
                         <CardHobby
                             key={id}

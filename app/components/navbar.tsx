@@ -29,15 +29,15 @@ export default function Navbar() {
 
     return (
         <div className="fixed flex justify-between w-full backdrop-blur-md z-10 lg:max-w-[1600px]">
-            <ul className="md:px-16 flex px-4 py-5 justify-center items-center">
+            <ul className="md:px-16 md:py-5 px-4 py-3 flex justify-center items-center">
                 {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
                             href={href}
-                            className={`hover:underline px-3 md:text-base sm:text-sm text-xs ${
+                            className={` ${
                                 pathName === href
-                                    ? "font-extrabold md:text-lg sm:text-md text-sm hover:no-underline"
-                                    : ""
+                                    ? "font-extrabold md:text-lg text-md md:px-3 px-2 hover:no-underline"
+                                    : "over:underline md:px-3 px-2 md:text-base text-xs"
                             }`}
                         >
                             {label}
@@ -45,7 +45,7 @@ export default function Navbar() {
                     </li>
                 ))}
             </ul>
-            <div className="flex md:px-16 px-4 py-5">
+            <div className="md:px-16 md:py-5 px-4 py-3">
                 <ThemeButton />
             </div>
         </div>
