@@ -27,6 +27,7 @@ const getdate = content.map((file) => {
 export default function Art() {
     const dates = getdate.map((date) => {
         const dates = date.toString().split(" ").slice(1, 4).join(" ");
+        console.log(dates);
         return dates;
     });
     return (
