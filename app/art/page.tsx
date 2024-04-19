@@ -1,39 +1,57 @@
-import Image from "next/image";
+import { Suspense } from "react";
 import { Metadata } from "next";
-
 import fs from "fs";
+
+import { Source_Serif_4 } from "next/font/google";
+
+import ListArt from "../components/art-photo/list-art";
+
+const sourceSerif = Source_Serif_4({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
     title: "Art & Photography",
     description: "Art & Photography by Alfazh",
 };
 
-const dir = "./public/art-photo";
+const dir = "./public/art-photo/";
 const files = fs.readdirSync(dir);
 const content = files.map((file) => {
     return "/art-photo/" + file;
 });
 
-export default function Art() {
-    return (
-        <div className="flex flex-col space-y-20 px-4 pt-32">
-            <header>
-                <h1 className="text-4xl font-bold">Art & Photography</h1>
-                <p>This page is for my recent art, hope you enjoy it!</p>
-            </header>
+const getdate = content.map((file) => {
+    const date = fs.statSync("/alfazh/public" + file);
+    return date.birthtime;
+});
 
-            <div className="md:columns-3 mx-auto justify-center columns-2 md:gap-4 md:space-y-4 gap-3 space-y-3">
-                {content.map((art, id) => (
-                    <Image
-                        key={id}
-                        src={art}
-                        alt={art}
-                        width={500}
-                        height={500}
-                        className="w-60 h-full aspect-auto rounded-lg break-inside-avoid hover:scale-105 transition ease-in-out duration-500"
-                    />
-                ))}
-            </div>
+export default function Art() {
+    const dates = getdate.map((date) => {
+        const dates = date.toString().split(" ").slice(1, 4).join(" ");
+        return dates;
+    });
+    return (
+        <div className="flex flex-col space-y-8 px-4 pt-32">
+            <header className="space-y-10">
+                <h1 className="text-4xl font-bold">Art & Photography</h1>
+                <p
+                    className={`${sourceSerif.className} text-ellipsis text-2xl`}
+                >
+                    This Page contains all the Art & Photography by{" "}
+                    <span className="hover:underline cursor-default">Me</span>,
+                    so Welcome and Enjoy!
+                </p>
+            </header>
+            <Suspense
+                fallback={
+                    <div className="w-full h-screen border-dashed border-4 border-slate800 flex justify-center items-center text-6xl font-bold rounded-md">
+                        Loading...
+                    </div>
+                }
+            >
+                <div>
+                    <ListArt Props={{ art: content, date: dates }} />
+                </div>
+            </Suspense>
         </div>
     );
 }
