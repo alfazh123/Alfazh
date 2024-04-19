@@ -20,14 +20,13 @@ const content = files.map((file) => {
 });
 
 const getdate = content.map((file) => {
-    const date = fs.statSync("/alfazh/public" + file);
+    const date = fs.statSync("./public" + file);
     return date.birthtime;
 });
 
 export default function Art() {
     const dates = getdate.map((date) => {
         const dates = date.toString().split(" ").slice(1, 4).join(" ");
-        console.log(dates);
         return dates;
     });
     return (
