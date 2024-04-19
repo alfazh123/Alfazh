@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { ImageSkeleton } from "../skeleton";
+
 interface ProjectCardProps {
     title: string;
     description: string;
@@ -23,20 +25,13 @@ export default function ProjectCard({
     return (
         <div className="group flex flex-col h-full transition ease-in-out delay-150  hover:scale-105  duration-300 w-full rounded-lg shadow-md shadow-slate300 dark:shadow-slate800 hover:shadow-lg hover:shadow-slate300">
             <Link href={href} className="m-2">
-                <Suspense
-                    fallback={
-                        <div className="w-full aspect-auto p-2 h-44 bg-sand100">
-                            Loading...
-                        </div>
-                    }
-                >
+                <Suspense fallback={<ImageSkeleton />}>
                     <Image
                         src={src}
                         alt={title}
                         width={500}
                         height={500}
                         className="w-full rounded-2xl p-2"
-                        loading="lazy"
                     />
                 </Suspense>
                 <div className="items-center">

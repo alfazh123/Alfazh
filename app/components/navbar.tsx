@@ -27,6 +27,8 @@ const links = [
 export default function Navbar() {
     const pathName = usePathname();
 
+    const isAbout = pathName === "/art" || pathName === "/books";
+
     return (
         <div className="fixed flex justify-between w-full backdrop-blur-md z-10 lg:max-w-[1600px]">
             <ul className="md:px-16 md:py-5 px-4 py-3 flex justify-center items-center">
@@ -37,8 +39,14 @@ export default function Navbar() {
                             className={` ${
                                 pathName === href
                                     ? "font-extrabold md:text-lg text-md md:px-3 px-2 hover:no-underline"
-                                    : "over:underline md:px-3 px-2 md:text-base text-xs"
-                            }`}
+                                    : "hover:underline md:px-3 px-2 md:text-base text-xs"
+                            } 
+                            ${
+                                isAbout && href === "/about"
+                                    ? "font-extrabold md:text-lg text-md md:px-3 px-2 hover:no-underline"
+                                    : "hover:underline md:px-3 px-2 md:text-base text-xs"
+                            }
+                            `}
                         >
                             {label}
                         </Link>
