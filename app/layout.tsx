@@ -33,9 +33,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en" className="relative lg:max-w-[1600px] mx-auto">
+        <html
+            lang="en"
+            className="relative lg:max-w-[1600px] mx-auto bg-scroll bg-no-repeat bg-right"
+        >
             <body
-                className={`transition-all ease-linear duration-300 ${mavenPro.className}`}
+                style={{ backgroundImage: "url(/bg.svg)" }}
+                className={`transition-all bg-opacity-100 ease-linear duration-300 ${mavenPro.className} bg-fixed bg-no-repeat bg-right bg-opacity-10`}
             >
                 <Navbar />
                 <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-11/12 justify-center items-center min-h-screen">
