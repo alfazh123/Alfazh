@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { generateStaticParams } from "../lib/getMDX";
 
 import BlogCard from "../components/blog/blog-card";
@@ -20,8 +19,10 @@ export default async function Blog({
 
     const files = await fetchData();
 
-    if (searchParams?.search) {
-        const search = searchParams.search.toLowerCase();
+    const searchs = searchParams?.search || "";
+
+    if (searchs) {
+        const search = searchs.toLowerCase();
         files.frontMatter = files.frontMatter.filter((file) => {
             return (
                 file.title.toLowerCase().includes(search) ||
