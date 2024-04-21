@@ -10,27 +10,16 @@ export default async function Blog({
         search: string;
     };
 }) {
+    const searchs = searchParams?.search || "";
+
     const fetchData = async () => {
-        const { props } = await generateStaticParams();
+        const { props } = await generateStaticParams({ search: searchs });
         const { frontMatter } = props;
         const { slug } = props;
         return { frontMatter, slug };
     };
 
     const files = await fetchData();
-
-    const searchs = searchParams?.search || "";
-
-    if (searchs) {
-        const search = searchs.toLowerCase();
-        files.frontMatter = files.frontMatter.filter((file) => {
-            return (
-                file.title.toLowerCase().includes(search) ||
-                file.description.toLowerCase().includes(search) ||
-                file.tags.join(" ").toLowerCase().includes(search)
-            );
-        });
-    }
 
     return (
         <div className="px-4 pt-32 space-y-4">

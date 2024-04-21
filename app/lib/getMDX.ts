@@ -1,7 +1,7 @@
 import fs from "fs";
 import matter from "gray-matter";
 
-export function generateStaticParams() {
+export function generateStaticParams({ search }: { search?: string }) {
     const dir = "./app/posts";
     const files = fs.readdirSync(dir);
 
@@ -14,10 +14,21 @@ export function generateStaticParams() {
         return slug;
     });
 
-    const frontMatter = contentFile.map((file) => {
+    let frontMatter = contentFile.map((file) => {
         const data = matter(file);
         return data.data;
     });
+
+    if (search) {
+        const searchs = search.toLowerCase();
+        frontMatter = frontMatter.filter((file) => {
+            return (
+                file.title.toLowerCase().includes(search) ||
+                file.description.toLowerCase().includes(search) ||
+                file.tags.join(" ").toLowerCase().includes(search)
+            );
+        });
+    }
 
     return {
         props: {
