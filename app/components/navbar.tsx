@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import ThemeButton from "./theme-button";
+import { split } from "postcss/lib/list";
 
 const links = [
     {
@@ -29,22 +30,29 @@ export default function Navbar() {
 
     const isAbout = pathName === "/art" || pathName === "/books";
 
+    const contentBlog = pathName.split("/")[1] === "blog";
+
     return (
-        <div className="fixed flex justify-between w-full backdrop-blur-md z-10 lg:max-w-[1600px]">
-            <ul className="md:px-16 md:py-5 px-4 py-3 flex justify-center items-center">
+        <div className="fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1600px] text-black dark:text-white">
+            <ul className="md:px-16 md:py-5 px-4 py-3 flex justify-between w-full items-center">
                 {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
                             href={href}
                             className={` ${
                                 pathName === href
-                                    ? "font-extrabold md:text-lg text-md md:px-3 px-2 hover:no-underline"
-                                    : "hover:underline md:px-3 px-2 md:text-base text-xs"
+                                    ? "font-extrabold md:text-lg text-base md:px-3 px-2 hover:no-underline"
+                                    : "hover:underline md:px-3 px-2 md:text-base text-sm"
                             } 
                             ${
                                 isAbout && href === "/about"
-                                    ? "font-extrabold md:text-lg text-md md:px-3 px-2 hover:no-underline"
-                                    : "hover:underline md:px-3 px-2 md:text-base text-xs"
+                                    ? "font-extrabold md:text-lg text-base md:px-3 px-2 hover:no-underline"
+                                    : "hover:underline md:px-3 px-2 md:text-base text-sm"
+                            }
+                            ${
+                                contentBlog && href === "/blog"
+                                    ? "font-extrabold md:text-lg text-base md:px-3 px-2 hover:no-underline"
+                                    : "hover:underline md:px-3 px-2 md:text-base text-sm"
                             }
                             `}
                         >

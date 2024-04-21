@@ -26,13 +26,13 @@ export default function ThemeButton() {
     return (
         <button
             onClick={() => setTheme(!theme)}
-            className="group transition-all ease-in-out duration-300 md:px-4 py-2 px-3 border-solid border border-slate700 dark:border-slate200 rounded-full"
+            className="group transition-all ease-in-out duration-300 px-4 py-2 shadow-lg dark:shadow-lg dark:shadow-slate600 rounded-full"
             name="theme-button"
             type="button"
             title="Change theme"
         >
             <FaMoon className="md:text-lg text-sm dark:block hidden" />
-            <FaSun className="md:text-lg text-sm hover:animate-spin dark:hidden block" />
+            <FaSun className="md:text-lg text-sm dark:hidden block" />
         </button>
     );
 }

@@ -27,11 +27,10 @@ export default function Home() {
                     <AboutButton />
                 </header>
                 <Link
-                    href="#content"
-                    className="flex flex-col justify-center items-center group scroll-smooth absolute bottom-10"
+                    href={"#content"}
+                    className="flex flex-col justify-center items-center group md:text-xl sm:text-base text-sm hover:italic border dark:border-white border-black rounded-full px-3 py-1 scroll-smooth absolute right-10 bottom-10"
                 >
-                    <FaArrowDown className="text-4xl cursor-pointer animate-bounce" />
-                    <div className="p-2 bg-slate600 rounded-full animate-ping absolute hidden group-hover:block"></div>
+                    See More
                 </Link>
             </div>
 
