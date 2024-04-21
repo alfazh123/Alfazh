@@ -1,8 +1,11 @@
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
 
 export function generateStaticParams({ search }: { search?: string }) {
-    const dir = "./app/posts";
+    // const dir = "./app/posts";
+    const dir = path.join(process.cwd(), "app/posts");
+
     const files = fs.readdirSync(dir);
 
     const contentFile = files.map((file) => {
@@ -37,3 +40,32 @@ export function generateStaticParams({ search }: { search?: string }) {
         },
     };
 }
+
+// export async function generateStaticParams({ search }: { search?: string }) {
+//     // Get the path to your content directory
+//     const contentDirectory = path.join(process.cwd(), "app/posts");
+
+//     // Get the filenames of all files in the content directory
+//     const filenames = fs.readdirSync(contentDirectory);
+
+//     const frontMatter = filenames.map((filename) => {
+//         // Read the file
+
+//         // Parse front-matter
+//         const { data } = matter(filename);
+
+//         return {
+//             data,
+//         };
+//     });
+
+//     // Map the filenames to an array of static paths
+//     const paths = filenames.map((filename) => ({
+//         params: {
+//             slug: filename.replace(/\.mdx$/, ""),
+//             frontMatter,
+//         },
+//     }));
+
+//     return { paths };
+// }

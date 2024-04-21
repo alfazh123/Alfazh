@@ -10,10 +10,10 @@ export default async function Blog({
         search: string;
     };
 }) {
-    const searchs = searchParams?.search || "";
-
     const fetchData = async () => {
-        const { props } = await generateStaticParams({ search: searchs });
+        const { props } = await generateStaticParams({
+            search: searchParams?.search,
+        });
         const { frontMatter } = props;
         const { slug } = props;
         return { frontMatter, slug };
@@ -21,10 +21,23 @@ export default async function Blog({
 
     const files = await fetchData();
 
+    // const fetchData = async () => {
+    //     const props = await generateStaticParams({
+    //         search: searchParams?.search,
+    //     });
+    //     return props;
+    // };
+
+    // const files = await fetchData();
+    // conso
+
     return (
         <div className="px-4 pt-32 space-y-4">
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
+            <p className="text-base">
+                {files.frontMatter.length} Articles Found
+            </p>
             <ul className="flex flex-col gap-4">
                 {files.frontMatter.map((file, id) => (
                     <li key={id}>

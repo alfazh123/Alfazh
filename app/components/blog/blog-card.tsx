@@ -24,10 +24,10 @@ export default function BlogCard({
                             {title}
                         </h3>
                         <div className="text-sm">
-                            {date.toLocaleDateString(undefined, {
-                                day: "numeric",
-                                month: "long",
+                            {date.toLocaleDateString("en-US", {
                                 year: "numeric",
+                                month: "long",
+                                day: "numeric",
                             })}
                         </div>
                     </div>
