@@ -39,6 +39,7 @@ const config: Config = {
             sand200: "#eae6d9",
             white: "#ffffff",
             black: "#000000",
+            black100: "#1e1e1e",
         },
     },
     plugins: [require("@tailwindcss/typography")],
