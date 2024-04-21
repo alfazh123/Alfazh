@@ -26,9 +26,9 @@ export function generateStaticParams({ search }: { search?: string }) {
         const searchs = search.toLowerCase();
         frontMatter = frontMatter.filter((file) => {
             return (
-                file.title.toLowerCase().includes(search) ||
-                file.description.toLowerCase().includes(search) ||
-                file.tags.join(" ").toLowerCase().includes(search)
+                file.title.toLowerCase().includes(searchs) ||
+                file.description.toLowerCase().includes(searchs) ||
+                file.tags.join(" ").toLowerCase().includes(searchs)
             );
         });
     }
@@ -40,32 +40,3 @@ export function generateStaticParams({ search }: { search?: string }) {
         },
     };
 }
-
-// export async function generateStaticParams({ search }: { search?: string }) {
-//     // Get the path to your content directory
-//     const contentDirectory = path.join(process.cwd(), "app/posts");
-
-//     // Get the filenames of all files in the content directory
-//     const filenames = fs.readdirSync(contentDirectory);
-
-//     const frontMatter = filenames.map((filename) => {
-//         // Read the file
-
-//         // Parse front-matter
-//         const { data } = matter(filename);
-
-//         return {
-//             data,
-//         };
-//     });
-
-//     // Map the filenames to an array of static paths
-//     const paths = filenames.map((filename) => ({
-//         params: {
-//             slug: filename.replace(/\.mdx$/, ""),
-//             frontMatter,
-//         },
-//     }));
-
-//     return { paths };
-// }

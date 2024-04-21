@@ -9,9 +9,10 @@ interface BookProps {
     title: string;
     src: string;
     year: number;
+    authors: string[];
 }
 
-export default function Book({ title, src, year }: BookProps) {
+export default function Book({ title, src, year, authors }: BookProps) {
     const [isOpen, setIsOpen] = useState(false);
 
     const TogleModal = () => {
@@ -44,7 +45,7 @@ export default function Book({ title, src, year }: BookProps) {
                     className="h-screen w-screen flex items-center z-0 fixed justify-center top-0 right-0 bottom-0 left-0 bg-slate800 bg-opacity-60 backdrop-blur-md text-slate800"
                     onClick={TogleModal}
                 >
-                    <div className="">
+                    <div className="bg-white px-2 py-4">
                         <Image
                             src={src}
                             alt={title}
@@ -53,6 +54,12 @@ export default function Book({ title, src, year }: BookProps) {
                             className="md:w-80 w-44 aspect-auto rounded-sm dark:bg-slate700 h-full"
                             onClick={(e) => e.stopPropagation()}
                         />
+                        <p className="text-slate900 font-semibold text-sm">
+                            {title},<span className="tabular-nums">{year}</span>
+                        </p>
+                        <h3 className="text-lg font-bold">
+                            Karya {authors.map((author) => author)}
+                        </h3>
                     </div>
                 </div>
             ) : null}

@@ -2,7 +2,7 @@ const books = [
     {
         id: "1",
         title: "Laut Bercerita",
-        author: ["Leila S. Chudori"],
+        authors: ["Leila S. Chudori"],
         year: 2017,
         description:
             "Sebuah novel yang menceritakan tentang keluarga, sahabat, kekasih yang kehilangan pada kejadian tahun 1998 yang lalu.",
@@ -12,7 +12,7 @@ const books = [
     {
         id: "2",
         title: "Pulang",
-        author: ["Tere Liye"],
+        authors: ["Tere Liye"],
         year: 2015,
         description: "A portrait of a woman with an enigmatic smile.",
         image_url: "/books/pulang.jpg",
@@ -21,7 +21,7 @@ const books = [
     {
         id: "3",
         title: "Padang Bulan",
-        author: ["Andrea Hirata"],
+        authors: ["Andrea Hirata"],
         year: 2015,
         description: "",
         image_url: "/books/Padang-bulan.jpg",

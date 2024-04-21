@@ -32,6 +32,7 @@ export default function BooksPanel() {
                         title={book.title}
                         src={book.image_url}
                         year={book.year}
+                        authors={book.authors}
                     />
                 </li>
             ))}
