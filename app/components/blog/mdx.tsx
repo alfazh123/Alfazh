@@ -37,10 +37,10 @@ function CustomLink(props: any) {
     }
 
     if (href.startsWith("#")) {
-        return <a {...props} />;
+        return <Link {...props} />;
     }
 
-    return <a target="_blank" rel="noopener noreferrer" {...props} />;
+    return <Link target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 function RoundedImage(props: { alt: string; src: string }) {
