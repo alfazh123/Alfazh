@@ -26,12 +26,17 @@ export default function Home() {
                     </p>
                     <AboutButton />
                 </header>
-                <Link
-                    href={"#content"}
-                    className="flex flex-col justify-center items-center group md:text-xl sm:text-base text-sm hover:italic border dark:border-white border-black rounded-full px-3 py-1 scroll-smooth absolute right-10 bottom-10"
+                <div
+                    // style={{ backgroundImage: "url(/bg-button.svg)" }}
+                    className="bg-right-bottom bg-no-repeat bg-contain bg-opacity-10 dark:bg-opacity-10 bg-local w-full h-full top-0 left-0"
                 >
-                    See More
-                </Link>
+                    <Link
+                        href={"#content"}
+                        className="flex flex-col justify-center items-center group md:text-xl sm:text-base text-sm hover:italic border dark:border-white border-black rounded-full px-3 py-1 scroll-smooth absolute right-10 bottom-10"
+                    >
+                        See More
+                    </Link>
+                </div>
             </div>
 
             <section className="space-y-2 pt-32 mb-10" id="content">

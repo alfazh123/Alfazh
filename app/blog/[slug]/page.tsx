@@ -3,6 +3,11 @@ import matter from "gray-matter";
 import path from "path";
 
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { CustomMDX } from "@/app/components/blog/mdx";
+import dynamic from "next/dynamic";
+import { memo } from "react";
+import { useMemo } from "react";
+import { getMDXComponent } from "mdx-bundler/client";
 
 export async function generateStaticParams() {
     const files = fs.readdirSync(path.join("./app/posts"));
@@ -14,22 +19,49 @@ export async function generateStaticParams() {
     return paths;
 }
 
-function getPost({ slug }: { slug: string }) {
-    const source = fs.readFileSync(
-        path.join("./app/posts", `${slug}.mdx`),
-        "utf8"
-    );
-    const { content, data } = matter(source);
+function getPost() {
+    const dir = path.join(process.cwd(), "app/posts");
 
-    return { content, data };
+    const files = fs
+        .readdirSync(dir)
+        .filter((file) => path.extname(file) === ".mdx");
+
+    return files.map((filename) => {
+        const { content, data } = matter(
+            fs.readFileSync(path.join(dir, filename), "utf8")
+        );
+        const slug = path.basename(filename, ".mdx");
+
+        return {
+            slug,
+            data,
+            content,
+        };
+    });
 }
 
 export default function Blog({ params }: { params: { slug: string } }) {
-    const props = getPost(params);
+    const props = getPost().find((post) => post.slug === params.slug);
+
+    if (!props) {
+        return <div>Post not found</div>;
+    }
     return (
-        <div className="px-4 pt-32">
-            <h1 className="font-bold text-4xl">{props.data.title}</h1>
-            <MDXRemote source={props.content} />
-        </div>
+        <section className="px-4 pt-32 backdrop-blur-2xl bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-25 rounded-md">
+            <div className="h-52">
+                <h1 className="font-bold text-4xl">{props.data.title}</h1>
+                <p className="text-base">
+                    {props.data.date.toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}
+                </p>
+            </div>
+            <article className="prose dark:text-white prose-headings:dark:text-white flex flex-col mx-auto pb-20">
+                {/* <MDXRemote source={props.content} /> */}
+                <CustomMDX source={props.content} />
+            </article>
+        </section>
     );
 }

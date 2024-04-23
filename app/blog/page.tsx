@@ -1,7 +1,13 @@
 import { generateStaticParams } from "../lib/getMDX";
+import { Metadata } from "next";
 
 import BlogCard from "../components/blog/blog-card";
 import Search from "../components/blog/search";
+
+export const metadata: Metadata = {
+    title: "Blog",
+    description: "A blog page, where I write about various topics.",
+};
 
 export default async function Blog({
     searchParams,
