@@ -3,6 +3,7 @@ import { Viewport } from "next";
 
 import { Maven_Pro } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "./components/theme-provider";
 
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
@@ -41,11 +42,18 @@ export default function RootLayout({
                 style={{ backgroundImage: "url(/bg.svg)" }}
                 className={`transition-all bg-opacity-100 ease-linear duration-300 ${mavenPro.className} bg-fixed bg-no-repeat bg-right bg-opacity-10`}
             >
-                <Navbar />
-                <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-11/12 justify-center items-center min-h-screen">
-                    {children}
-                </main>
-                <Footer />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <Navbar />
+                    <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-11/12 justify-center items-center min-h-screen">
+                        {children}
+                    </main>
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );
