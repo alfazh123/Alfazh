@@ -51,3 +51,62 @@ body {
       transparent,
       rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
+
+.prose .anchor {
+  @apply absolute invisible no-underline;
+
+  margin-left: -1em;
+  padding-right: 0.5em;
+  width: 80%;
+  max-width: 700px;
+  cursor: pointer;
+}
+
+
+.anchor:hover {
+  @apply visible;
+}
+
+.prose a {
+  @apply transition-all underline underline-offset-2 decoration-[0.4em];
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6) {
+  @apply scroll-mt-32;
+}
+
+.prose :where(h1, h2, h3, h4, h5, h6):hover {
+  @apply underline underline-offset-4;
+}
+
+.prose .anchor:after {
+  @apply text-black dark:text-white top-32 -translate-y-1/2 text-center justify-center font-light;
+  content: '#';
+}
+
+.prose *:hover>.anchor {
+  @apply visible;
+}
+/*
+.prose pre {
+  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
+}
+
+.prose code {
+  @apply px-1 py-0.5 rounded-lg;
+}
+
+.prose pre code {
+  @apply p-0;
+  border: initial;
+  line-height: 1.5;
+}
+
+.prose code span {
+  @apply font-medium;
+}
+
+.prose img {
+  /* Don't apply styles to next/image */
+  /* @apply m-0;
+} */ 

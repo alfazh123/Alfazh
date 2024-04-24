@@ -30,17 +30,17 @@ function CustomLink(props: any) {
 
     if (href.startsWith("/")) {
         return (
-            <Link href={href} {...props}>
+            <Link href={href} {...props} className="w-96 h-96">
                 {props.children}
             </Link>
         );
     }
 
     if (href.startsWith("#")) {
-        return <Link {...props} />;
+        return <a {...props} />;
     }
 
-    return <Link target="_blank" rel="noopener noreferrer" {...props} />;
+    return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 function RoundedImage(props: { alt: string; src: string }) {
@@ -60,7 +60,7 @@ function slugify(str: string) {
 }
 
 function createHeading(level: number) {
-    const Heading = ({ children }: { children: string }) => {
+    return ({ children }: { children: string }) => {
         let slug = slugify(children);
         return React.createElement(
             `h${level}`,
@@ -75,10 +75,6 @@ function createHeading(level: number) {
             children
         );
     };
-
-    Heading.displayName = `Heading${level}`;
-
-    return Heading;
 }
 
 let components = {
@@ -93,7 +89,7 @@ let components = {
     Table,
 };
 
-export function CustomMDX(props: { components?: any; source: string }) {
+export function CustomMDX(props: any) {
     return (
         <MDXRemote
             {...props}

@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import ThemeButton from "./theme-button";
-import { split } from "postcss/lib/list";
 
 const links = [
     {
@@ -34,7 +33,7 @@ export default function Navbar() {
 
     return (
         <div className="fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1600px] text-black dark:text-white">
-            <ul className="md:px-16 md:py-5 px-4 py-3 flex justify-between w-full items-center">
+            <ul className="md:px-16 md:py-5 px-4 py-3 flex w-full items-center">
                 {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
