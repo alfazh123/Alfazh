@@ -48,7 +48,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     }
     return (
         <section className="px-4 pt-32 backdrop-blur-2xl bg-white dark:bg-black100 bg-opacity-40 dark:bg-opacity-25 rounded-md">
-            <div className="h-52">
+            <header className="h-32">
                 <h1 className="font-bold text-4xl">{props.data.title}</h1>
                 <p className="text-base">
                     {props.data.date.toLocaleDateString("en-US", {
@@ -57,7 +57,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                         day: "numeric",
                     })}
                 </p>
-            </div>
+            </header>
             <article className="prose px-4 dark:text-white prose-headings:dark:text-white flex flex-col mx-auto pb-20">
                 {/* <MDXRemote source={props.content} /> */}
                 <CustomMDX source={props.content} />
