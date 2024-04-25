@@ -1,8 +1,10 @@
 import { generateStaticParams } from "../lib/getMDX";
+import { getTagsMDX } from "../lib/getMDX";
 import { Metadata } from "next";
 
 import BlogCard from "../components/blog/blog-card";
 import Search from "../components/blog/search";
+import SearchTag from "../components/blog/tags";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -14,11 +16,13 @@ export default async function Blog({
 }: {
     searchParams?: {
         search: string;
+        tags: string;
     };
 }) {
     const fetchData = async () => {
-        const { props } = await generateStaticParams({
+        const { props } = generateStaticParams({
             search: searchParams?.search,
+            tag: searchParams?.tags,
         });
         const { frontMatter } = props;
         const { slug } = props;
@@ -27,10 +31,13 @@ export default async function Blog({
 
     const files = await fetchData();
 
+    const tagsArray = getTagsMDX();
+
     return (
         <div className="px-8 pt-32 space-y-4">
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
+            <SearchTag tags={tagsArray} />
             <p className="text-base">
                 {files.frontMatter.length} Articles Found
             </p>
