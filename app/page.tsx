@@ -11,7 +11,7 @@ import { FaArrowDown, FaBook } from "react-icons/fa";
 
 export default function Home() {
     return (
-        <main className="flex flex-col mb-10 px-4">
+        <main className="flex flex-col mb-10 px-8">
             <div className="flex items-center h-screen flex-col justify-center gap-12 border-solid border-b-2 border-b-slate700 dark:border-b-slate300 relative">
                 <header className="flex flex-col transition-all ease-in-out duration-700 absolute left-0">
                     <div>
@@ -26,20 +26,16 @@ export default function Home() {
                     </p>
                     <AboutButton />
                 </header>
-                <div
-                    // style={{ backgroundImage: "url(/bg-button.svg)" }}
-                    className="bg-right-bottom bg-no-repeat bg-contain bg-opacity-10 dark:bg-opacity-10 bg-local w-full h-full top-0 left-0"
+
+                <Link
+                    href={"#content"}
+                    className="flex flex-col justify-center items-center group md:text-xl sm:text-base text-sm hover:italic border border-opacity-50 dark:border-white border-black rounded-full md:px-3 px-2 py-1 scroll-smooth absolute md:right-10 md:bottom-10 right-0 bottom-5"
                 >
-                    <Link
-                        href={"#content"}
-                        className="flex flex-col justify-center items-center group md:text-xl sm:text-base text-sm hover:italic border dark:border-white border-black rounded-full px-3 py-1 scroll-smooth absolute right-10 bottom-10"
-                    >
-                        See More
-                    </Link>
-                </div>
+                    See More
+                </Link>
             </div>
 
-            <section className="space-y-2 pt-32 mb-10" id="content">
+            <section className="space-y-2 mb-10 mt-32 scroll-m-20" id="content">
                 <h3 className="text-2xl font-semibold">Some Project</h3>
                 <p className="text-gray-500">
                     Here&apos;s latest project that I&apos;ve been working on

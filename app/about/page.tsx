@@ -1,6 +1,6 @@
 export default function About() {
     return (
-        <div className="px-4 pt-32">
+        <div className="px-8 pt-32">
             <h1 className="font-bold text-4xl">About</h1>
             <p>
                 This is a personal website created by Ahmd Alfazh. This website

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function Project() {
     return (
-        <div className="flex flex-col space-y-10 px-4 pt-32">
+        <div className="flex flex-col space-y-10 px-8 pt-32">
             <h1 className="font-bold text-4xl">Project</h1>
             <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-4">
                 {projects.map((project, index) => (

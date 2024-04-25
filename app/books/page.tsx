@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function Books() {
     return (
-        <div className="px-4 pt-32">
+        <div className="px-8 pt-32">
             <h1 className="font-bold text-4xl">Books</h1>
             <BooksPanel />
         </div>

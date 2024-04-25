@@ -49,7 +49,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <Navbar />
-                    <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-11/12 justify-center items-center min-h-screen">
+                    <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-full justify-center items-center min-h-screen">
                         {children}
                     </main>
                     <Footer />

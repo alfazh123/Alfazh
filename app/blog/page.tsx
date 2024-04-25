@@ -28,7 +28,7 @@ export default async function Blog({
     const files = await fetchData();
 
     return (
-        <div className="px-4 pt-32 space-y-4">
+        <div className="px-8 pt-32 space-y-4">
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
             <p className="text-base">
