@@ -11,51 +11,48 @@ import {
     IoNewspaper,
     IoFileTrayStackedOutline,
     IoFileTrayStacked,
-    IoAccessibilityOutline,
-    IoAccessibility,
     IoIdCardOutline,
     IoIdCard,
 } from "react-icons/io5";
-
-const linksIconBehavior = {
-    className: "text-xl md:hidden block text-black",
-};
 
 const links = [
     {
         href: "/",
         label: "Home",
         icon: [
-            <IoHomeOutline className={`text-xl`} />,
-            <IoHome className={`text-xl`} />,
+            <IoHomeOutline className={`text-xl`} key={"home-btn"} />,
+            <IoHome className={`text-xl`} key={"home-btn-active"} />,
         ],
     },
     {
         href: "/blog",
         label: "Blog",
         icon: [
-            <IoNewspaperOutline className={`text-xl`} />,
-            <IoNewspaper className={`text-xl`} />,
+            <IoNewspaperOutline className={`text-xl`} key={"blog-btn"} />,
+            <IoNewspaper className={`text-xl`} key={"blog-btn-active"} />,
         ],
     },
     {
         href: "/project",
         label: "Project",
         icon: [
-            <IoFileTrayStackedOutline className={`text-xl`} />,
-            <IoFileTrayStacked className={`text-xl`} />,
+            <IoFileTrayStackedOutline
+                className={`text-xl`}
+                key={"project-btn"}
+            />,
+            <IoFileTrayStacked
+                className={`text-xl`}
+                key={"project-btn-active"}
+            />,
         ],
     },
     {
         href: "/about",
         label: "About",
         icon: [
-            // <IoAccessibilityOutline className={`text-xl`} />,
-            // <IoAccessibility className={`text-xl`} />,
-            <IoIdCardOutline className={`text-xl`} />,
-            <IoIdCard className={`text-xl`} />,
+            <IoIdCardOutline className={`text-xl`} key={"about-btn"} />,
+            <IoIdCard className={`text-xl`} key={"about-btn-active"} />,
         ],
-        // <IoAccessibility className={`text-xl`} />,
     },
 ];
 
@@ -69,7 +66,7 @@ export default function Navbar() {
     return (
         <div className="fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1600px] text-black dark:text-white">
             <ul className="md:flex hidden md:px-16 md:py-5 px-4 py-3 w-full items-center">
-                {links.map(({ href, label, icon }) => (
+                {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
                             href={href}
