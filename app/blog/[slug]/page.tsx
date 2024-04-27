@@ -58,7 +58,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     })}
                 </p>
             </header>
-            <article className="prose px-4 dark:text-white prose-headings:dark:text-white flex flex-col mx-auto pb-20">
+            <article className="prose px-4 md:prose-lg prose-sm dark:text-white prose-headings:dark:text-white flex flex-col mx-auto pb-20">
                 {/* <MDXRemote source={props.content} /> */}
                 <CustomMDX source={props.content} />
             </article>
