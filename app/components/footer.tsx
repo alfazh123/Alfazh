@@ -27,10 +27,12 @@ export default function Footer() {
                 <ul className="justify-between flex">
                     {links.map(({ href, label, icon }) => (
                         <li key={`${href}${label}`}>
-                            <a href={href} className="flex">
-                                <p className="pl-3 py-1 rounded-full hover:underline">
-                                    {icon}
-                                </p>
+                            <a
+                                title={label}
+                                href={href}
+                                className="flex px-3 py-1 rounded-full"
+                            >
+                                {icon}
                             </a>
                         </li>
                     ))}
