@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { Maven_Pro } from "next/font/google";
 import "./globals.css";
@@ -51,6 +52,7 @@ export default function RootLayout({
                     <Navbar />
                     <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-full justify-center items-center min-h-screen">
                         {children}
+                        <Analytics />
                     </main>
                     <Footer />
                 </ThemeProvider>

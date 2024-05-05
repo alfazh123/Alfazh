@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 
 import ThemeButton from "./theme-button";
 import {
@@ -64,7 +66,9 @@ export default function Navbar() {
     const contentBlog = pathName.split("/")[1] === "blog";
 
     return (
-        <div className="fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1600px] text-black dark:text-white">
+        <div
+            className={`fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1600px] text-black dark:text-white ${GeistMono.className}`}
+        >
             <ul className="md:flex hidden md:px-16 md:py-5 px-4 py-3 w-full items-center">
                 {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
