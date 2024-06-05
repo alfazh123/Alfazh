@@ -1,0 +1,192 @@
+---
+title: 'Membuat Blog dengan MDX dan Next.js'
+description: 'This is the first blog post'
+date: 2024-01-01
+tags: ['mdx', 'nextjs']
+---
+
+## Pendahuluan
+Dalam membuat blog bisa dibilang cukup mudah dan sulit untuk dilakukan. Pada pembahasan kali ini kita akan mengacu pada Documentasi Next.Js dan MDX. 
+
+### Apa itu nextjs
+NextJs merupakan framework untuk membangun suatu aplikasi web yang dibuat menggunakan React. NextJs memungkinkan kita untuk membuat aplikasi web yang lebih cepat dan efisien. NextJs juga memiliki fitur-fitur yang memudahkan kita dalam membuat aplikasi web seperti:
+- Server Side Rendering (SSR)
+- Static Site Generation (SSG)
+- API Routes
+- Image Optimization
+
+
+### Apa itu MDX?
+MDX merupakan gabungan dari Markdown dan JSX, hal ini memungkinkan MDX dicompile menggunakan JSX dan memungkinkan kita untuk menambahkan komponen JSX menuju Markdown.
+
+```mdx
+import { Alert } from 'components/Alert'
+# Ini heading dari MDX
+menambahkan komponen alert pada file MDX
+<Alert type="success">Ini adalah alert</Alert>
+```
+Keuntungan lainnya dari menggunakan MDX diantaranya:
+. Memungkinkan kita untuk menulis komponen React di dalam Markdown.
+. Memiliki basis markdown sehingga mudah untuk digunakan.
+. Bisa melakukan customisasi sesuai kebutuhan.
+
+Untuk lebih lengkap mengenai MDX bisa dilihat di [sini](https://mdxjs.com/docs/what-is-mdx/).
+
+## Konfigurasi MDX
+Setelah melakukan installasi NextJs maka langkah selanjutnya ialah konfigurasi hal ini memiliki tujuan agar kita bisa menggunakan mdx denghan leluasa. Pada nextjs menyediakan package untuk mempermudah kita menggunakan mdx, dan lakukan installasi seperti dibawah ini.
+
+```bash
+npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
+```
+
+setelah melakukan installasi package diatas lakukan penambahan seperti dibawah ini pada file <span className="italic">next.config.mjs</span>.
+
+```js
+import createMDX from '@next/mdx'
+ 
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Configure `pageExtensions` to include markdown and MDX files
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  // Optionally, add any other Next.js config below
+}
+ 
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+})
+ 
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig)
+```
+
+Penambahan code diatas digunakan untuk memberikan akses nextjs untuk bisa menggunakan file markdown dan mdx.
+
+## FrontMatter
+FrontMatter merupakan metadata menggunakan format YAML, dalam hal ini FrontMatter digunakan untuk memberikan informasi mengenai bblog ini. Informasi tersebut biasanya berisi tetnang judul, tanggal, dan deskripsi dari blog yang akan dibuat. FrontMatter biasanya ditulis pada bagian atas file md atau mdx, untuk lebih jelasnya berikut contoh penulisan dari FrontMatter.
+
+```md
+---
+title: 'Membuat Blog dengan MDX dan Next.js'
+description: 'This is the first blog post'
+date: 2024-01-01
+---
+```
+Penulisan FrontMatter diatas bukanlah aturan pasti dalam penulisan FrontMatter, kita bisa menambahkan informasi lainnya seperti tags, author, dan lainnya.
+
+## Membuat Blog Page
+Setelah melakukan konfigurasi diatas kita bisa lanjut untuk membuat blog page, yang pertama dilakukan adalah buat halaman <span className="italic">blog</span> dan buat folder <span className="italic">posts</span> seperti dibawah ini.
+  
+  ```bash
+  project folder
+  |--app
+      |--pages
+          |--blog
+              |--index.tsx
+  |--posts
+      |--blog-one.mdx
+      |--blog-two.mdx
+  ```
+
+Langkah selanjutnya adalah membuat <span className="italic">funciton</span> yang berfungsi untuk mendapatkan file dengan extention md atau mdx pada blog page yang sudah dibuat. Fungsi tersebut secara garis besar terbagi menjadi 2 bagian diantaranya untuk mendapatkan slug atau url file dan untuk mendapatkan frontMatter dari file.
+
+Sebelum membuat fungsi tersebut kita harus install package <span className="italic">gray-matter</span> dan <span className="italic">fs</span> dengan cara berikut.
+
+```bash
+npm install gray-matter
+```
+
+Fungsi berikut memiliki tujuan untuk mendapatkan isi konten yang ada pada file mdx. Dengan menggunakan plugin fs dengan fungsi <span className="italic">readdirSync</span> digunakan untuk membaca file apa saja yang berada pada directory yang telah dideklarasikan kemudian untuk mendapatkan isi dari kontennya kita bisa menggunakan fungsi readFileSync untuk membaca isi pada tiap file termasuk frontMatter.
+```tsx
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+export function generateStaticParams() {
+    const dir = path.join(process.cwd(), "posts");
+    const files = fs.readdirSync(dir);
+    const contentFile = files.map((file) => {
+        return fs.readFileSync(`${dir}/${file}`, "utf8");
+    });
+    //...
+}
+```
+
+Selanjutnya untuk mendapatkan frontMatter dari file pada contentFile yang telah dibaca sebelumnya, untuk hal ini kita bisa menggunakan fungsi matter, berikut merupakan penggunaannya.
+```tsx
+export function generateStaticParams() {
+    //...
+    let frontMatter = contentFile.map((file) => {
+        const data = matter(file);
+        return data.data;
+    });
+    //...
+}
+```
+
+Langkah selanjutnya ialah tidak lain yaitu mendapatkan url atau slug dari file mdx. Cara mendapatkan slug dari file mdx atau md bisa dilakukan dengan merepplace extensi file .mdx auat .md dari list files yang sebelumnya telah dibaca dari directory posts.
+```tsx
+export function generateStaticParams() {
+    //...
+    const slug = files.map((file) => {
+        const slug = file.replace(".mdx", "");
+        return slug;
+    });
+    //...
+}
+```
+
+## [slug] page
+Dalam konteks pembuatan blog dengan Next.js dan MDX, "[slug] page" biasanya merujuk pada halaman dinamis yang dibuat untuk setiap postingan blog. Slug adalah bagian dari URL yang biasanya digunakan untuk mengidentifikasi sumber daya secara unik. Dalam kasus ini, slug diambil dari nama file postingan blog.
+
+Untuk membuat halaman dinamis dengan Next.js, kita perlu membuat file dengan nama '[slug].tsx' di dalam folder 'pages/blog'. File ini akan
+menerima slug sebagai parameter dan menampilkan postingan blog yang sesuai.
+
+```tsx
+// pages/blog/[slug]/page.tsx
+import fs from "fs";
+import matter from "gray-matter";
+import path from "path";
+
+function getPost() {
+    const dir = path.join(process.cwd(), "app/posts");
+    const files = fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+    return files.map((filename) => {
+        const { content, data } = matter(
+            fs.readFileSync(path.join(dir, filename), "utf8")
+        );
+        const slug = path.basename(filename, ".mdx");
+        return {
+            slug,
+            data,
+            content,
+        };
+    });
+}
+//...
+```
+fungsi diatas digunakan untuk mendapatkan isi konten dan frontMatter dari file mdx yang ada pada directory posts. hampir sama seperti fungsi sebelumnya namun pada fungsi ini mengembalikan 3 variabel utama yaitu slug, data, dan content.
+
+Seletah mendapatkan slug dan isi konten dari directory posts maka langkah selanjutnya adalah menentukan mana konten yang sesuai dengan slug yang ada. Cara mendapatkan slug dari path yang ada bisa kita lakukan dengan menggunakan parameter params pada function Blog dan deskripsikan isi dari params tersebut. kemudian dilakukan pengecekan menggunakna fungsi find() dengan kondisi dimana slug yang berada pada files sama dengan slug yang ada pada params, Maka akan mengembalikan nilai dari props yang sesuai dengan slug yang ada.
+```tsx
+// pages/blog/[slug]/page.tsx
+//...
+import { MDXRemote } from "next-mdx-remote/rsc";
+
+//...
+
+export default function Blog({ params }: { params: { slug: string } }) {
+    const props = getPost().find((post) => post.slug === params.slug);
+
+    if (!props) {
+        return <div>Post not found</div>;
+    }
+    return (
+        <section className="px-4 pt-32 backdrop-blur-2xl bg-white dark:bg-black100 bg-opacity-40 dark:bg-opacity-25 rounded-md">
+            <h1 className="font-bold text-4xl">{props.data.title}</h1>
+            <article className="prose px-4 md:prose-xl prose-sm text-black prose-headings:text-black dark:text-white prose-headings:dark:text-white mx-auto pb-20 prose-p:leading-normal prose-li:leading-3 prose-pre:leading-8">
+                <MDXRemote source={props.content} />
+            </article>
+        </section>
+    );
+}
+```

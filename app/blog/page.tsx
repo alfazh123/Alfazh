@@ -24,8 +24,7 @@ export default async function Blog({
             search: searchParams?.search,
             tag: searchParams?.tags,
         });
-        const { frontMatter } = props;
-        const { slug } = props;
+        const { frontMatter, slug } = props;
         return { frontMatter, slug };
     };
 
@@ -47,7 +46,7 @@ export default async function Blog({
                         <BlogCard
                             title={file.title}
                             description={file.description}
-                            slug={file.slug}
+                            slug={files.slug[id]}
                             date={file.date}
                             tags={file.tags}
                         />

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
+import { highlight } from "sugar-high";
 
 function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
     let headers = data.headers.map((header, index) => (
@@ -30,7 +31,7 @@ function CustomLink(props: any) {
 
     if (href.startsWith("/")) {
         return (
-            <Link href={href} {...props} className="w-96 h-96">
+            <Link href={href} {...props}>
                 {props.children}
             </Link>
         );
@@ -46,6 +47,11 @@ function CustomLink(props: any) {
 function RoundedImage(props: { alt: string; src: string }) {
     const { alt, ...restProps } = props;
     return <Image alt={alt} className="rounded-lg" {...restProps} />;
+}
+
+function CodeBlock({ children }: { children: string }) {
+    const codeHTML = highlight(children);
+    return <div dangerouslySetInnerHTML={{ __html: codeHTML }} />;
 }
 
 function slugify(str: string) {
@@ -87,6 +93,7 @@ let components = {
     Image: RoundedImage,
     a: CustomLink,
     Table,
+    code: CodeBlock,
 };
 
 export function CustomMDX(props: any) {

@@ -6,12 +6,25 @@
   --foreground-rgb: 50, 50, 50;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+  --sh-class: #2d5e9d;
+  --sh-identifier: #354150;
+  --sh-sign: #8996a3;
+  --sh-string: #007f7a;
+  --sh-keyword: #e02518;
+  --sh-comment: #a19595;
+  --sh-jsxliterals: #6266d1;
+  --sh-property: #e25a1c;
+  --sh-entity: #e25a1c;
 }
 
 .dark {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 30, 30, 30;
   --background-end-rgb: 30, 30, 30;
+  --sh-class: #4c97f8;
+  --sh-identifier: white;
+  --sh-keyword: #f47067;
+  --sh-string: #0fa295;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,12 +32,25 @@
     --foreground-rgb: 50, 50, 50;
     --background-start-rgb: 255, 255, 255;
     --background-end-rgb: 255, 255, 255;
+    --sh-class: #2d5e9d;
+    --sh-identifier: #354150;
+    --sh-sign: #8996a3;
+    --sh-string: #007f7a;
+    --sh-keyword: #e02518;
+    --sh-comment: #a19595;
+    --sh-jsxliterals: #6266d1;
+    --sh-property: #e25a1c;
+    --sh-entity: #1c99e2;
   }
 
   .dark {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 30, 30, 30;
     --background-end-rgb: 30, 30, 30;
+    --sh-class: #4c97f8;
+    --sh-identifier: white;
+    --sh-keyword: #c673cf;
+    --sh-string: #0fa295;
   }
 }
 
@@ -68,7 +94,7 @@ body {
 }
 
 .prose a {
-  @apply transition-all underline underline-offset-2 decoration-[0.4em];
+  @apply transition-all text-black dark:text-white;
 }
 
 .prose :where(h1, h2, h3, h4, h5, h6) {
@@ -80,16 +106,16 @@ body {
 }
 
 .prose .anchor:after {
-  @apply text-black dark:text-white top-32 -translate-y-1/2 text-center justify-center font-light;
+  @apply text-black dark:text-white text-center justify-center font-light;
   content: '#';
 }
 
 .prose *:hover>.anchor {
   @apply visible;
 }
-/*
+
 .prose pre {
-  @apply bg-neutral-50 dark:bg-neutral-900 rounded-lg overflow-x-auto border border-neutral-200 dark:border-neutral-900;
+  @apply bg-slate200 dark:bg-black rounded-lg overflow-x-auto border border-slate200 dark:border-slate900 px-3 py-3 text-sm;
 }
 
 .prose code {
@@ -98,15 +124,53 @@ body {
 
 .prose pre code {
   @apply p-0;
-  border: initial;
   line-height: 1.5;
+  border: initial;
 }
 
 .prose code span {
   @apply font-medium;
 }
 
-.prose img {
-  /* Don't apply styles to next/image */
-  /* @apply m-0;
-} */ 
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.prose p {
+  @apply my-4 text-slate800 dark:text-slate200;
+}
+
+.prose h1 {
+  @apply text-6xl font-bold tracking-tight mt-6 mb-2;
+}
+
+.prose h2 {
+  @apply text-xl font-bold tracking-tight mt-6 mb-2;
+}
+
+.prose h3 {
+  @apply text-xl font-bold tracking-tight mt-6 mb-2;
+}
+
+.prose h4 {
+  @apply text-lg font-bold tracking-tight mt-6 mb-2;
+}
+
+.prose strong {
+  @apply font-bold;
+}
+
+.prose ul {
+  @apply list-disc pl-6;
+}
+
+.prose ol {
+  @apply list-decimal pl-6;
+}
