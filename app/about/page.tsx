@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { Suspense } from "react";
+import authorImg from "/public/author.jpg"
 
 export default function About() {
     return (
-        <div className="px-8 pt-32 space-y-4 bg-white dark:bg-black100 bg-opacity-35 dark:bg-opacity-35 pb-20 rounded-md  backdrop-blur-xl">
+        <div className="px-8 pt-32 space-y-4 backdrop-blur-xl">
+            {/*bg-white dark:bg-black100 bg-opacity-35 dark:bg-opacity-35 pb-20 rounded-md  */}
             <h1 className="font-bold text-4xl">Hi Everyone</h1>
             <div className="lg:grid lg:grid-cols-2 flex flex-col-reverse rev mx-auto">
                 <p className="md:text-lg text-base">
@@ -42,10 +44,13 @@ export default function About() {
                         <div className="w-40 right-0 bottom-0 md:h-64 sm:h-44 h-40 absolute bg-slate400 dark:bg-slate600 group-hover:origin-bottom-right group-hover:rotate-12 duration-300 ease-in-out rounded-lg opacity-40 blur-sm shadow-2xl drop-shadow-lg shadow-black dark:shadow-slate200"></div>
                         <div className="w-40 left-0 bottom-0 md:h-64 sm:h-44 h-40 absolute bg-slate400 dark:bg-slate600 group-hover:origin-bottom-left group-hover:-rotate-12 duration-300 ease-in-out rounded-lg opacity-40 blur-sm shadow-2xl drop-shadow-lg shadow-black dark:shadow-slate200"></div>
                         <Image
-                            src="/author.jpg"
+                            src={authorImg.src}
                             alt="alfazh"
                             width={300}
                             height={300}
+                            loading={`lazy`}
+                            placeholder={"blur"}
+                            blurDataURL={authorImg.blurDataURL}
                             className="rounded-lg md:w-80 md:h-80 sm:w-56 sm:h-56 w-48 h-48 absolute"
                         />
                     </div>
