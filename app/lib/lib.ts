@@ -31,25 +31,39 @@ const books = [
 
 const projects = [
     {
-        id: "1",
         title: "ACE 2024",
         year: 2024,
         description:
             "An application for Campus Expo event on Qomaruddin boarding school.",
-        src: "/ace2024.png",
+        src: "/project/ace2024.png",
         href: "https://ace2024.vercel.app",
         tag: ["NextJS", "MDX"],
     },
     {
-        id: "2",
         title: "Redesign KediriKab",
         year: 2023,
         description:
             "Redesign KediriKab website with NextJS, TailwindCSS DaisyUI.",
-        src: "/kediriweb.png",
+        src: "/project/kediriweb.png",
         href: "https://github.com/alfazh123/redesign_kedirikab",
         tag: ["NextJS"],
     },
+    {
+        title: "Tanya Aja",
+        year: 2024,
+        description: "A website for asking and answering questions when preparing.",
+        src: "/project/tanyaaja.png",
+        href: "https://github.com/alfazh123/TanyaAja",
+        tag: ["NextJS", "TailwindCSS", "PostgreSQL"],
+    },
+    {
+        title: "The Chosen",
+        year: 2024,
+        description: "A website for picking a random name.",
+        src: "/project/thechosen.png",
+        href: "https://github.com/alfazh123/TheChosen",
+        tag: ["HTML", "CSS", "JavaScript"]
+    }
 ];
 
 const art = [
