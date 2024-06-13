@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
-import { Maven_Pro } from "next/font/google";
+import { Afacad } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/theme-provider";
 
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
 
-const mavenPro = Maven_Pro({ subsets: ["latin"], weight: ["400"] });
+const afacad = Afacad({ subsets: ["latin"], weight: ["400"] });
 
 export const viewport: Viewport = {
     width: "device-width",
@@ -41,7 +41,7 @@ export default function RootLayout({
         >
             <body
                 style={{ backgroundImage: "url(/bg.svg)" }}
-                className={`transition-all bg-opacity-100 ease-linear duration-300 ${mavenPro.className} bg-fixed bg-no-repeat bg-right bg-opacity-10`}
+                className={`transition-all bg-opacity-100 ease-linear duration-300 ${afacad.className} bg-fixed bg-no-repeat bg-right bg-opacity-10`}
             >
                 <ThemeProvider
                     attribute="class"
