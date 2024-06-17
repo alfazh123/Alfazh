@@ -3,35 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 50, 50, 50;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
-  --sh-class: #2d5e9d;
-  --sh-identifier: #354150;
-  --sh-sign: #8996a3;
-  --sh-string: #007f7a;
-  --sh-keyword: #e02518;
-  --sh-comment: #a19595;
-  --sh-jsxliterals: #6266d1;
-  --sh-property: #e25a1c;
-  --sh-entity: #e25a1c;
-}
-
-.dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 30, 30, 30;
-  --background-end-rgb: 30, 30, 30;
-  --sh-class: #4c97f8;
-  --sh-identifier: white;
-  --sh-keyword: #f47067;
-  --sh-string: #0fa295;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
     --foreground-rgb: 50, 50, 50;
-    --background-start-rgb: 255, 255, 255;
-    --background-end-rgb: 255, 255, 255;
+    --background-start-rgb: 240, 240, 240;
+    --background-end-rgb: 240, 240, 240;
     --sh-class: #2d5e9d;
     --sh-identifier: #354150;
     --sh-sign: #8996a3;
@@ -40,30 +14,55 @@
     --sh-comment: #a19595;
     --sh-jsxliterals: #6266d1;
     --sh-property: #e25a1c;
-    --sh-entity: #1c99e2;
-  }
+    --sh-entity: #e25a1c;
+}
 
-  .dark {
+.dark {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 30, 30, 30;
     --background-end-rgb: 30, 30, 30;
     --sh-class: #4c97f8;
     --sh-identifier: white;
-    --sh-keyword: #c673cf;
+    --sh-keyword: #f47067;
     --sh-string: #0fa295;
-  }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 50, 50, 50;
+        --background-start-rgb: 240, 240, 240;
+        --background-end-rgb: 240, 240, 240;
+        --sh-class: #2d5e9d;
+        --sh-identifier: #354150;
+        --sh-sign: #8996a3;
+        --sh-string: #007f7a;
+        --sh-keyword: #e02518;
+        --sh-comment: #a19595;
+        --sh-jsxliterals: #6266d1;
+        --sh-property: #e25a1c;
+        --sh-entity: #1c99e2;
+    }
+
+    .dark {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 30, 30, 30;
+        --background-end-rgb: 30, 30, 30;
+        --sh-class: #4c97f8;
+        --sh-identifier: white;
+        --sh-keyword: #c673cf;
+        --sh-string: #0fa295;
+    }
 }
 
 @layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
 
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 }
 
 /* rgb(42, 2, 65) */
@@ -72,105 +71,115 @@
 /* rgb(241, 0, 136) */
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
 }
 
 .prose .anchor {
-  @apply absolute invisible no-underline;
+    @apply absolute invisible no-underline;
 
-  margin-left: -1em;
-  padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
-  cursor: pointer;
+    margin-left: -1em;
+    padding-right: 0.5em;
+    width: 80%;
+    max-width: 700px;
+    cursor: pointer;
 }
 
-
 .anchor:hover {
-  @apply visible;
+    @apply visible;
 }
 
 .prose a {
-  @apply transition-all text-black dark:text-white;
+    @apply transition-all text-black dark:text-white;
 }
 
 .prose :where(h1, h2, h3, h4, h5, h6) {
-  @apply scroll-mt-20;
+    @apply scroll-mt-20;
 }
 
 .prose :where(h1, h2, h3, h4, h5, h6):hover {
-  @apply underline underline-offset-4;
+    @apply underline underline-offset-4;
 }
 
 .prose .anchor:after {
-  @apply text-black dark:text-white text-center justify-center font-light;
-  content: '#';
+    @apply text-black dark:text-white text-center justify-center font-light;
+    content: "#";
 }
 
-.prose *:hover>.anchor {
-  @apply visible;
+.prose *:hover > .anchor {
+    @apply visible;
 }
 
 .prose pre {
-  @apply bg-slate200 dark:bg-black rounded-lg overflow-x-auto border border-slate200 dark:border-slate900 px-3 py-3 text-sm;
+    @apply bg-slate200 dark:bg-black rounded-lg overflow-x-auto border border-slate200 dark:border-slate900 px-3 py-3 text-sm;
 }
 
 .prose code {
-  @apply px-1 py-0.5 rounded-lg;
+    @apply px-1 py-0.5 rounded-lg;
 }
 
 .prose pre code {
-  @apply p-0;
-  line-height: 1.5;
-  border: initial;
+    @apply p-0;
+    line-height: 1.5;
+    border: initial;
 }
 
 .prose code span {
-  @apply font-medium;
+    @apply font-medium;
 }
 
 pre::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 pre {
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .prose p {
-  @apply my-4 text-slate800 dark:text-slate200;
+    @apply md:text-lg text-base my-4 text-slate800 dark:text-slate200;
 }
 
 .prose h1 {
-  @apply text-6xl font-bold tracking-tight mt-6 mb-2;
+    @apply text-3xl font-bold tracking-tight mt-6 mb-2;
 }
 
 .prose h2 {
-  @apply text-xl font-bold tracking-tight mt-6 mb-2;
+    @apply text-xl font-bold tracking-tight mt-6 mb-2;
 }
 
 .prose h3 {
-  @apply text-xl font-bold tracking-tight mt-6 mb-2;
+    @apply text-xl font-bold tracking-tight mt-6 mb-2;
 }
 
 .prose h4 {
-  @apply text-lg font-bold tracking-tight mt-6 mb-2;
+    @apply text-lg font-bold tracking-tight mt-6 mb-2;
 }
 
 .prose strong {
-  @apply font-bold;
+    @apply font-bold;
 }
 
 .prose ul {
-  @apply list-disc pl-6;
+    @apply list-disc pl-6;
 }
 
 .prose ol {
-  @apply list-decimal pl-6;
+    @apply list-decimal pl-6;
+}
+
+.prose li {
+    @apply my-2;
+}
+
+img {
+    @apply mx-auto w-96;
 }
