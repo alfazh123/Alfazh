@@ -42,7 +42,7 @@ export default function Home() {
                 </p>
                 <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
                     {projects.map((project, id) => (
-                        <div className={`${id <= 2 ? "" : "hidden"}`} key={id}>
+                        <div className={`${id <= 1 ? "" : "hidden"}`} key={id}>
                             <ProjectCard key={id} {...project} />
                         </div>
                     ))}

@@ -16,7 +16,7 @@ export default function BlogCard({
     tags,
 }: BlogCardProps) {
     return (
-        <div className="group rounded-md bg-none bg-white dark:bg-black100 bg-opacity-40 dark:bg-opacity-40 backdrop-blur-md  hover:bg-slate200 dark:hover:bg-black hover:shadow-lg transition-all ease-in-out duration-500 py-4 cursor-pointer shadow-lg shadow-slate300 dark:shadow-slate900 hover:shadow-slate300">
+        <div className="group">
             <Link href={`/blog/${slug}`}>
                 <div className="mx-3 my-2">
                     <div className="flex justify-between">
@@ -32,7 +32,7 @@ export default function BlogCard({
                         </div>
                     </div>
                     <p className="text-gray-500">{description}</p>
-                    <div className="flex flex-wrap">
+                    {/* <div className="flex flex-wrap">
                         {tags.map((tag, id) => (
                             <span
                                 key={id}
@@ -41,7 +41,7 @@ export default function BlogCard({
                                 {tag}
                             </span>
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </Link>
         </div>
