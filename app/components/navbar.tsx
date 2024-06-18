@@ -73,6 +73,7 @@ export default function Navbar() {
                 {links.map(({ href, label }) => (
                     <li key={`${href}${label}`}>
                         <Link
+                            aria-label={`Go to ${label}`}
                             href={href}
                             className={` ${
                                 pathName === href

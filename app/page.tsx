@@ -36,7 +36,7 @@ export default function Home() {
             </div>
 
             <section className="space-y-2 mb-10 mt-32 scroll-m-20" id="content">
-                <h3 className="text-2xl font-semibold">Some Project</h3>
+                <h2 className="text-2xl font-semibold">Some Project</h2>
                 <p className="text-gray-500">
                     Here&apos;s latest project that I&apos;ve been working on
                 </p>
@@ -51,14 +51,14 @@ export default function Home() {
             </section>
 
             <section id="tech-stack" className="my-10 space-y-8">
-                <h3 className="text-2xl font-semibold">Tech Stack</h3>
+                <h2 className="text-2xl font-semibold">Tech Stack</h2>
                 <div className="flex mx-auto justify-center">
                     <TechStack />
                 </div>
             </section>
 
             <section id="hobby" className="my-10">
-                <h3 className="text-2xl font-semibold my-4">Hobby</h3>
+                <h2 className="text-2xl font-semibold my-4">Hobby</h2>
                 <div className="flex items-center justify-center gap-4 flex-wrap">
                     {hobbys.map((hobby, id) => (
                         <CardHobby
