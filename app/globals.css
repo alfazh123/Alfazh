@@ -180,6 +180,6 @@ pre {
     @apply my-2;
 }
 
-img {
-    @apply mx-auto w-96;
+.prose img {
+    @apply mx-auto;
 }

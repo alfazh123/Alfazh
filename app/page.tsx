@@ -21,8 +21,8 @@ export default function Home() {
                         </h1>
                     </div>
                     <p className="md:text-base text-xs pt-4 md:w-5/6">
-                        Build a website with NextJs and TailwindCSS. I&apos;m a
-                        student at State University of Surabaya.
+                        I am a Front-end Developer based in Surabaya, Indonesia. I have a passion for web development and love to create
+                        web application with a good user experience. Love to learn new things and always open to new opportunities.
                     </p>
                     <AboutButton />
                 </header>
