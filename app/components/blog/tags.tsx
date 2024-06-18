@@ -23,7 +23,7 @@ export default function SearchTag({ tags }: SearchTagProps) {
     };
 
     return (
-        <div className="flex gap-4 py-2 items-center">
+        <div className="flex gap-4 py-1 items-center">
             <div className="font-bold">Tags: </div>
             <div className="flex gap-2 overflow-auto no-scrollbar p-2">
                 <button

@@ -33,7 +33,7 @@ export default async function Blog({
     const tagsArray = getTagsMDX();
 
     return (
-        <div className="px-8 pt-32 space-y-4">
+        <div className="px-8 pt-32 space-y-2">
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
             <SearchTag tags={tagsArray} />
