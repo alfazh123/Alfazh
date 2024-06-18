@@ -4,7 +4,7 @@ export const AboutButton = () => {
     return (
         <Link
             href="/about"
-            className="my-4 border-solid border w-24 md:text-base text-sm justify-center text-center items-center dark:border-slate200 border-slate700 dark:hover:bg-white hover:bg-black hover:text-slate200 dark:hover:text-slate800 px-3 py-2 rounded-lg"
+            className="my-4 border-solid border w-28 md:text-base text-sm justify-center text-center items-center dark:border-slate200 border-slate700 dark:hover:bg-white hover:bg-black hover:text-slate200 dark:hover:text-slate800 px-3 py-2 rounded-lg"
         >
             About Me
         </Link>
