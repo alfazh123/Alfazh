@@ -1,141 +1,174 @@
 ---
-title: 'Membuat Blog dengan MDX dan Next.js'
-description: 'This is the first blog post'
-date: 2024-01-01
-tags: ['mdx', 'nextjs']
+title: "Membuat Blog dengan MDX dan Next.js"
+description: "This is the first blog post"
+date: 2024-06-01
+tags: ["mdx", "nextjs"]
 ---
 
-## Pendahuluan
-Dalam membuat blog bisa dibilang cukup mudah dan sulit untuk dilakukan. Pada pembahasan kali ini kita akan mengacu pada Documentasi Next.Js dan MDX. 
+# Pendahuluan
 
-### Apa itu nextjs
+Dalam membuat blog bisa dibilang cukup mudah dan sulit untuk dilakukan. Pada pembahasan kali ini kita akan mengacu pada Documentasi Next.Js dan MDX.
+
+## Apa itu nextjs
+
 NextJs merupakan framework untuk membangun suatu aplikasi web yang dibuat menggunakan React. NextJs memungkinkan kita untuk membuat aplikasi web yang lebih cepat dan efisien. NextJs juga memiliki fitur-fitur yang memudahkan kita dalam membuat aplikasi web seperti:
-- Server Side Rendering (SSR)
-- Static Site Generation (SSG)
-- API Routes
-- Image Optimization
 
+-   Server Side Rendering (SSR)
+-   Static Site Generation (SSG)
+-   API Routes
+-   Image Optimization
 
-### Apa itu MDX?
+## Apa itu MDX?
+
 MDX merupakan gabungan dari Markdown dan JSX, hal ini memungkinkan MDX dicompile menggunakan JSX dan memungkinkan kita untuk menambahkan komponen JSX menuju Markdown.
 
 ```mdx
 import { Alert } from 'components/Alert'
 # Ini heading dari MDX
 menambahkan komponen alert pada file MDX
-<Alert type="success">Ini adalah alert</Alert>
+<Alert type="success">Ini adalah alert</Alert
+
+>
 ```
+
 Keuntungan lainnya dari menggunakan MDX diantaranya:
-. Memungkinkan kita untuk menulis komponen React di dalam Markdown.
-. Memiliki basis markdown sehingga mudah untuk digunakan.
-. Bisa melakukan customisasi sesuai kebutuhan.
+
+-   Memungkinkan kita untuk menulis komponen React di dalam Markdown.
+-   Memiliki basis markdown sehingga mudah untuk digunakan.
+-   Bisa melakukan customisasi sesuai kebutuhan.
 
 Untuk lebih lengkap mengenai MDX bisa dilihat di [sini](https://mdxjs.com/docs/what-is-mdx/).
 
-## Konfigurasi MDX
+# Konfigurasi MDX
+
 Setelah melakukan installasi NextJs maka langkah selanjutnya ialah konfigurasi hal ini memiliki tujuan agar kita bisa menggunakan mdx denghan leluasa. Pada nextjs menyediakan package untuk mempermudah kita menggunakan mdx, dan lakukan installasi seperti dibawah ini.
 
 ```bash
 npm install @next/mdx @mdx-js/loader @mdx-js/react @types/mdx
 ```
 
-setelah melakukan installasi package diatas lakukan penambahan seperti dibawah ini pada file <span className="italic">next.config.mjs</span>.
+setelah melakukan installasi package diatas lakukan penambahan seperti dibawah ini pada file <span className="italic font-extrabold">next.config.mjs</span>.
 
 ```js
-import createMDX from '@next/mdx'
- 
+import createMDX from "@next/mdx";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configure `pageExtensions` to include markdown and MDX files
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  // Optionally, add any other Next.js config below
-}
- 
+    // Configure `pageExtensions` to include markdown and MDX files
+    pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+    // Optionally, add any other Next.js config below
+};
+
 const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-})
- 
+    // Add markdown plugins here, as desired
+});
+
 // Merge MDX config with Next.js config
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);
 ```
 
 Penambahan code diatas digunakan untuk memberikan akses nextjs untuk bisa menggunakan file markdown dan mdx.
 
-## FrontMatter
-FrontMatter merupakan metadata menggunakan format YAML, dalam hal ini FrontMatter digunakan untuk memberikan informasi mengenai bblog ini. Informasi tersebut biasanya berisi tetnang judul, tanggal, dan deskripsi dari blog yang akan dibuat. FrontMatter biasanya ditulis pada bagian atas file md atau mdx, untuk lebih jelasnya berikut contoh penulisan dari FrontMatter.
+# Membuat Blog Page
+
+Setelah melakukan konfigurasi diatas kita bisa lanjut untuk membuat blog page, yang pertama dilakukan adalah buat halaman <span className="italic font-extrabold">blog</span> dan buat folder <span className="italic font-extrabold">posts</span> seperti dibawah ini.
+
+```bash
+project folder
+|--app
+    |--pages
+        |--blog
+            |--index.tsx
+|--posts
+    |--blog-one.mdx
+    |--blog-two.mdx
+```
+
+Langkah selanjutnya adalah membuat <span className="italic font-extrabold">function</span> yang berfungsi untuk mendapatkan file dengan extention md atau mdx pada blog page yang sudah dibuat. Fungsi tersebut secara garis besar terbagi menjadi 2 bagian diantaranya untuk mendapatkan slug atau url file dan untuk mendapatkan frontMatter dari file.
+
+## Struktur Mdx
+
+Sebelum membuat fungsi tersebut kita harus membuat struktur mdx terlebih dahulu, berikut merupakan contoh struktur mdx yang akan kita gunakan. struktur dari MDX terbagi menjadi 2 bagian utama fronMatter dan main content, FrontMatter merupakan metadata dari MDX memuat judul, deskripsi, atau tanggal ditulisa dengan format YAML, sedangkan main content berisi konten dari blog yang akan dibuat. Berikut contoh struktur dari MDX.
 
 ```md
 ---
-title: 'Membuat Blog dengan MDX dan Next.js'
-description: 'This is the first blog post'
+title: "Membuat Blog dengan MDX dan Next.js"
+description: "This is the first blog post"
 date: 2024-01-01
 ---
+
+main konten
 ```
-Penulisan FrontMatter diatas bukanlah aturan pasti dalam penulisan FrontMatter, kita bisa menambahkan informasi lainnya seperti tags, author, dan lainnya.
 
-## Membuat Blog Page
-Setelah melakukan konfigurasi diatas kita bisa lanjut untuk membuat blog page, yang pertama dilakukan adalah buat halaman <span className="italic">blog</span> dan buat folder <span className="italic">posts</span> seperti dibawah ini.
-  
-  ```bash
-  project folder
-  |--app
-      |--pages
-          |--blog
-              |--index.tsx
-  |--posts
-      |--blog-one.mdx
-      |--blog-two.mdx
-  ```
-
-Langkah selanjutnya adalah membuat <span className="italic">funciton</span> yang berfungsi untuk mendapatkan file dengan extention md atau mdx pada blog page yang sudah dibuat. Fungsi tersebut secara garis besar terbagi menjadi 2 bagian diantaranya untuk mendapatkan slug atau url file dan untuk mendapatkan frontMatter dari file.
-
-Sebelum membuat fungsi tersebut kita harus install package <span className="italic">gray-matter</span> dan <span className="italic">fs</span> dengan cara berikut.
+kemudian pertanyaannya bagaimana cara mendapatkan frontMatter dari file mdx yang ada pada directory posts?. jawabannya ada berbagai cara namun pada kali ini kita bisa menggunakan beberapa package yang ada di npm seperti <span className="italic font-extrabold">gray-matter</span> dan <span className="italic font-extrabold">fs</span>. gray-matter digunakan untuk mendapatkan frontMatter dari file mdx dan fs digunakan untuk membaca file yang ada pada directory posts. kemudian fs merupakan package bawaan dari nodejs yang digunakan untuk mendapatkan/membaca file yang ada pada directory posts. Untuk mendapatkan package <span className="italic font-extrabold">gray-matter</span> kita bisa menggunakan perintah berikut.
 
 ```bash
 npm install gray-matter
 ```
 
-Fungsi berikut memiliki tujuan untuk mendapatkan isi konten yang ada pada file mdx. Dengan menggunakan plugin fs dengan fungsi <span className="italic">readdirSync</span> digunakan untuk membaca file apa saja yang berada pada directory yang telah dideklarasikan kemudian untuk mendapatkan isi dari kontennya kita bisa menggunakan fungsi readFileSync untuk membaca isi pada tiap file termasuk frontMatter.
+## Cara mendapatkan slug, content, dan frontMatter dari file mdx
+
+Sebelum membuat fungsi yang berfungsi untuk mendapatkan slug, content, dan frontMatter dari file mdx, mari kita pahami bagaimana cara mendapatkan isi (isi disini mencakup fronMatter dan main content) dari file mdx. Dengan menggunakan fungsi <span className="italic font-extrabold">readdirSync</span> dan <span className="italic font-extrabold">readFileSync</span> pada package <span className="italic font-extrabold">fs</span> kita bisa mendapatkan isi dari file mdx yang ada pada directory posts, berikut gambaran untuk lebih mudah dipahami.
+
+![readdir and readFile fs](/blog/membuat-blog-dengan-mdx/01-readdir.png "readdir")
+
+Langkah selanjutnya adalah membuat fungsi yang berfungsi untuk mendapatkan slug, content, dan frontMatter dari file mdx yang ada pada directory posts.
+
 ```tsx
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
 export function generateStaticParams() {
-    const dir = path.join(process.cwd(), "posts");
+    const dir = path.join(process.cwd(), "app/posts");
     const files = fs.readdirSync(dir);
     const contentFile = files.map((file) => {
         return fs.readFileSync(`${dir}/${file}`, "utf8");
     });
-    //...
-}
-```
 
-Selanjutnya untuk mendapatkan frontMatter dari file pada contentFile yang telah dibaca sebelumnya, untuk hal ini kita bisa menggunakan fungsi matter, berikut merupakan penggunaannya.
-```tsx
-export function generateStaticParams() {
-    //...
     let frontMatter = contentFile.map((file) => {
         const data = matter(file);
         return data.data;
     });
-    //...
-}
-```
 
-Langkah selanjutnya ialah tidak lain yaitu mendapatkan url atau slug dari file mdx. Cara mendapatkan slug dari file mdx atau md bisa dilakukan dengan merepplace extensi file .mdx auat .md dari list files yang sebelumnya telah dibaca dari directory posts.
-```tsx
-export function generateStaticParams() {
-    //...
     const slug = files.map((file) => {
         const slug = file.replace(".mdx", "");
         return slug;
     });
-    //...
+
+    return {
+        frontMatter,
+        slug,
+    };
 }
 ```
 
-## [slug] page
+fungsi diatas terdiri dari beberapa bagian utama diantaranya:
+
+1. Mendapatkan isi konten dari file mdx.
+2. Mendapatkan frontMatter dari file mdx.
+3. Mendapatkan slug dari file mdx.
+
+
+
+## Menampilkan Postingan Blog
+Pada page blog kita akan menampilkan postingan apa saja yang tersedia pada filder posts. Dengan menggunakan fungsi yang telah dibuat sebelumnya kita akan mengambil frontMatter dan slog dari postingan supaya bisa melihat konten dari postingan tersebut. Berikut adalah contoh code untuk mendapatkan fronMatter dan slug dari postingan blog.
+
+```tsx
+    const fetchData = async () => {
+        const { props } = generateStaticParams({});
+        const { frontMatter, slug } = props;
+        return { frontMatter, slug };
+    };
+
+    const files = await fetchData();
+```
+Untuk menampilkan postingan blog kita bisa melakukan mapping pada variabel object <span className="italic font-bold">files</span> yang berisi frontMatter dan slug dari postingan yang ada pada <span className="italic font-bold">posts</span> directory, Kalian bisa membuat sebuah component untuk blog card, atau bisa langsung menampilkan postingan blog pada page blog. Berikut contoh code untuk menampilkan postingan blog.
+
+![mapping blog files](/blog/membuat-blog-dengan-mdx/02-mapping-blog.png "mapping blog files")
+
+# [slug] page
+
 Dalam konteks pembuatan blog dengan Next.js dan MDX, "[slug] page" biasanya merujuk pada halaman dinamis yang dibuat untuk setiap postingan blog. Slug adalah bagian dari URL yang biasanya digunakan untuk mengidentifikasi sumber daya secara unik. Dalam kasus ini, slug diambil dari nama file postingan blog.
 
 Untuk membuat halaman dinamis dengan Next.js, kita perlu membuat file dengan nama '[slug].tsx' di dalam folder 'pages/blog'. File ini akan
@@ -143,13 +176,16 @@ menerima slug sebagai parameter dan menampilkan postingan blog yang sesuai.
 
 ```tsx
 // pages/blog/[slug]/page.tsx
+//...
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
 
 function getPost() {
     const dir = path.join(process.cwd(), "app/posts");
-    const files = fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
+    const files = fs
+        .readdirSync(dir)
+        .filter((file) => path.extname(file) === ".mdx");
     return files.map((filename) => {
         const { content, data } = matter(
             fs.readFileSync(path.join(dir, filename), "utf8")
@@ -164,29 +200,72 @@ function getPost() {
 }
 //...
 ```
-fungsi diatas digunakan untuk mendapatkan isi konten dan frontMatter dari file mdx yang ada pada directory posts. hampir sama seperti fungsi sebelumnya namun pada fungsi ini mengembalikan 3 variabel utama yaitu slug, data, dan content.
+Fungsi diatas digunakan untuk mengembalikan isi konten, frontMatter, dari slug yang dituju. 
 
-Seletah mendapatkan slug dan isi konten dari directory posts maka langkah selanjutnya adalah menentukan mana konten yang sesuai dengan slug yang ada. Cara mendapatkan slug dari path yang ada bisa kita lakukan dengan menggunakan parameter params pada function Blog dan deskripsikan isi dari params tersebut. kemudian dilakukan pengecekan menggunakna fungsi find() dengan kondisi dimana slug yang berada pada files sama dengan slug yang ada pada params, Maka akan mengembalikan nilai dari props yang sesuai dengan slug yang ada.
 ```tsx
 // pages/blog/[slug]/page.tsx
-//...
 import { MDXRemote } from "next-mdx-remote/rsc";
-
 //...
 
 export default function Blog({ params }: { params: { slug: string } }) {
     const props = getPost().find((post) => post.slug === params.slug);
+    //...
+}
+```
 
+Fungsi getPost sebelumnya dilakukan filter untuk mengecek apakah terdapat postingan dengan slug yang sesuai dengan parameter dengan yang didapatkan oleh fungsi. Jika tidak ditemukan maka akan memberikan pesan "Post not found". Jika ditemukan maka akan ditampilkan konten dari postingan tersebut, dengan menggunakan MDXRemote seperti dibawah ini.
+
+```tsx
+// pages/blog/[slug]/page.tsx
+import { MDXRemote } from "next-mdx-remote/rsc";
+
+//...
+export default function Blog({ params }: { params: { slug: string } }) {
+    //...
     if (!props) {
         return <div>Post not found</div>;
     }
     return (
-        <section className="px-4 pt-32 backdrop-blur-2xl bg-white dark:bg-black100 bg-opacity-40 dark:bg-opacity-25 rounded-md">
-            <h1 className="font-bold text-4xl">{props.data.title}</h1>
-            <article className="prose px-4 md:prose-xl prose-sm text-black prose-headings:text-black dark:text-white prose-headings:dark:text-white mx-auto pb-20 prose-p:leading-normal prose-li:leading-3 prose-pre:leading-8">
+        //...
+            <article>
                 <MDXRemote source={props.content} />
             </article>
-        </section>
+        //...
     );
 }
 ```
+
+Jika fungsi diatas berjalan maka akan nampak seperti gambar dibawah ini.
+
+![blog post](/blog/membuat-blog-dengan-mdx/03-blog-page-before.png "blog post")
+
+Dapat dilihat pada gambar diatas postingan berhasil ditampilkan pada <span className="italic font-extrabold">[slug] page</span> dengan menggunakan MDXRemote.Namun terdapat masalah pada style yang ada untuk itu kita bisa menambahkan style dari <span className="italic font-extrabold">@tailwindcss/typography</span> dengan cara menginstall package tersebut.
+
+```bash
+npm install -D @tailwindcss/typography
+```
+
+Setelah melakukan instalasi package kita tambahkan terlebih dahulu pada <span className="italic font-extrabold">tailwind.config.js</span> seperti dibawah ini.
+
+```js
+// tailwind.config.js
+module.exports = {
+    //...
+    plugins: [require("@tailwindcss/typography")],
+};
+```
+
+Langkah selanjutnya ialah menambahkan class <span className="italic font-extrabold">prose</span> pada tag article pada <span className="italic font-extrabold">[slug] page</span> seperti dibawah ini. Setelah menambahkan class prose maka postingan blog akan terlihat seperti gambar dibawah ini.
+
+```tsx
+// pages/blog/[slug]/page.tsx
+//...
+<article className="prose">
+    <MDXRemote source={props.content} />
+</article>
+//...
+```
+
+![blog post after prose](/blog/membuat-blog-dengan-mdx/04-blog-page-after.png "blog post after prose")
+
+Dari hasil diatas masih banyak yang bisa di kembangkan lagi sesuai kebutuhan masing-masing, seperti menambahkan navigasi, menambahkan style, atau menambahkan fitur lainnya.
