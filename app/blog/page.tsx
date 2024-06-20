@@ -37,11 +37,16 @@ export default async function Blog({
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
             <SearchTag tags={tagsArray} />
-            <p className="text-base">
-                {files.frontMatter.length} Articles Found
-            </p>
+            {files.frontMatter.length===1 ? 
+                null:
+                <p className="text-base">
+                    {files.frontMatter.length} Articles Found
+                </p>
+            }
             <ul className="flex flex-col gap-4">
-                {files.frontMatter.map((file, id) => (
+                {files.frontMatter.sort((a,b)=>{
+                    return new Date(b.date).getTime() - new Date(a.date).getTime()
+                }).map((file, id)=> (
                     <li key={id}>
                         <BlogCard
                             title={file.title}
