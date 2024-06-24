@@ -24,7 +24,7 @@ const books = [
         authors: ["Andrea Hirata"],
         year: 2015,
         description: "",
-        image_url: "/books/Padang-bulan.jpg",
+        image_url: "/books/padang-bulan.jpg",
         link: "",
     },
 ];
