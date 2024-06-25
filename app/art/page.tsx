@@ -42,17 +42,17 @@ export default function Art() {
                     so Welcome and Enjoy!
                 </p>
             </header>
-            <Suspense
+            {/* <Suspense
                 fallback={
                     <div className="w-full h-screen border-dashed border-4 border-slate800 flex justify-center items-center text-6xl font-bold rounded-md">
                         Loading...
                     </div>
                 }
-            >
+            > */}
                 <div>
                     <ListArt Props={{ art: content, date: dates }} />
                 </div>
-            </Suspense>
+            {/* </Suspense> */}
         </div>
     );
 }

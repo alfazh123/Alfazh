@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Suspense } from 'react'
 
 import { projects, hobbys } from "./lib/lib";
 
@@ -7,29 +6,27 @@ import { AboutButton, ProjectButton } from "@/app/components/button";
 import ProjectCard from "@/app/components/project/project-card";
 import TechStack from "./components/tech-stack";
 import CardHobby from "./components/card-hobby";
-import { SkeletonHeaderHomePage } from "./components/skeleton";
 
-import { FaArrowDown, FaBook } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
+
 
 export default function Home() {
     return (
         <main className="flex flex-col mb-10 px-8">
             <div className="flex items-center h-screen flex-col justify-center gap-12 border-solid border-b-2 border-b-slate700 dark:border-b-slate300 relative">
-                <Suspense fallback={<SkeletonHeaderHomePage/>}>
-                    <header className="flex flex-col transition-all ease-in-out duration-700 absolute left-0">
-                        <div>
-                            <h1 className="lg:text-7xl md:text-6xl sm:text-4xl text-4xl font-bold gap-4">
-                                Ahmd Alfazh <br />
-                                Front-end Developer
-                            </h1>
-                        </div>
-                        <p className="md:text-base text-xs pt-4 md:w-5/6">
-                            I am a Front-end Developer based in Surabaya, Indonesia. I have a passion for web development and love to create
-                            web application with a good user experience. Love to learn new things and always open to new opportunities.
-                        </p>
-                        <AboutButton />
-                    </header>
-                </Suspense>
+                <header className="flex flex-col transition-all ease-in-out duration-700 absolute left-0">
+                    <div>
+                        <h1 className="lg:text-7xl md:text-6xl sm:text-4xl text-4xl font-bold gap-4">
+                            Ahmd Alfazh <br />
+                            Front-end Developer
+                        </h1>
+                    </div>
+                    <p className="md:text-base text-xs pt-4 md:w-5/6">
+                        I am a Front-end Developer based in Surabaya, Indonesia. I have a passion for web development and love to create
+                        web application with a good user experience. Love to learn new things and always open to new opportunities.
+                    </p>
+                    <AboutButton />
+                </header>
 
                 <Link
                     href={"#content"}

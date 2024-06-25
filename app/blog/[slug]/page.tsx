@@ -42,9 +42,9 @@ export default function Blog({ params }: { params: { slug: string } }) {
     }
     return (
         <section
-            className={`px-4 pt-20 backdrop-blur-2xl space-y-5 bg-white dark:bg-black100 bg-opacity-40 dark:bg-opacity-25 rounded-md ${inter.className}`}
+            className={`px-4 pt-24 backdrop-blur-2xl space-y-5 bg-white dark:bg-black100 bg-opacity-40 dark:bg-opacity-25 rounded-md ${inter.className}`}
         >
-            <Suspense fallback={<SkeletonBlogContent />}>
+            {/* <Suspense fallback={<SkeletonBlogContent />}> */}
                 <header className="flex md:flex-row flex-col gap-4 min-h-32 justify-center">
                     <Link href="/blog">
                         <div className="bg-slate600 bg-opacity-20 hover:bg-opacity-45 w-12 h-12 p-3 rounded-full">
@@ -67,7 +67,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 <article className="prose md:px-4 px-2 text-black prose-headings:text-black dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4 mx-auto">
                     <CustomMDX source={props.content} />
                 </article>
-            </Suspense>
+            {/* </Suspense> */}
         </section>
     );
 }
