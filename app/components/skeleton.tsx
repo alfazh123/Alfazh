@@ -116,3 +116,33 @@ export function SkeletonArtPage() {
         </div>
     )
 }
+
+export function SkeletonArticelBlog() {
+    return (
+        <div className="space-y-4">
+            <div className="h-14 w-48 bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+            <div className="space-y-2">
+                <div className="h-4 w-full bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+                <div className="h-4 w-full bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+                <div className="h-4 w-full bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+                <div className="h-4 w-full bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+                <div className="h-4 w-full bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+            </div>
+        </div>
+    )
+}
+
+export function SkeletonAboutPage() {
+    return (
+        <div className="px-8 pt-32 lg:grid lg:grid-cols-2 flex flex-col-reverse">
+            <div className="space-y-8">
+                <SkeletonArticelBlog/>
+                <SkeletonArticelBlog/>
+            </div>
+
+            <>
+                <div className="flex justify-center items-center md:w-72 md:h-72 w-16 h-16 md:mx-auto bg-slate300 dark:bg-slate700 rounded-md animate-pulse"></div>
+            </>
+        </div>
+    )
+}
