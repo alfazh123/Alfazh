@@ -14,10 +14,13 @@ export default async function Image() {
     return new ImageResponse(
         (
             <div
-                tw={`bg-[#f8f3e6] text-center flex flex-col justify-center border-solid border-4 border border-slate-600 pl-32 w-full h-full`}
+                tw={`bg-[#F0F0F0] text-center justify-center items-center flex flex-col mx-auto w-full h-full`}
             >
                 <h1 tw="text-6xl font-bold">Ahmd Alfazh</h1>
-                <p tw="text-xl">Portofolio Website by Alfazh</p>
+                <p tw="text-3xl bg-[#3C7BC0] text-white px-3 py-2 rounded-md">Front-end Developer</p>
+                <div tw="bg-[#3C7BC0] h-2 w-72 mb-4"></div>
+                <div tw="bg-[#3C7BC0] h-2 w-64 mb-4"></div>
+                <div tw="bg-[#3C7BC0] h-2 w-56 mb-4"></div>
             </div>
         ),
         {
