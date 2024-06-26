@@ -12,7 +12,7 @@ export function SkeletonHeaderHomePage() {
 
 export function SkeletonProjectCard() {
     return (
-        <div className="animate-pulse bg-slate300 dark:bg-slate600 rounded-md h-80 p-4">
+        <div className="animate-pulse bg-slate300 dark:bg-slate600 rounded-md w-full h-80 p-4">
             <div className="h-40 bg-slate200"></div>
             <div className="h-4 w-1/2 mt-2 bg-slate200"></div>
             <div className="h-4 w-1/3 mt-2 bg-slate200"></div>
@@ -26,7 +26,7 @@ export function SkeletonProjectPage() {
         <div className="px-8 pt-32 space-y-10">
             <div className="bg-slate300 text-slate300 dark:bg-slate700 dark:text-slate700 h-20 p-2">Project</div>
 
-            <ul className="flex flex-wrap">
+            <ul className="grid lg:grid-cols-3 sm:grid-cols-2 gap-4">
                 <li><SkeletonProjectCard/></li>
                 <li><SkeletonProjectCard/></li>
                 <li><SkeletonProjectCard/></li>

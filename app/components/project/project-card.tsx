@@ -23,7 +23,7 @@ export default function ProjectCard({
     tag,
 }: ProjectCardProps) {
     return (
-        <Suspense fallback={<SkeletonProjectCard />}>
+        // <Suspense fallback={<SkeletonProjectCard />}>
             <div className="group flex flex-col h-full transition ease-in-out delay-150  hover:scale-105 bg-white dark:bg-black100 bg-opacity-30 dark:bg-opacity-30  duration-300 w-full rounded-lg shadow-md shadow-slate300 dark:shadow-slate800 hover:shadow-lg hover:shadow-slate300">
                 <Link href={href} className="m-2">
                     <Suspense fallback={<ImageSkeleton />}>
@@ -56,6 +56,6 @@ export default function ProjectCard({
                     </div>
                 </Link>
             </div>
-        </Suspense>
+        // </Suspense>
     );
 }
