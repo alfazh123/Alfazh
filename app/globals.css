@@ -15,12 +15,15 @@
     --sh-jsxliterals: #6266d1;
     --sh-property: #e25a1c;
     --sh-entity: #e25a1c;
+    --radial-color: 2, 132, 199, 0.5;
 }
 
 .dark {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 30, 30, 30;
     --background-end-rgb: 30, 30, 30;
+    --radial-color: 2, 132, 199, 0.5;
+    --radial-color: #0284c7;
     --sh-class: #4c97f8;
     --sh-identifier: white;
     --sh-keyword: #f47067;
@@ -41,12 +44,15 @@
         --sh-jsxliterals: #6266d1;
         --sh-property: #e25a1c;
         --sh-entity: #1c99e2;
+        --radial-color: 2, 132, 199;
     }
 
     .dark {
         --foreground-rgb: 255, 255, 255;
         --background-start-rgb: 30, 30, 30;
         --background-end-rgb: 30, 30, 30;
+        --radial-color: 2, 132, 199;
+        --radial-color: #0284c7;
         --sh-class: #4c97f8;
         --sh-identifier: white;
         --sh-keyword: #c673cf;
@@ -78,6 +84,7 @@ body {
             rgb(var(--background-end-rgb))
         )
         rgb(var(--background-start-rgb));
+    /*how to use var in css and application on radial gradient*/
 }
 
 .prose .anchor {
@@ -140,7 +147,7 @@ pre::-webkit-scrollbar {
 pre {
     -ms-overflow-style: none;
     /* IE and Edge */
-    scrollbar-width: none;
+    scrollbar-width: thin;
     /* Firefox */
 }
 
@@ -182,4 +189,50 @@ pre {
 
 .prose img {
     @apply mx-auto;
+}
+
+
+.project-card{
+    background: radial-gradient(ellipse at top, #e2e8f0 40%, #ffffff 90%) padding-box,
+        radial-gradient(ellipse at top left, #0284c760 10%, #2eb2ff10 50%) border-box,
+        radial-gradient(ellipse at bottom right, #0284c760 , #2eb2ff10 50%) border-box; 
+    border: 3px solid transparent;
+}
+
+
+.dark .project-card{
+    background: radial-gradient(circle, #39393a 0%, #1c1c1d 90%) padding-box,
+        radial-gradient(ellipse at top left, #0284c770 10%, #2eb2ff10 50%) border-box,
+        radial-gradient(ellipse at bottom right, #0284c770 , #2eb2ff10 50%) border-box;
+    border: 3px solid transparent;
+}
+
+.blog-card{
+    background: linear-gradient( #ffffff 0%, #f0f0f0 100%) padding-box,
+        radial-gradient(ellipse at top left, #0284c710 10%, #2eb2ff10 50%) border-box,
+        radial-gradient(ellipse at bottom right, #0284c710 , #2eb2ff10 50%) border-box; 
+        /* rgb(var(--background-start-rgb)); */
+    border: 3px solid transparent;
+}
+
+.blog-card:hover{
+    background: linear-gradient( #ffffff 0%, #f0f0f0 100%) padding-box,
+        radial-gradient(ellipse at top left, #0284c760 10%, #2eb2ff40 50%) border-box,
+        radial-gradient(ellipse at bottom right, #0284c760 , #2eb2ff40 50%) border-box; 
+        /* rgb(var(--background-start-rgb)); */
+    border: 3px solid transparent;
+}
+
+.dark .blog-card{
+    background: linear-gradient( #39393a 0%, #1c1c1d 100%) padding-box,
+        radial-gradient(ellipse at top left, #0284c740 10%, #2eb2ff10 50%) border-box,
+        radial-gradient(ellipse at bottom right, #0284c740 , #2eb2ff10 50%) border-box;
+    border: 3px solid transparent;
+}
+
+.dark .blog-card:hover{
+    background: linear-gradient( #39393a 0%, #1c1c1d 100%) padding-box,
+        radial-gradient(ellipse at top left, #0284c760 10%, #2eb2ff40 50%) border-box,
+        radial-gradient(ellipse at bottom right, #0284c760 , #2eb2ff40 50%) border-box;
+    border: 3px solid transparent;
 }
