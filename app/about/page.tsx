@@ -1,19 +1,12 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Suspense } from "react";
+import { SocialMediaLink } from "@/util/type";
 
 import authorImg from "/public/author.jpg"
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 import TechStack from "../components/tech-stack";
 
-type SocialMedia = {
-    name: string;
-    href: string;
-    icon: JSX.Element;
-}
-
-const socialMedia: SocialMedia[] = [
+const socialMedia: SocialMediaLink[] = [
     {
         name: "Github",
         href: "https://github.com/alfazh123",

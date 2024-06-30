@@ -1,19 +1,20 @@
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { SocialMediaLink } from "@/util/type";
 
-const links = [
+const links: SocialMediaLink[] =  [
     {
         href: "https://www.linkedin.com/in/ahmd-mufahras-li-alfazh-assardew-031a08255/",
-        label: "Ahmd Mufahras Li Alfazh Assardew",
+        name: "Ahmd Mufahras Li Alfazh Assardew",
         icon: <FaLinkedin className="text-xl" />,
     },
     {
         href: "https://www.instagram.com/ahmd_alfazh/",
-        label: "ahmd_afazh",
+        name: "ahmd_afazh",
         icon: <FaInstagram className="text-xl" />,
     },
     {
         href: "https://github.com/alfazh123",
-        label: "Github",
+        name: "Github",
         icon: <FaGithub className="text-xl" />,
     },
 ];
@@ -26,12 +27,13 @@ export default function Footer() {
                 <div className="items-center flex md:flex-row flex-col">
                     <p>Let&apos;s Get In Touch 👍 </p>
                     <ul className="justify-between flex">
-                        {links.map(({ href, label, icon }) => (
-                            <li key={`${href}${label}`}>
+                        {links.map(({ href, name, icon }) => (
+                            <li key={`${href}${name}`}>
                                 <a
-                                    title={label}
+                                    title={name}
                                     href={href}
                                     className="flex px-3 py-1 rounded-full"
+                                    target="_blank"
                                 >
                                     {icon}
                                 </a>
