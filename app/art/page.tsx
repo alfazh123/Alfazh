@@ -21,7 +21,7 @@ const content = files.map((file) => {
 
 const getdate = content.map((file) => {
     const date = fs.statSync("./public" + file);
-    console.log(date);
+    // console.log(date);
     return date.birthtime;
 });
 
