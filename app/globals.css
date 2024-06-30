@@ -236,3 +236,30 @@ pre {
         radial-gradient(ellipse at bottom right, #0284c760 , #2eb2ff40 50%) border-box;
     border: 3px solid transparent;
 }
+
+@media screen and (min-width: 768px){
+    .flip-card{
+        perspective: 1000px;
+    }
+    
+    .inner-card{
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+    }
+    
+    .flip-card:hover .inner-card{
+        transform: rotateY(180deg);
+    }
+    
+    .front, .back{
+        backface-visibility: hidden;
+    }
+    
+    .front{
+        transform: rotateY(0deg);
+    }
+    
+    .back{
+        transform: rotateY(180deg);
+    }
+}
