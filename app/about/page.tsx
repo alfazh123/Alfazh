@@ -38,13 +38,6 @@ export default function About() {
                 </section>
             </article>
 
-            {/* <Suspense
-                fallback={
-                    <div className="lg:w-70 lg:h-70 md:w-56 md:h-56 w-16 h-16 bg-slate400 flex justify-center items-center md:rounded-xl lg:mx-auto md:mb-4 pt-8 text-xl font-semibold rounded-full">
-                        Loading..
-                    </div>
-                }
-            > */}
             <div className="flip-card md:w-72 md:h-72 w-16 h-16">
                 <div className="inner-card w-full h-full relative">
                     <div className="front flex justify-center items-center md:w-72 md:h-72 w-16 h-16 md:mx-auto md:mb-4 resize transition-all duration-700 ease-in-out absolute">
@@ -70,7 +63,6 @@ export default function About() {
                     </ul>
                 </div>
             </div>
-            {/* </Suspense> */}
         </div>
     );
 }

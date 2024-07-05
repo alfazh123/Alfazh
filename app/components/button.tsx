@@ -18,7 +18,7 @@ export const ProjectButton = () => {
         >
             <h3 className="text-2xl font-semibold">More Project</h3>
             <p className="text-gray-500 text-center">
-                In mt Project Page
+                In my Project Page
             </p>
             <p className="group-hover:underline">See more</p>
         </Link>
