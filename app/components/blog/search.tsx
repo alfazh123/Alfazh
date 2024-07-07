@@ -4,15 +4,18 @@ import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { useDebounce, useDebouncedCallback } from "use-debounce";
 
-export default function Search() {
+
+export default function Search( ) {
     const search = useSearchParams();
     const pathName = usePathname();
     const { replace } = useRouter();
 
     const searchBar = useRef<HTMLInputElement>(null);
 
+
     useEffect(()=> {
-        searchBar.current?.focus();
+        window.innerWidth < 768 ? 
+        null : searchBar.current?.focus();
     }, []);
 
 

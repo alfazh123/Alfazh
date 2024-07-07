@@ -16,7 +16,7 @@ export default async function Blog({
 }: {
     searchParams?: {
         search: string;
-        tags: string;
+        tags: string[];
     };
 }) {
     const fetchData = async () => {

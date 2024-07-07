@@ -7,7 +7,7 @@ export function generateStaticParams({
     tag,
 }: {
     search?: string;
-    tag?: string;
+    tag?: string[];
 }) {
     // const dir = "./app/posts";
     const dir = path.join(process.cwd(), "app/posts");
@@ -28,20 +28,26 @@ export function generateStaticParams({
         return data.data;
     });
 
-    if (tag) {
-        frontMatter = frontMatter.filter((file) => {
-            console.log(file.tags);
-            return file.tags.includes(tag);
-        });
+    if(tag) {
+        tag = Array.isArray(tag) ? tag : [tag];
+        tag.forEach((t) => {
+            frontMatter = frontMatter.filter((file) => {
+                return (
+                    file.tags.join(' ').toLowerCase().includes(t)
+                )
+            })
+        })
     }
 
     if (search) {
         const searchs = search.toLowerCase();
+
+        // declare new frontMatter / data with filter function
         frontMatter = frontMatter.filter((file) => {
             return (
                 file.title.toLowerCase().includes(searchs) ||
                 file.description.toLowerCase().includes(searchs) ||
-                file.tags.join(" ").toLowerCase().includes(searchs)
+                file.tags.join(' ').toLowerCase().includes(searchs)
             );
         });
     }
@@ -59,15 +65,18 @@ export function getTagsMDX() {
 
     const files = fs.readdirSync(dir);
 
+    // read each file using map and fs function
     const contentFile = files.map((file) => {
         return fs.readFileSync(`${dir}/${file}`, "utf8");
     });
 
+    // load frontMatter
     let frontMatter = contentFile.map((file) => {
         const data = matter(file);
         return data.data;
     });
 
+    // get tags from data colection
     const tags = frontMatter.map((file) => file.tags);
 
     const separateTags = tags.flat();
