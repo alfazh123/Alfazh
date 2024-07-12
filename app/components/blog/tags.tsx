@@ -50,7 +50,7 @@ export default function SearchTag(
                     All
                 </button>
                 {tags.map((tag, id)=> (
-                    <div className="flex justify-center items-center h-full">
+                    <div className="flex justify-center items-center h-full" key={id}>
                         <label htmlFor={tag} className={clsx(
                             `${isExists(tag) ? `outline-none ring-2 ring-offset-2 ring-offset-white` : null }`, // conditional to activate button when exists in search params
                             'px-2 py-1 text-sm font-semibold border border-1 rounded-md', // position and size
