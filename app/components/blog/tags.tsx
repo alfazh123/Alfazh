@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { useDebouncedCallback } from "use-debounce";
 
 import { clsx } from 'clsx'
 
@@ -53,11 +52,11 @@ export default function SearchTag(
                     <div className="flex justify-center items-center h-full" key={id}>
                         <label htmlFor={tag} className={clsx(
                             `${isExists(tag) ? `outline-none ring-2 ring-offset-2 ring-offset-white` : null }`, // conditional to activate button when exists in search params
-                            'px-2 py-1 text-sm font-semibold border border-1 rounded-md', // position and size
+                            'px-2 py-1 font-semibold border border-1 rounded-md', // position and size
                             'bg-slate200 border-slate900 hover:bg-slate300 text-black', // color component in light theme
                             'dark:bg-slate900 dark:hover:bg-slate800 dark:border-slate200 dark:text-white' // color component in dark theme
                         )}>
-                            {tag}
+                            <span className="pr-2 border-dotted border-r-2 border-slate700 mr-2">{isExists(tag) ? <>x</> : <>+</> }</span><span className="text-sm">{tag}</span>
                         </label>
                         
                         <input key={id} type="checkbox" className={`hidden right-0 -z-10 left-0 w-full h-6 px-2`} name={tag} value={tag} id={tag} 
