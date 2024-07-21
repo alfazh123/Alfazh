@@ -31,7 +31,7 @@ export default function CardHobby({
                         <p className="text-gray-500">{description}</p>
                     </>
                 </div>
-                <p className="flex mx-3 my-2 text-slate600 dark:text-slate200 group-hover:underline justify-end content-end after:content-['_↗']">
+                <p className="flex mx-3 my-2 text-slate600 dark:text-slate200 group-hover:underline justify-end content-end">
                     Read more
                 </p>
             </Link>
