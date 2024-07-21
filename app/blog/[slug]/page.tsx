@@ -3,15 +3,12 @@ import matter from "gray-matter";
 import path from "path";
 import clsx from "clsx";
 
-import Link from 'next/link';
-import {Suspense} from 'react';
-
 import { Inter } from "next/font/google";
-import { IoMdArrowBack } from "react-icons/io";
-import { SkeletonBlogContent } from "@/app/components/skeleton";
+import { BackToBlogButton } from "@/app/components/button";
 
 import { CustomMDX } from "@/app/components/blog/mdx";
 import { getHeadings } from "@/app/lib/getMDX";
+import TableOfContents from "@/app/components/blog/toc";
 
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
@@ -39,33 +36,18 @@ function getPost() {
 export default function Blog({ params }: { params: { slug: string } }) {
     const props = getPost().find((post) => post.slug === params.slug);
 
+    const content = props?.content || '';
+    const headings = getHeadings(content);
 
     if (!props) {
         return <div>Post not found</div>;
     }
     return (
-        <div className="pt-28">
-
+        <div className="md:pt-28 pt-16">
             <section
                 className={`px-4 md:pt-8 pt-8 backdrop-blur-2xl space-y-5 bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-25 md:rounded-xl rounded-lg ${inter.className}`}
             >
-                <Link href={`/blog`} className="relative group w-48 md:sticky md:top-20 md:left-4 left-0">
-                    <span className={clsx(
-                        `absolute left-12 top-3 hidden z-10 w-full dark:text-white`,
-                        `group-hover:transition-all group-hover:translate-x-0 group-hover:duration-[9000ms] group-hover:ease-in-out`,
-                        `md:group-hover:flex`
-                    )}>Back To Blog Page</span>
-
-                    <div className={clsx(
-                        `w-12 h-12 rounded-full overflow-hidden ring-2 ring-slate400 flex items-center`,
-                        `md:group-hover:transition-all md:group-hover:duration-100 md:group-hover:ease-in-out md:group-hover:w-48`,
-                        `backdrop-blur-lg backdrop-filter backdrop-saturate-150 backdrop-contrast-200 dark:bg-black100 bg-opacity-70`
-                    )}>
-                        <div className="bg-slate900 bg-opacity-20  group-hover:bg-opacity-45 w-12 h-12 p-3 rounded-full">
-                            <IoMdArrowBack className="text-2xl dark:text-white text-black100" />
-                        </div>
-                    </div>
-                </Link>
+                <BackToBlogButton />
 
                 <header className="flex md:flex-row justify-center flex-col gap-4 min-h-32 mb:pb-0 pb-20">
                     <div className="flex flex-col md:items-center items-start md:text-center text-left gap-4">
@@ -79,9 +61,28 @@ export default function Blog({ params }: { params: { slug: string } }) {
                         </p>
                     </div>
                 </header>
-                <article className="prose md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4 mx-auto">
-                    <CustomMDX source={props.content} />
-                </article>
+
+                <span className="w-full h-1 flex my-8 rounded-full bg-slate300 dark:bg-slate600"></span>
+
+                {/* <span className="flex ">
+                    <article className="prose max-w-[800px] flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] text-xs dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
+                        <CustomMDX source={props.content} />
+                    </article>
+                    <TableOfContents headings={headings} />
+                </span> */}
+
+                <span className="md:grid md:grid-cols-3">
+                    <span className="md:hidden block mt-10 sticky top-14">
+                        <TableOfContents headings={headings} />
+                    </span>
+                    <article className="prose mx-2 md:col-span-2 max-w-none flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
+                        <CustomMDX source={props.content} />
+                    </article>
+                    <span className="max-w-96 w-full md:block hidden">
+                        <TableOfContents headings={headings} />
+                    </span>
+                </span>
+                
             </section>
         </div>
     );

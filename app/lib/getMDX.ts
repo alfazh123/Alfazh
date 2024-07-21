@@ -2,7 +2,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export function generateStaticParams({
+
+function generateStaticParams({
     search,
     tag,
 }: {
@@ -60,7 +61,7 @@ export function generateStaticParams({
     };
 }
 
-export function getTagsMDX() {
+function getTagsMDX() {
     const dir = path.join(process.cwd(), "app/posts");
 
     const files = fs.readdirSync(dir);
@@ -88,4 +89,43 @@ export function getTagsMDX() {
     const tagsArray = removeDuplicates(separateTags);
 
     return tagsArray;
+}
+
+function slugify(str: string) {
+    return str
+        .toString()
+        .toLowerCase()
+        .trim() // Remove whitespace from both ends of a string
+        .replace(/\s+/g, "-") // Replace spaces with -
+        .replace(/&/g, "-and-") // Replace & with 'and'
+        .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+        .replace(/\-\-+/g, "-"); // Replace multiple - with single -
+}
+
+function getHeadings (content: string) {
+    const preCodeRegex = /```[\s\S]*?```/g;
+    content = content.replace(preCodeRegex, '');
+
+    const headingRegex = /(#+)\s(.+)/g;
+    let match;
+    const headings = [];
+
+    while ((match = headingRegex.exec(content))) {
+        const level = match[1].length;
+        const text = match[2];
+        const slug = slugify(text);
+        headings.push({
+            level,
+            text,
+            slug,
+        });
+    }
+
+    return headings;
+}
+
+export {
+    generateStaticParams, 
+    getTagsMDX, 
+    getHeadings
 }
