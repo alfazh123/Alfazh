@@ -76,6 +76,29 @@
 /* rgb(188, 253, 85) */
 /* rgb(241, 0, 136) */
 
+.about {
+    @apply bg-gradient-to-r from-black from-50% to-slate200 to-50% dark:from-white dark:to-slate900 dark:from-50% dark:to-50%;
+    border: 1px solid black;
+    display: block;
+  
+    /* background: linear-gradient(to right, black 50%, transparent 50%); */
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+
+.text-about{
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+    transition: all .6s ease-out;
+    display: block;
+}
+
+.about:hover {
+    background-position: left bottom;
+}
+
 body {
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
@@ -292,4 +315,13 @@ pre {
     .back{
         transform: rotateY(180deg);
     }
+}
+
+.toc {
+    @apply scroll-mt-20;
+    text-align: left;
+}
+
+.toc:hover {
+    text-decoration: underline;
 }

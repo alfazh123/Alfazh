@@ -1,12 +1,16 @@
 import Link from "next/link";
+import clsx from "clsx";
+import { IoMdArrowBack } from "react-icons/io";
 
 export const AboutButton = () => {
     return (
         <Link
             href="/about"
-            className="my-4 border-solid border w-28 md:text-base text-sm justify-center text-center items-center dark:border-slate200 border-slate700 dark:hover:bg-white hover:bg-black hover:text-slate200 dark:hover:text-slate800 px-3 py-2 rounded-lg"
+            className="about group my-4 border-solid border w-28 md:text-base text-sm justify-center text-center items-center dark:border-slate200 border-slate700 dark:hover:bg-white hover:bg-black hover:text-slate200 dark:hover:text-slate800 px-3 py-2 rounded-lg"
         >
-            About Me
+            <span className="text-about group-hover:text-white dark:group-hover:text-black">
+                About Me
+            </span>
         </Link>
     );
 };
@@ -24,3 +28,25 @@ export const ProjectButton = () => {
         </Link>
     );
 };
+
+export const BackToBlogButton = () => {
+    return (
+        <Link href={`/blog`} className="group relative flex w-48 md:sticky md:top-20 md:left-4 left-0">
+            <span className={clsx(
+                `absolute left-12 top-3 hidden z-10 w-48`,
+                `group-hover:transition-all group-hover:translate-x-0 `,
+                `md:group-hover:flex`
+            )}>Back To Blog Page</span>
+
+            <div className={clsx(
+                    `w-12 h-12 rounded-full overflow-hidden ring-2 ring-slate400 flex items-center`,
+                    `md:group-hover:transition-all md:group-hover:duration-300 md:group-hover:ease-in-out md:group-hover:w-48`,
+                    `bg-slate200 dark:bg-black100`
+                )}>
+                <div className="dark:bg-slate900 dark:bg-opacity-20 bg-slate200 w-12 h-12 p-3 rounded-full">
+                    <IoMdArrowBack className="text-2xl dark:text-white text-black100" />
+                </div>
+            </div>
+        </Link>
+    )
+}
