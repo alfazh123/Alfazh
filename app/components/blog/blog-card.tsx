@@ -20,10 +20,10 @@ export default function BlogCard({
 }: BlogCardProps) {
     return (
         <Suspense fallback={<SkeletonBlogCard />}>
-            <div className="blog-card group  hover:bg-opacity-40 dark:hover:bg-opacity-30 x-3 py-4 rounded-md">
+            <div className="blog-card group x-3 py-4 md:rounded-lg rounded-md hover:shadow-inner">
                 <div className="mx-3">
                     <div className="flex justify-between">
-                        <Link href={`/blog/${slug}`} className="text-2xl font-semibold group-hover:underline group-hover:underline-offset-2">
+                        <Link href={`/blog/${slug}`} className="text-2xl font-semibold hover:underline hover:underline-offset-2">
                             {title}
                         </Link>
                         <div className="text-sm text-right">

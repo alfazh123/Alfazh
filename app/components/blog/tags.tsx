@@ -2,6 +2,8 @@
 
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
+import { RxPlus, RxCross2 } from 'react-icons/rx';
+
 import { clsx } from 'clsx'
 
 interface SearchTagProps {
@@ -56,7 +58,7 @@ export default function SearchTag(
                             'bg-slate200 border-slate900 hover:bg-slate300 text-black', // color component in light theme
                             'dark:bg-slate900 dark:hover:bg-slate800 dark:border-slate200 dark:text-white' // color component in dark theme
                         )}>
-                            <span className="pr-2 border-r-2 border-slate400 mr-2">{isExists(tag) ? <>x</> : <>+</> }</span><span className="text-sm">{tag}</span>
+                            <span className="flex justify-center items-center gap-2">{isExists(tag) ? <RxCross2/> : <RxPlus/> }<span className="text-sm">{tag}</span></span>
                         </label>
                         
                         <input key={id} type="checkbox" className={`hidden right-0 -z-10 left-0 w-full h-6 px-2`} name={tag} value={tag} id={tag} 

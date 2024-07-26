@@ -38,7 +38,7 @@ export default function Search( ) {
             ref={searchBar}
             placeholder="Search..."
             defaultValue={search.get("search")?.toString()}
-            className="input-field-blog flex w-full p-2 rounded-md border-solid border-slate800 dark:border-slate400 dark:bg-black100 text-slate900 dark:text-slate200"
+            className="input-field-blog flex w-full p-2 rounded-md border-solid dark:bg-black100 text-slate900 dark:text-slate200"
         />
     );
 }
