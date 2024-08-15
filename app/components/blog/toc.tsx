@@ -32,6 +32,50 @@ export function TOC ({ headings }: HeadingsProps) {
     )
 }
 
+export function TOCMobile ({ headings }: HeadingsProps) {
+    const [click, setClick] = useState(true)
+    const [isOpen, setOpen] = useState(false)
+
+    const handleOpen = () => {
+        setOpen(!isOpen)
+    }
+
+    const handleClick = () => {
+        setOpen(!open)
+        setClick(!click)
+    }
+
+    return ( 
+        <>
+            <button className="sm:text-2xl text-lg backdrop-blur-md font-bold md:hidden flex gap-2 items-center bg-slate200 dark:bg-black100  border border-slate900 w-full p-2 rounded-md" onClick={() => handleOpen()}>
+                <span className={`h-3 w-3 border-2 dark:border-slate200 border-slate900 ${isOpen ? `-rotate-45 border-t-0 border-r-0` : `rotate-45 border-b-0 border-l-0`} transition-all duration-500 ease-in-out`}></span>
+                <span>Table Of Content</span>
+            </button>
+                {/* <TOCButton onClick={handleOpen} /> */}
+            <span className={`md:hidden block bg-slate200 dark:bg-black100 ${isOpen ? `sm:h-96 h-80 p-4 border border-t-0 border-slate600` : null} rounded-b-lg overflow-y-scroll transition-all ease-in-out duration-700`} style={{
+                scrollbarWidth: 'thin',
+            }}>
+                {isOpen && 
+                    <div className="flex flex-col">
+                        <ul className="md:space-y-6 space-y-4">
+                            {headings.map((heading, id) => (
+                                <li key={heading.slug} className={`flex hover:underline underline-offset-4 md:text-base text-sm`} onClick={() => handleClick()}>
+                                    <Link href={`#${heading.slug}`} className={`toc`}
+                                    style={{
+                                            marginLeft: `${heading.level === 1 ? 0 : heading.level * 1}rem`,
+                                            overflow: 'hidden',
+                                            }}
+                                            >{heading.text}</Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                }
+            </span>
+        </>
+    )
+}
+
 export default function TableOfContents ({ headings }: HeadingsProps) {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -49,16 +93,7 @@ export default function TableOfContents ({ headings }: HeadingsProps) {
             </span>
 
             {/* TOC in small screen */}
-            <button className="sm:text-2xl text-lg backdrop-blur-md font-bold md:hidden flex gap-2 items-center bg-slate200 dark:bg-black100  border border-slate900 w-full p-2 rounded-md" onClick={() => handleOpen()}>
-                <span className={`h-3 w-3 border-2 dark:border-slate200 border-slate900 ${isOpen ? `-rotate-45 border-t-0 border-r-0` : `rotate-45 border-b-0 border-l-0`}`}></span>
-                <span>Table Of Content</span>
-            </button>
-                {/* <TOCButton onClick={handleOpen} /> */}
-            <span className={`md:hidden block bg-slate200 dark:bg-black100 ${isOpen ? `sm:h-96 h-80 p-4 border border-t-0 border-slate600` : null} rounded-b-lg overflow-y-scroll`} style={{
-                scrollbarWidth: 'thin',
-            }}>
-                {isOpen && <TOC headings={headings} />}
-            </span>
+            <TOCMobile headings={headings} />
         </span>
     )
 }

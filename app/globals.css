@@ -136,7 +136,7 @@ body {
 }
 
 .prose :where(h1, h2, h3, h4, h5, h6) {
-    @apply scroll-mt-20;
+    @apply md:scroll-mt-20 scroll-mt-32;
 }
 
 .prose :where(h1, h2, h3, h4, h5, h6):hover {
