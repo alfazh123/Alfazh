@@ -1,44 +1,49 @@
-import { SiNextdotjs, SiMdx, SiNeo4J } from "react-icons/si";
+import { SiNextdotjs, SiMdx, SiNeo4J, SiRedux, SiTailwindcss, SiReact } from "react-icons/si";
 import { TbBrandTailwind } from "react-icons/tb";
 import { FaReact } from "react-icons/fa";
+import Link from "next/link";
+import { link } from "fs";
+
+const techStack = [
+    {
+        label: "Next.js",
+        link: "https://nextjs.org",
+        icon: <SiNextdotjs className="md:text-5xl text-4xl" />,
+    },
+    {
+        label: "MDX",
+        link: "https://mdxjs.com",
+        icon: <SiMdx className="md:text-5xl text-4xl" />,
+    },
+    {
+        label: "Redux",
+        link: "https://reduxjs.org",
+        icon: <SiRedux className="md:text-5xl text-4xl" />,
+    },
+    {
+        label: "TailwindCSS",
+        link: "https://tailwindcss.com",
+        icon: <SiTailwindcss className="md:text-5xl text-4xl" />,
+    },
+    {
+        label: "React.js",
+        link: "https://reactjs.org",
+        icon: <SiReact className="md:text-5xl text-4xl" />,
+    },
+]
 
 export default function TechStack() {
     return (
-        <div className="md:w-1/2 w-5/6 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
-            <ul className="flex [&_li]:mx-8 [&_li]:cursor-pointer md:justify-start max-w-none animate-infinite-scroll">
-                <li>
-                    <SiNextdotjs className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <SiMdx className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <SiNeo4J className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <TbBrandTailwind className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <FaReact className="md:text-5xl text-4xl" />
-                </li>
-            </ul>
-            <ul className="flex [&_li]:mx-8 [&_li]:cursor-pointer md:justify-start max-w-none animate-infinite-scroll">
-                <li>
-                    <SiNextdotjs className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <SiMdx className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <SiNeo4J className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <TbBrandTailwind className="md:text-5xl text-4xl" />
-                </li>
-                <li>
-                    <FaReact className="md:text-5xl text-4xl" />
-                </li>
-            </ul>
+
+        <div className="flex flex-wrap gap-8">
+            {techStack.map((tech, id) => (
+                <div key={id} className="group w-16 h-16 flex flex-col justify-center items-center">
+                    <p className="group-hover:-translate-y-4 transition-all duration-500 ease-in-out">
+                        {tech.icon}
+                    </p>
+                    <Link href={tech.link} className="text-center bg-opacity-0 text-opacity-0 group-hover:bg-opacity-100 group-hover:text-opacity-100 transition-all duration-700 ease-in-out bg-slate900 text-slate100 dark:bg-slate100 dark:text-black100 hover:text-tosca100 px-2 rounded-md">{tech.label}</Link>
+                </div>
+            ))}
         </div>
     );
 }
