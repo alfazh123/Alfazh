@@ -16,10 +16,10 @@ export default function CardHobby({
 }: HobbyProps) {
     return (
         <div className="group relative">
-            <div className="w-48 h-56 dark:bg-slate700 bg-slate300 absolute rounded-md group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:origin-top group-hover:rotate-3 transition ease-in-out duration-300"></div>
+            <div className="w-48 h-56 dark:bg-slate700 bg-slate300 absolute rounded-md group-hover:-translate-x-2 group-hover:translate-y-2 group-hover:origin-top group-hover:rotate-3 transition-all ease-in-out duration-300"></div>
             <Link
                 href={link}
-                className="w-48 h-56 flex flex-col absolute rounded-md place-content-between border-solid border border-slate900 bg-white dark:bg-black100 dark:border-slate200 hover:shadow-lg transition ease-in-out duration-300 group-hover:-translate-x-4 group-hover:translate-y-4 group-hover:origin-top group-hover:rotate-6"
+                className="w-48 h-56 flex flex-col absolute rounded-md place-content-between border-solid border border-slate900 bg-white dark:bg-black100 dark:border-slate200 hover:shadow-lg transition-all ease-in-out duration-500 group-hover:-translate-x-4 group-hover:translate-y-4 group-hover:origin-top group-hover:rotate-6"
             >
                 <div className="mx-3 my-3 space-y-2">
                     <div className="w-2 h-2 bg-slate900 bg-opacity-75 dark:bg-slate200 rounded-full"></div>

@@ -47,12 +47,12 @@ export function TOCMobile ({ headings }: HeadingsProps) {
 
     return ( 
         <>
-            <button className="sm:text-2xl text-lg backdrop-blur-md font-bold md:hidden flex gap-2 items-center bg-slate200 dark:bg-black100  border border-slate900 w-full p-2 rounded-md" onClick={() => handleOpen()}>
+            <button className={`sm:text-2xl text-lg backdrop-blur-md font-bold md:hidden flex gap-2 items-center bg-slate100 dark:bg-black100 border border-slate300 dark:border-slate900 w-full py-2 px-4 rounded-lg`} onClick={() => handleOpen()}>
                 <span className={`h-3 w-3 border-2 dark:border-slate200 border-slate900 ${isOpen ? `-rotate-45 border-t-0 border-r-0` : `rotate-45 border-b-0 border-l-0`} transition-all duration-500 ease-in-out`}></span>
                 <span>Table Of Content</span>
             </button>
                 {/* <TOCButton onClick={handleOpen} /> */}
-            <span className={`md:hidden block bg-slate200 dark:bg-black100 ${isOpen ? `sm:h-96 h-80 p-4 border border-t-0 border-slate600` : null} rounded-b-lg overflow-y-scroll transition-all ease-in-out duration-700`} style={{
+            <span className={`md:hidden block rounded-lg mt-2 bg-slate100 dark:bg-black100 ${isOpen ? `sm:h-96 h-80 p-4 border border-slate300 dark:border-slate900` : null} rounded-b-lg overflow-y-scroll transition-all ease-in-out duration-700`} style={{
                 scrollbarWidth: 'thin',
             }}>
                 {isOpen && 

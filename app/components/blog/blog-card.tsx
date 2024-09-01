@@ -21,12 +21,12 @@ export default function BlogCard({
     return (
         <Suspense fallback={<SkeletonBlogCard />}>
             <div className="blog-card group x-3 py-4 md:rounded-lg rounded-md hover:shadow-inner">
-                <div className="mx-3">
-                    <div className="flex justify-between">
-                        <Link href={`/blog/${slug}`} className="text-2xl font-semibold hover:underline hover:underline-offset-2">
+                <div className="mx-3 flex flex-col md:gap-2 gap-4">
+                    <div className="flex sm:flex-row flex-col justify-between">
+                        <Link href={`/blog/${slug}`} className="md:text-2xl sm:text-lg text-base font-semibold hover:underline hover:underline-offset-2">
                             {title}
                         </Link>
-                        <div className="text-sm text-right">
+                        <div className="md:text-sm text-xs sm:text-right text-left">
                             {date.toLocaleDateString("in-ID", {
                                 year: "numeric",
                                 month: "long",
@@ -35,16 +35,16 @@ export default function BlogCard({
                         </div>
                     </div>
                     <p className="text-gray-500">{description}</p>
-                    {/* <div className="flex flex-wrap">
+                    <div className="flex flex-wrap gap-2">
                         {tags.map((tag, id) => (
                             <span
                                 key={id}
-                                className="text-xs bg-slate300 dark:bg-slate900 text-slate900 dark:text-slate200 px-2 py-1 rounded-md m-1"
+                                className="text-xs bg-slate100 dark:bg-slate900 text-slate900 dark:text-slate200 px-2 py-1 rounded-md"
                             >
                                 {tag}
                             </span>
                         ))}
-                    </div> */}
+                    </div>
                 </div>
             </div>
         </Suspense>

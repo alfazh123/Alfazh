@@ -27,6 +27,8 @@ const config: Config = {
         colors: {
             bone: "#EAF7DF",
             purple: "#381E70",
+            slate: "#1e293b",
+            slate100: "#f1f5f9",
             slate200: "#e2e8f0",
             slate300: "#cbd5e1",
             slate400: "#94a3b8",
@@ -40,6 +42,7 @@ const config: Config = {
             white: "#ffffff",
             black: "#000000",
             black100: "#1e1e1e",
+            tosca100: "#4096bf",
         },
     },
     plugins: [require("@tailwindcss/typography")],
