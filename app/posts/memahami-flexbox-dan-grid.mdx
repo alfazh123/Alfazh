@@ -1,0 +1,122 @@
+---
+title: "Memahami Flexbox dan Grid"
+description: "Memahami penggunaan dan perbedaan Flexbox dan Grid"
+date: 2024-08-28
+tags: ["css", "flexbox", "grid"]
+---
+
+Layouting merupakan salah satu hal penting dalam pengembangan website. Dengan melakukan layouting yang baik, website kita akan terlihat menarik mudah dipahami oleh pengguna. Teknik layouting pada website ada berbagai macam untuk kali ini yang akan dibahas diantaranya adalah Flexbox dan Grid.
+
+# Flexbox
+
+Flexbox merupakan teknik layouting CSS yang memungkinkan kita untuk membuat tampilan yang responsif, fleksibel, dan mudah diatur. Flexbox digunakan untuk mengatur layout dari tulisan, gambar, content, ,conponent, dan elemen HTML lainnya.
+
+## Penggunaan Flexbox
+
+Untuk dapat menggunakan Flexbox kita perlu memberikan comand CSS <span className="italic text-tosca100">display: flex;</span> pada elemen yang akan diberikan efek flexbox. Command ini merupakan parent atau container dari perintah-perintah flexbox lainnya.
+
+```css
+.container {
+  display: flex;
+}
+```
+Untuk dapat mengatur arah, posisi, dan tata letak dari elemen-elemen yang menggunakan flexbox kita bisa menggunakan command-command seperti dibawah ini:
+
+### flex-direction 
+Mengatur arah dari elemen-elemen entah itu horizontal atau vertical. Nilai yang bisa digunakan adalah <span className="italic text-tosca100">row</span>, <span className="italic text-tosca100">row-reverse</span>, <span className="italic text-tosca100">column</span>, dan <span className="italic text-tosca100">column-reverse</span>, .
+
+### flex-wrap
+
+Mengatur elemen-elemen dipaksa untuk tetap berada dalam satu baris atau beberapa jika memungkinkan. Nilai yang bisa digunakan adalah <span className="italic text-tosca100">nowrap</span>, <span className="italic text-tosca100">wrap</span>, dan <span className="italic text-tosca100">wrap-reverse</span>.
+
+
+# Grid
+
+Layouting menggunakan Grid bisa dibilang lebih kompleks dari Flexbox. Grid juga disebut dengan kisi dengan artian kita pada grid layput kita menggunkan konsep <span className="italic text-tosca100">row</span> dan <span className="italic text-tosca100">column</span> untuk mengatur taa letak elemen-elemen. Sama seperti Flexbox saat ingin menggunakan grid layout kita perlu memberikan command CSS <span className="italic text-tosca100">display: grid;</span> pada elemen yang akan diberikan efek grid.
+
+## Penggunaan Grid
+
+```css
+.container {
+  display: grid;
+}
+```
+
+dalam mengatur grid layout kita bisa menggunakan command-command seperti dibawah ini:
+
+### <span className="italic">grid-template-columns</span> dan <span className="italic">grid-template-rows</span>
+
+Mengatur jumlah kolom atau baris yang akan digunakan dalam grid layout. penggunaannya bisa menggunakan nilai <span className="italic text-tosca100">px</span>, <span className="italic text-tosca100">fr</span>, atau <span className="italic text-tosca100">%</span>.
+
+penggunaan <span className="italic">grid-template-columns</span>:
+
+```css
+# grid layout dengan 3 kolom
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+```
+
+penggunaan grid-template-rows:
+
+```css
+# grid layout dengan 3 baris
+.container {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+```
+
+### grid-gap
+
+Memberikan nilai jarak yang sama antar elemen-elemen dalam grid layout. Nilai yang bisa digunakan adalah <span className="italic text-tosca100">px</span>, <span className="italic text-tosca100">fr</span>, atau <span className="italic text-tosca100">%</span>.
+
+```css
+# memberikan jarak 10px antar elemen-elemen dalam grid layout
+.container {
+  display: grid;
+  grid-gap: 10px;
+}
+```
+
+### grid-column dan grid-row
+
+Command ini digunakan untuk mengatur banyaknya nilai kolom atau baris pada suatu elemen.
+
+```css
+# mengatur elemen pada kolom 1 hingga kolom 3
+.item {
+  grid-column: 1 / 3;
+}
+```
+
+```css
+# mengatur elemen pada baris 1 hingga baris 3
+.item {
+  grid-row: 1 / 3;
+}
+```
+
+### grid-area
+
+Command ini menentukan berapa banyak area kolom dan baris yang dicakup pada elemen yang dituju.
+
+```css
+# mengatur elemen pada kolom 1 hingga kolom 3 dan baris 2 hingga baris 3
+.item1 {
+    display: grid;
+    grid-area: 2 / 1 / 3 / 3;
+}
+```
+
+Perintah dari grid area memiliki susunan grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end.
+
+# Resourches
+
+- [Flex - Tailwind CSS](https://tailwindcss.com/docs/flex)
+- [Grid Templates Columns - Tailwind CSS](https://tailwindcss.com/docs/grid-template-columns)
+- [Grid Templates Rows - Tailwind CSS](https://tailwindcss.com/docs/grid-template-rows)
+- [CSS grid-area property](https://www.w3schools.com/cssref/pr_grid-area.php)
+- [MDN Web Docs - Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout)
+- [MDN Web Docs - Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout)
