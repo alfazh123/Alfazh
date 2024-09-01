@@ -23,7 +23,7 @@ export default function Book({ title, src, year, authors }: BookProps) {
         <div>
             <button
                 type="button"
-                className="group dark:bg-slate700 bg-sand200 shadow-lg rounded-md h-80 w-full"
+                className="group dark:bg-slate700 bg-slate100 shadow-lg rounded-md h-80 w-full"
                 onClick={TogleModal}
             >
                 <div className="my-5 flex flex-col justify-center items-center space-y-4">
@@ -45,7 +45,7 @@ export default function Book({ title, src, year, authors }: BookProps) {
                     className="h-screen w-screen flex items-center z-0 fixed justify-center top-0 right-0 bottom-0 left-0 bg-slate800 bg-opacity-60 backdrop-blur-md text-slate800"
                     onClick={TogleModal}
                 >
-                    <div className="bg-white px-2 py-4">
+                    <div className="bg-white px-4 py-6 rounded-md">
                         <Image
                             src={src}
                             alt={title}
@@ -54,11 +54,11 @@ export default function Book({ title, src, year, authors }: BookProps) {
                             className="md:w-80 w-44 aspect-auto rounded-sm dark:bg-slate700 h-full"
                             onClick={(e) => e.stopPropagation()}
                         />
-                        <p className="text-slate900 font-semibold text-sm">
+                        <p className="text-slate900 font-semibold text-2xl">
                             {title},<span className="tabular-nums">{year}</span>
                         </p>
-                        <h3 className="text-lg font-bold">
-                            Karya {authors.map((author) => author)}
+                        <h3 className="text-lg">
+                            Karya <span className="font-bold">{authors.map((author) => author)}</span>
                         </h3>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ import { FaBook } from "react-icons/fa";
 export default function Home() {
     return (
         <main className="flex flex-col mb-10 px-8">
-            <div className="flex items-center h-screen flex-col justify-center gap-12 border-solid border-b-2 border-b-slate700 dark:border-b-slate300 relative">
+            <div className="flex items-center h-screen flex-col justify-center gap-12 border-solid relative">
                 <header className="flex flex-col transition-all ease-in-out duration-700 absolute left-0">
                     <div>
                         <h1 className="lg:text-7xl md:text-6xl sm:text-4xl text-4xl font-bold gap-4">
@@ -35,6 +35,8 @@ export default function Home() {
                     See More
                 </Link>
             </div>
+
+            <hr />
 
             <section className="space-y-2 mb-10 mt-32 scroll-m-20" id="content">
                 <h2 className="text-2xl font-semibold">Some Project</h2>

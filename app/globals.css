@@ -76,6 +76,17 @@
 /* rgb(188, 253, 85) */
 /* rgb(241, 0, 136) */
 
+hr {
+    background: linear-gradient(to right, transparent, #39393a98, transparent);
+    height: 2px;
+    border: 0px;
+    margin: 0 1rem;
+    
+    .dark & {
+        background: linear-gradient(to right, transparent, #ffffff98, transparent);
+    }
+}
+
 .about {
     /* @apply bg-gradient-to-r from-black from-50% to-slate200 to-50% dark:from-white dark:to-slate900 dark:from-50% dark:to-50%; */
     border: 1px solid black;
@@ -222,7 +233,7 @@ pre {
 }
 
 .blog-card{
-    background: linear-gradient(30deg, #ffffff 50%, #e0e0e0 100%) padding-box;
+    background: linear-gradient(30deg, #ffffff 50%, rgb(240, 240, 240) 100%) padding-box;
     border: 3px solid transparent;
 }
 

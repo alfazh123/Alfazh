@@ -47,10 +47,12 @@ export default function Blog({ params }: { params: { slug: string } }) {
             <section
                 className={`px-4 md:pt-8 pt-8 backdrop-blur-2xl space-y-5 bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-25 md:rounded-xl rounded-lg ${inter.className}`}
             >
-                <BackToBlogButton />
 
-                <header className="flex md:flex-row justify-center flex-col gap-4 min-h-32 mb:pb-0 pb-20">
-                    <div className="flex flex-col md:items-center items-start md:text-center text-left gap-4">
+                <header className="flex md:flex-row justify-center flex-col gap-8 min-h-32 py-20">
+                    <div className="w-52">
+                        <BackToBlogButton />
+                    </div>
+                    <div className="flex flex-col lg:items-center md:items-end lg:text-center text-right gap-4">
                         <h1 className="font-bold text-4xl">{props.data.title}</h1>
                         <p className="text-base">
                             {props.data.date.toLocaleDateString("en-US", {
@@ -60,9 +62,14 @@ export default function Blog({ params }: { params: { slug: string } }) {
                             })}
                         </p>
                     </div>
+                    <div className="w-52 lg:block hidden">
+
+                    </div>
                 </header>
 
-                <span className="w-full h-1 flex my-8 rounded-full bg-slate300 dark:bg-slate600"></span>
+                <hr />
+
+                {/* <span className="w-full h-1 flex my-8 rounded-full bg-slate300 dark:bg-slate600"></span> */}
 
                 {/* <span className="flex ">
                     <article className="prose max-w-[800px] flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] text-xs dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">

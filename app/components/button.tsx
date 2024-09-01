@@ -31,22 +31,23 @@ export const ProjectButton = () => {
 
 export const BackToBlogButton = () => {
     return (
-        <Link href={`/blog`} className="group relative flex w-48 md:sticky md:top-20 md:left-4 left-0">
-            <span className={clsx(
-                `absolute left-12 top-3 hidden z-10 w-48`,
-                `group-hover:transition-all group-hover:translate-x-0 `,
-                `md:group-hover:flex`
-            )}>Back To Blog Page</span>
+        <Link href={`/blog`} className="group md:relative flex w-52 md:top-4 md:left-4 left-0 overflow-hidden">
+            <span className={`absolute left-12 top-3 z-10 w-48 bg-opacity-0 -translate-x-48 group-hover:translate-x-0 transition-all group-hover:duration-1000 ease-in-out text-black100 dark:text-slate100 rounded-md overflow-hidden`}>Back To Blog Page</span>
 
             <div className={clsx(
-                    `w-12 h-12 rounded-full overflow-hidden ring-2 ring-slate400 flex items-center`,
-                    `md:group-hover:transition-all md:group-hover:duration-300 md:group-hover:ease-in-out md:group-hover:w-48`,
-                    `bg-slate200 dark:bg-black100`
+                    `w-12 h-12 rounded-full overflow-hidden flex items-center`,
+                    `transition-all duration-500 ease-in-out md:group-hover:w-52`,
+                    `lg:bg-slate100 lg:dark:bg-black100 lg:bg-opacity-65 bg-opacity-100 border border-b-2 border-r-0 border-l-0 border-t-0 border-slate300 dark:border-b-slate900`
                 )}>
-                <div className="dark:bg-slate900 dark:bg-opacity-20 bg-slate200 w-12 h-12 p-3 rounded-full">
+                <div className="w-12 h-12 p-3 rounded-full bg-slate100 dark:bg-black100 z-20">
                     <IoMdArrowBack className="text-2xl dark:text-white text-black100" />
                 </div>
             </div>
+            {/* <div className="w-12 h-12 rounded-full overflow-hidden flex items-center transition-all duration-1000 ease-in-out md:group-hover:w-48 bg-slate400">
+                <div className="w-12 h-12 p-3 rounded-full">
+                    <IoMdArrowBack className="text-2xl dark:text-white text-black100" />
+                </div>
+            </div> */}
         </Link>
     )
 }
