@@ -10,6 +10,8 @@ import { CustomMDX } from "@/app/components/blog/mdx";
 import { getHeadings } from "@/app/lib/getMDX";
 import TableOfContents from "@/app/components/blog/toc";
 
+import TextInformation from "@/app/components/blog/text-information";
+
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 function getPost() {
@@ -48,7 +50,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 className={`px-4 md:pt-8 pt-8 backdrop-blur-2xl space-y-5 bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-25 md:rounded-xl rounded-lg ${inter.className}`}
             >
 
-                <header className="flex md:flex-row justify-center flex-col gap-8 min-h-32 py-20">
+                <header className="flex md:flex-row justify-between flex-col gap-8 min-h-32 py-20">
                     <div className="w-52">
                         <BackToBlogButton />
                     </div>
@@ -82,7 +84,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     <span className="md:hidden block mt-10 sticky top-14">
                         <TableOfContents headings={headings} />
                     </span>
-                    <article className="prose mx-2 md:col-span-2 max-w-none flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
+                    <article className="prose prose-quoteless prose-neutral dark:prose-invert mx-2 md:col-span-2 max-w-none flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
                         <CustomMDX source={props.content} />
                     </article>
                     <span className="max-w-96 w-full md:block hidden">

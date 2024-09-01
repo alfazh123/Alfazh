@@ -51,7 +51,7 @@ function RoundedImage(props: { alt: string; src: string }) {
 
 function CodeBlock({ children }: { children: string }) {
     const codeHTML = highlight(children);
-    return <div dangerouslySetInnerHTML={{ __html: codeHTML }} />;
+    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} />;
 }
 
 function slugify(str: string) {
@@ -82,6 +82,7 @@ function createHeading(level: number) {
         );
     };
 }
+
 
 let components = {
     h1: createHeading(1),
