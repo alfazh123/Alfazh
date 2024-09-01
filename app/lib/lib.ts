@@ -68,15 +68,70 @@ const projects = [
 
 const art = [
     {
-        id: "1",
-        title: "The Starry Night",
-        "image-url": "/art1.png",
+        image: '/art-photo/art3.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
     },
     {
-        id: "2",
-        title: "The Starry Night",
-        "image-url": "/art2.png",
+        image: '/art-photo/art4.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
     },
+    {
+        image: '/art-photo/art5.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art6.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art7.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art8.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art9.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art10.jpg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art11.jpeg',
+        date: '2021-10-10',
+        device: 'Samsung Galaxy A12',
+    },
+    {
+        image: '/art-photo/art12.jpeg',
+        device: 'Samsung Galaxy A12',
+        date: '2021-10-10',
+    },
+    {
+        image: '/art-photo/art13.jpeg',
+        device: 'Samsung Galaxy A12',
+        date: '2021-10-10',
+    },
+    {
+        image: '/art-photo/art14.jpeg',
+        device: 'Samsung Galaxy A12',
+        date: '2021-10-10',
+    },
+    {
+        image: '/art-photo/art15.jpeg',
+        device: 'Samsung Galaxy A12',
+        date: '2021-10-10', 
+    }
 ];
 
 const hobbys = [

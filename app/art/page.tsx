@@ -1,6 +1,5 @@
-import { Suspense } from "react";
 import { Metadata } from "next";
-import fs from "fs";
+import { art } from "../lib/lib";
 
 import { Source_Serif_4 } from "next/font/google";
 
@@ -13,23 +12,8 @@ export const metadata: Metadata = {
     description: "Art & Photography by Alfazh",
 };
 
-const dir = "./public/art-photo/";
-const files = fs.readdirSync(dir);
-const content = files.map((file) => {
-    return "/art-photo/" + file;
-});
-
-const getdate = content.map((file) => {
-    const date = fs.statSync("./public" + file);
-    // console.log(date);
-    return date.birthtime;
-});
 
 export default function Art() {
-    const dates = getdate.map((date) => {
-        const dates = date.toString().split(" ").slice(1, 4).join(" ");
-        return dates;
-    });
     return (
         <div className="flex flex-col space-y-8 px-8 pt-32">
             <header className="space-y-10">
@@ -43,7 +27,7 @@ export default function Art() {
                 </p>
             </header>
             <div>
-                <ListArt Props={{ art: content, date: dates }} />
+                <ListArt Props={art} />
             </div>
         </div>
     );
