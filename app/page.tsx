@@ -43,7 +43,7 @@ export default function Home() {
                 <p className="text-gray-500">
                     Here&apos;s latest project that I&apos;ve been working on
                 </p>
-                <div className="grid lg:grid-cols-3 sm:grid-cols-2 gap-5">
+                <div className="sm:grid lg:grid-cols-3 sm:grid-cols-2 flex flex-col gap-5">
                     {projects.map((project, id) => (
                         <div className={`${id <= 1 ? "" : "hidden"}`} key={id}>
                             <ProjectCard key={id} {...project} />
