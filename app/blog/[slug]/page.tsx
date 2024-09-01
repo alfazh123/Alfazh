@@ -10,8 +10,6 @@ import { CustomMDX } from "@/app/components/blog/mdx";
 import { getHeadings } from "@/app/lib/getMDX";
 import TableOfContents from "@/app/components/blog/toc";
 
-import TextInformation from "@/app/components/blog/text-information";
-
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 function getPost() {
