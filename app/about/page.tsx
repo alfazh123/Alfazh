@@ -4,7 +4,9 @@ import { SocialMediaLink } from "@/util/type";
 import authorImg from "/public/author.jpg"
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
-import TechStack from "../components/tech-stack";
+import { TextHighlight } from "../components/text";
+import Section from "../components/about/fragment-section";
+import Link from "next/link";
 
 const socialMedia: SocialMediaLink[] = [
     {
@@ -23,22 +25,34 @@ export default function About() {
         <div className="px-8 pt-32 backdrop-blur-xl lg:grid lg:grid-cols-2 flex flex-col-reverse gap-10">
             {/*bg-white dark:bg-black100 bg-opacity-35 dark:bg-opacity-35 pb-20 rounded-md  */}
             <article className="space-y-8">
-                <section className="space-y-4">
-                    <h1 className="font-bold md:text-4xl text-3xl">Hi Everyone</h1>
-                    <p className="md:text-xl text-lg">My name Ahmd Mufahras Li Alfazh Assardew but You can call me Alfazh, I&apos;m a Undergraduate Informatic Engineer from State University of Surabaya. I&apos;m alsi a Front-end Developer, i have passion for web development, creating a technology that can help people, and learning about a new things.</p>
 
-                    <br/>
+                <Section>
+                    <Section.Header1>Hi Everyone</Section.Header1>
+                    <Section.Paragraph>
+                        My name Ahmd Mufahras Li Alfazh Assardew but You can call me Alfazh, I&apos;m a Undergraduate Informatic Engineer from State University of Surabaya. I&apos;m alsi a Front-end Developer, i have passion for web development, creating a technology that can help people, and learning about a new things.
+                    </Section.Paragraph>
+                </Section>
 
-                    <p className="md:text-xl text-lg">I have an interest in the field of Technology when I was in high school where I used to participate in the informatics competition, and when I entered college, to be precise in the second semester I got advice from my friend to learn about web development</p>
-                </section>
+                <Section>
+                    <Section.Header4>My Skills</Section.Header4>
+                    <Section.Container>
+                        <Section.Paragraph>
+                            I have experience with the following technologies:
+                        </Section.Paragraph>
+                        <Section.List list={["HTML", "CSS", "Javascript", "React", "Next.js", "TailwindCSS", "Redux", "Node.js", "Firebase", "Git", "PostgresQL"]} />
+                    </Section.Container>
+                </Section>
 
-                <section className="space-y-4">
-                    <h1 className="font-bold md:text-4xl text-3xl">My Journey</h1>
-                    <p className="md:text-xl text-lg">I started my journey in web development in the second semester of college, I started learning about HTML, CSS, and Javascript, and I started to make a simple website, and I started to learn about the framework like React and Next.js</p>
-                </section>
+                <Section>
+                    <Section.Header4>What am I Interested</Section.Header4>
+                    <Section.Paragraph>
+                        I am interested in web development, especially in Front-end Development, I am also interested in learning about new technology. I am alsi interested to be an Ilustrator, i share about my art in my instagram account and on <Link href="art" className="font-bold underline underline-offset-0 hover:underline-offset-4 transition-all duration-700 ease-in-out">`Art & Photography Page`</Link>.
+                    </Section.Paragraph>
+                </Section>
+
             </article>
 
-            <div className="flip-card md:w-72 md:h-72 w-16 h-16">
+            {/* <div className="flip-card md:w-72 md:h-72 w-16 h-16">
                 <div className="inner-card w-full h-full relative">
                     <div className="front flex justify-center items-center md:w-72 md:h-72 w-16 h-16 md:mx-auto md:mb-4 resize transition-all duration-700 ease-in-out absolute">
                         <Image
@@ -62,7 +76,7 @@ export default function About() {
                         ))}
                     </ul>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
