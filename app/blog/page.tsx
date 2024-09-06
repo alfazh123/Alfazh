@@ -24,11 +24,13 @@ export default async function Blog({
             search: searchParams?.search,
             tag: searchParams?.tags,
         });
-        const { frontMatter, slug } = props;
-        return { frontMatter, slug };
+        const { frontMatter } = props;
+        return { frontMatter };
+        // const data = props;
     };
 
     const files = await fetchData();
+    console.log(files);
 
     const tagsArray = getTagsMDX();
 
@@ -37,23 +39,26 @@ export default async function Blog({
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
             <SearchTag tags={tagsArray} />
-            {files.frontMatter.length===1 ? 
-                null:
+            {files.frontMatter.length<1 ? 
+                <p className="text-base">
+                    No Articles Found
+                </p>
+                :
                 <p className="text-base">
                     {files.frontMatter.length} Articles Found
                 </p>
             }
             <ul className="flex flex-col gap-4">
                 {files.frontMatter.sort((a,b)=>{
-                    return new Date(b.date).getTime() - new Date(a.date).getTime()
+                    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
                 }).map((file, id)=> (
                     <li key={id}>
                         <BlogCard
-                            title={file.title}
-                            description={file.description}
-                            slug={files.slug[id]}
-                            date={file.date}
-                            tags={file.tags}
+                            title={file.data.title}
+                            description={file.data.description}
+                            slug={file.slug}
+                            date={file.data.date}
+                            tags={file.data.tags}
                         />
                     </li>
                 ))}

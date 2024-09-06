@@ -24,9 +24,9 @@ function generateStaticParams({
         return slug;
     });
 
-    let frontMatter = contentFile.map((file) => {
+    let frontMatter = contentFile.map((file, id) => {
         const data = matter(file);
-        return data.data;
+        return {data : data.data, slug: slug[id]};
     });
 
     if(tag) {
@@ -34,7 +34,7 @@ function generateStaticParams({
         tag.forEach((t) => {
             frontMatter = frontMatter.filter((file) => {
                 return (
-                    file.tags.join(' ').toLowerCase().includes(t)
+                    file.data.tags.join(' ').toLowerCase().includes(t)
                 )
             })
         })
@@ -46,9 +46,9 @@ function generateStaticParams({
         // declare new frontMatter / data with filter function
         frontMatter = frontMatter.filter((file) => {
             return (
-                file.title.toLowerCase().includes(searchs) ||
-                file.description.toLowerCase().includes(searchs) ||
-                file.tags.join(' ').toLowerCase().includes(searchs)
+                file.data.title.toLowerCase().includes(searchs) ||
+                file.data.description.toLowerCase().includes(searchs) ||
+                file.data.tags.join(' ').toLowerCase().includes(searchs)
             );
         });
     }
@@ -56,7 +56,6 @@ function generateStaticParams({
     return {
         props: {
             frontMatter,
-            slug,
         },
     };
 }

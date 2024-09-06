@@ -33,11 +33,22 @@ function getPost() {
     });
 }
 
+function getUpdateDate({ slug }: { slug: string } ) {
+    const dir = path.join(process.cwd(), "app/posts");
+
+    const date = fs.statSync(path.join(dir, slug + ".mdx")).mtime;
+
+    return date;
+}
+
 export default function Blog({ params }: { params: { slug: string } }) {
     const props = getPost().find((post) => post.slug === params.slug);
 
     const content = props?.content || '';
     const headings = getHeadings(content);
+
+    const lastChangeDate = getUpdateDate({ slug: params.slug });
+    console.log(lastChangeDate);
 
     if (!props) {
         return <div>Post not found</div>;
@@ -55,7 +66,14 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     <div className="flex flex-col lg:items-center md:items-end lg:text-center text-right gap-4">
                         <h1 className="font-bold text-4xl">{props.data.title}</h1>
                         <p className="text-base">
-                            {props.data.date.toLocaleDateString("en-US", {
+                            Create at : {props.data.date.toLocaleDateString("id-ID", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            })}
+                        </p>
+                        <p className="text-xs">
+                            Last updated: {lastChangeDate.toLocaleDateString("id-ID", {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric",
@@ -68,15 +86,6 @@ export default function Blog({ params }: { params: { slug: string } }) {
                 </header>
 
                 <hr />
-
-                {/* <span className="w-full h-1 flex my-8 rounded-full bg-slate300 dark:bg-slate600"></span> */}
-
-                {/* <span className="flex ">
-                    <article className="prose max-w-[800px] flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] text-xs dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
-                        <CustomMDX source={props.content} />
-                    </article>
-                    <TableOfContents headings={headings} />
-                </span> */}
 
                 <span className="md:grid md:grid-cols-3">
                     <span className="md:hidden block mt-10 sticky top-14">

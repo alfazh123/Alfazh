@@ -26,13 +26,13 @@ export default function BlogCard({
                         <Link href={`/blog/${slug}`} className="md:text-2xl sm:text-lg text-base font-semibold hover:underline hover:underline-offset-2">
                             {title}
                         </Link>
-                        <div className="md:text-sm text-xs sm:text-right text-left">
+                        <p className="md:text-sm text-xs">
                             {date.toLocaleDateString("in-ID", {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric",
                             })}
-                        </div>
+                        </p>
                     </div>
                     <p className="text-gray-500">{description}</p>
                     <div className="flex flex-wrap gap-2">
