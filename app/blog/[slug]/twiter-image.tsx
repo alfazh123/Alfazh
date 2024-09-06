@@ -1,9 +1,8 @@
 import { ImageResponse } from "next/og";
-import { generateStaticParams } from "@/app/lib/getMDX";
 
 export const runtime = "edge";
 
-export const alt = "Ahmd Alfazh";
+export const alt = "Blog Ahmd Alfazh";
 export const size = {
     width: 1200,
     height: 630,
@@ -17,7 +16,17 @@ function capitalizeFirstLetter(string: string) {
         index === 0 ? char.toUpperCase() : char).join('')
 }
 
-export default async function Image() {
+export default async function Image({
+    params
+} : {
+    params: {
+        slug: string;
+    };
+}) {
+    const titleWord = params.slug.split('-');
+    const Title = titleWord.map((str, id) => {
+        return capitalizeFirstLetter(str);
+    }).join(' ');
 
 
     return new ImageResponse(
@@ -31,9 +40,9 @@ export default async function Image() {
                 alignItems: 'center',
             }}
             >
-                <img src="https://alfazh.vercel.app/bg-og.png" alt="logo" width={1300} height={630} className="" />
-                <h3 tw="absolute z-10 w-[650px] bottom-72 text-white left-24 text-6xl">Ahmd Alfazh</h3>
-                <p tw="absolute z-10 bottom-52 w-[450px] left-24 text-white">A Portfolio Website by Alfazh, show some of my Pprojects, Art, and Blog.</p>
+                <img src="https://alfazh.vercel.app/bg-og.png" alt="og-blog" width={1300} height={630} className="" />
+                <h3 tw="absolute z-10 w-[670px] bottom-72 text-white left-24 text-6xl">{Title}</h3>
+                <p tw="absolute z-10 bottom-62 left-24 text-white">Blog Written by Alfazh</p>
             </div>
         ),
         {

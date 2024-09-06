@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { generateStaticParams } from "@/app/lib/getMDX";
 
 export const runtime = "edge";
 
@@ -8,19 +9,31 @@ export const size = {
     height: 630,
 };
 
+
 export const contentType = "image/png";
 
+function capitalizeFirstLetter(string: string) {
+    return string.split('').map((char, index) =>
+        index === 0 ? char.toUpperCase() : char).join('')
+}
+
 export default async function Image() {
+
+
     return new ImageResponse(
         (
             <div
-                tw={`bg-[#F0F0F0] text-center justify-center items-center flex flex-col mx-auto w-full h-full`}
+            style={{
+                position: 'relative',
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                alignItems: 'center',
+            }}
             >
-                <h1 tw="text-6xl font-bold">Ahmd Alfazh</h1>
-                <p tw="text-3xl bg-[#3C7BC0] text-white px-3 py-2 rounded-md">Front-end Developer</p>
-                <div tw="bg-[#3C7BC0] h-2 w-72 mb-4"></div>
-                <div tw="bg-[#3C7BC0] h-2 w-64 mb-4"></div>
-                <div tw="bg-[#3C7BC0] h-2 w-56 mb-4"></div>
+                <img src="https://alfazh.vercel.app/bg-og.png" alt="logo" width={1300} height={630} className="" />
+                <h3 tw="absolute z-10 w-[650px] bottom-72 text-white left-24 text-6xl">Ahmd Alfazh</h3>
+                <p tw="absolute z-10 bottom-52 w-[450px] left-24 text-white">A Portfolio Website by Alfazh, show some of my Pprojects, Art, and Blog.</p>
             </div>
         ),
         {
