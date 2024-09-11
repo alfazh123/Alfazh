@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 
 
-function generateStaticParams({
+function getPosts({
     search,
     tag,
 }: {
@@ -120,17 +120,18 @@ function getHeadings (content: string) {
     return headings;
 }
 
-export {
-    generateStaticParams, 
-    getTagsMDX, 
-    getHeadings
-}
-
 // get last update file
-export function getUpdateDate({ slug }: { slug: string } ) {
+function getUpdateDate({ slug }: { slug: string } ) {
     const dir = path.join(process.cwd(), "app/posts");
 
     const date = fs.statSync(path.join(dir, slug + ".mdx")).mtime;
 
     return date;
+}
+
+export {
+    getPosts, 
+    getTagsMDX, 
+    getHeadings,
+    getUpdateDate
 }

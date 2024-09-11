@@ -1,4 +1,4 @@
-import { generateStaticParams, getUpdateDate, getHeadings } from "@/app/lib/getMDX";
+import { getPosts, getUpdateDate, getHeadings } from "@/app/lib/getMDX";
 
 import { Inter } from "next/font/google";
 import { BackToBlogButton } from "@/app/components/button";
@@ -9,7 +9,7 @@ import { CustomMDX } from "@/app/components/blog/mdx";
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export default function Blog({ params }: { params: { slug: string } }) {
-    const post = generateStaticParams({ search: "", tag: [] }).find((post) => post.slug === params.slug);
+    const post = getPosts({ search: "", tag: [] }).find((post) => post.slug === params.slug);
 
     const content = post?.content || '';
     const headings = getHeadings(content);

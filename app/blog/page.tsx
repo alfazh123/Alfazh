@@ -1,4 +1,4 @@
-import { generateStaticParams } from "../lib/getMDX";
+import { getPosts } from "../lib/getMDX";
 import { getTagsMDX } from "../lib/getMDX";
 import { Metadata } from "next";
 
@@ -20,7 +20,7 @@ export default async function Blog({
     };
 }) {
     const fetchData = async () => {
-        const posts  = generateStaticParams({
+        const posts  = getPosts({
             search: searchParams?.search,
             tag: searchParams?.tags,
         });

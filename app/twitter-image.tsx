@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { generateStaticParams } from "@/app/lib/getMDX";
 
 export const runtime = "edge";
 
