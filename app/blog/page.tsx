@@ -20,17 +20,15 @@ export default async function Blog({
     };
 }) {
     const fetchData = async () => {
-        const { props } = generateStaticParams({
+        const posts  = generateStaticParams({
             search: searchParams?.search,
             tag: searchParams?.tags,
         });
-        const { frontMatter } = props;
-        return { frontMatter };
+        return posts ;
         // const data = props;
     };
 
     const files = await fetchData();
-    console.log(files);
 
     const tagsArray = getTagsMDX();
 
@@ -39,26 +37,26 @@ export default async function Blog({
             <h1 className="font-bold text-4xl">Blog</h1>
             <Search />
             <SearchTag tags={tagsArray} />
-            {files.frontMatter.length<1 ? 
+            {files.length<1 ? 
                 <p className="text-base">
                     No Articles Found
                 </p>
                 :
                 <p className="text-base">
-                    {files.frontMatter.length} Articles Found
+                    {files.length} Articles Found
                 </p>
             }
             <ul className="flex flex-col gap-4">
-                {files.frontMatter.sort((a,b)=>{
-                    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+                {files.sort((a,b)=>{
+                    return new Date(b.posts.date).getTime() - new Date(a.posts.date).getTime()
                 }).map((file, id)=> (
                     <li key={id}>
                         <BlogCard
-                            title={file.data.title}
-                            description={file.data.description}
+                            title={file.posts.title}
+                            description={file.posts.description}
                             slug={file.slug}
-                            date={file.data.date}
-                            tags={file.data.tags}
+                            date={file.posts.date}
+                            tags={file.posts.tags}
                         />
                     </li>
                 ))}

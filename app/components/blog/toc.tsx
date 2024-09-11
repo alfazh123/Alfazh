@@ -77,13 +77,6 @@ export function TOCMobile ({ headings }: HeadingsProps) {
 }
 
 export default function TableOfContents ({ headings }: HeadingsProps) {
-    const [isOpen, setIsOpen] = useState(false)
-
-    const handleOpen = () => {
-        setIsOpen(!isOpen)
-        console.log(isOpen)
-    }
-
     return (
         <span className="sticky top-20">
             {/* TOC in large screen */}

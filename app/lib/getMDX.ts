@@ -24,17 +24,17 @@ function generateStaticParams({
         return slug;
     });
 
-    let frontMatter = contentFile.map((file, id) => {
-        const data = matter(file);
-        return {data : data.data, slug: slug[id]};
+    let posts = contentFile.map((file, id) => {
+        const {content, data} = matter(file);
+        return {posts : data, slug: slug[id], content: content};
     });
 
     if(tag) {
         tag = Array.isArray(tag) ? tag : [tag];
         tag.forEach((t) => {
-            frontMatter = frontMatter.filter((file) => {
+            posts = posts.filter((file) => {
                 return (
-                    file.data.tags.join(' ').toLowerCase().includes(t)
+                    file.posts.tags.join(' ').toLowerCase().includes(t)
                 )
             })
         })
@@ -43,21 +43,18 @@ function generateStaticParams({
     if (search) {
         const searchs = search.toLowerCase();
 
-        // declare new frontMatter / data with filter function
-        frontMatter = frontMatter.filter((file) => {
+        // declare new posts / data with filter function
+        posts = posts.filter((file) => {
             return (
-                file.data.title.toLowerCase().includes(searchs) ||
-                file.data.description.toLowerCase().includes(searchs) ||
-                file.data.tags.join(' ').toLowerCase().includes(searchs)
+                file.posts.title.toLowerCase().includes(searchs) ||
+                file.posts.description.toLowerCase().includes(searchs) ||
+                file.posts.tags.join(' ').toLowerCase().includes(searchs)
             );
         });
     }
 
-    return {
-        props: {
-            frontMatter,
-        },
-    };
+
+    return posts;
 }
 
 function getTagsMDX() {
@@ -127,4 +124,13 @@ export {
     generateStaticParams, 
     getTagsMDX, 
     getHeadings
+}
+
+// get last update file
+export function getUpdateDate({ slug }: { slug: string } ) {
+    const dir = path.join(process.cwd(), "app/posts");
+
+    const date = fs.statSync(path.join(dir, slug + ".mdx")).mtime;
+
+    return date;
 }
