@@ -38,13 +38,13 @@ export default function Blog({ params }: { params: { slug: string } }) {
                                 day: "numeric",
                             })}
                         </p>
-                        <p className="text-xs">
+                        {/* <p className="text-xs">
                             Last updated: {lastChangeDate.toLocaleDateString("id-ID", {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric",
                             })}
-                        </p>
+                        </p> */}
                     </div>
                     <div className="w-52 lg:block hidden">
 
