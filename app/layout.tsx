@@ -37,25 +37,25 @@ export default function RootLayout({
     return (
         <html
             lang="en"
-            className="relative lg:max-w-[1600px] mx-auto bg-scroll bg-no-repeat bg-right"
+            className="relative lg:max-w-[1200px] mx-auto bg-scroll bg-no-repeat bg-right"
         >
             <body
-                style={{ backgroundImage: "url(/bg.svg)" }}
-                className={`transition-all bg-opacity-100 ease-linear duration-300 ${mavenPro.className} bg-fixed bg-no-repeat bg-right bg-opacity-10`}
+                // style={{ backgroundImage: "url(/bg.svg)" }}
+                className={`transition-all ease-linear duration-300  bg-fixed bg-no-repeat bg-right bg-opacity-10`}
             >
-                <ThemeProvider
+                {/* <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
                     enableSystem
                     disableTransitionOnChange
-                >
+                > */}
                     <Navbar />
-                    <main className="pb-20 mx-auto lg:w-3/4 md:w-5/6 w-full justify-center items-center min-h-screen">
+                    <main className=" mx-auto lg:w-5/6 md:w-5/6 w-full justify-center items-center min-h-screen">
                         {children}
                         <Analytics />
                     </main>
                     <Footer />
-                </ThemeProvider>
+                {/* </ThemeProvider> */}
             </body>
         </html>
     );

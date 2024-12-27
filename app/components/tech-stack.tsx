@@ -1,58 +1,65 @@
-import clsx from "clsx";
+'use client';
 
-import { SiNextdotjs, SiMdx, SiRedux, SiTailwindcss, SiReact } from "react-icons/si";
+import Image from "next/image";
+
 import Link from "next/link";
 
 const techStack = [
     {
         label: "Next.js",
         link: "https://nextjs.org",
-        icon: <SiNextdotjs className="md:text-5xl text-4xl" />,
+    },
+    {
+        label: "Android",
+        link: "https://developer.android.com",
+    },
+    {
+        label: "Kotlin",
+        link: "https://kotlinlang.org",
+    },
+    {
+        label: "Docker",
+        link: "https://www.docker.com",
+    },
+    {
+        label: "Firebase",
+        link: "https://firebase.google.com",
+    },
+    {
+        label: "PostgreSQL",
+        link: "https://www.postgresql.org",
     },
     {
         label: "MDX",
         link: "https://mdxjs.com",
-        icon: <SiMdx className="md:text-5xl text-4xl" />,
     },
     {
         label: "Redux",
         link: "https://reduxjs.org",
-        icon: <SiRedux className="md:text-5xl text-4xl" />,
     },
     {
         label: "TailwindCSS",
         link: "https://tailwindcss.com",
-        icon: <SiTailwindcss className="md:text-5xl text-4xl" />,
-    },
-    {
-        label: "React.js",
-        link: "https://reactjs.org",
-        icon: <SiReact className="md:text-5xl text-4xl" />,
-    },
+    }
 ]
 
 export default function TechStack() {
     return (
 
-        <div className="flex flex-wrap gap-8">
-            {techStack.map((tech, id) => (
-                <div key={id} className="group w-16 h-16 flex flex-col justify-center items-center">
-                    <p className="group-hover:-translate-y-4 transition-all duration-500 ease-in-out">
-                        {tech.icon}
-                    </p>
-                    <Link href={tech.link} className={clsx(
-                        `text-center bg-opacity-0 text-opacity-0 px-2 rounded-md`,
-                        `group-hover:bg-opacity-100 group-hover:text-opacity-100`,
-                        `dark:bg-opacity-0 dark:text-opacity-0`,
-                        `dark:group-hover:bg-opacity-100 dark:group-hover:text-opacity-100`,
-                        `transition-all duration-700 ease-in-out`,
-                        `bg-slate900 text-slate100 dark:bg-slate100 dark:text-black100`,
-                        `hover:text-tosca100 dark:hover:text-tosca100`,
-                    )}>
-                        {tech.label}
-                    </Link>
-                </div>
-            ))}
+        <div className="flex flex-wrap w-full gap-2 mt-8 px-12">
+            {techStack.map((tech, id) => {
+                return (
+                    <div key={id} className="tech dark:techdark flex h-10 gap-2 items-center border border-slate400 px-2 pl-1 pr-4 rounded-full">
+                        <Image
+                            src="/author.jpg"
+                            alt="me"
+                            width={30}
+                            height={30}
+                            className="rounded-full grayscale"/>
+                        <p>{tech.label}</p>
+                    </div>
+                );
+            })}
         </div>
     );
 }

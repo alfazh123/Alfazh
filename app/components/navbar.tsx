@@ -67,7 +67,7 @@ export default function Navbar() {
 
     return (
         <div
-            className={`fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1600px] text-black dark:text-white ${GeistMono.className}`}
+            className={`fixed flex justify-between w-full backdrop-blur-lg z-10 lg:max-w-[1200px] text-black dark:text-white ${GeistMono.className}`}
         >
             <ul className="md:flex hidden md:px-16 md:py-5 px-4 py-3 w-full items-center">
                 {links.map(({ href, label }) => (
