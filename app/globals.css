@@ -18,7 +18,7 @@
     --radial-color: 2, 132, 199, 0.5;
 }
 
-.dark {
+/* .dark {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 30, 30, 30;
     --background-end-rgb: 30, 30, 30;
@@ -28,7 +28,7 @@
     --sh-identifier: white;
     --sh-keyword: #f47067;
     --sh-string: #0fa295;
-}
+} */
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -47,7 +47,7 @@
         --radial-color: 2, 132, 199;
     }
 
-    .dark {
+    /* .dark {
         --foreground-rgb: 255, 255, 255;
         --background-start-rgb: 30, 30, 30;
         --background-end-rgb: 30, 30, 30;
@@ -57,7 +57,7 @@
         --sh-identifier: white;
         --sh-keyword: #c673cf;
         --sh-string: #0fa295;
-    }
+    } */
 }
 
 @layer utilities {
@@ -81,9 +81,14 @@ hr {
     height: 2px;
     border: 0px;
     margin: 0 1rem;
-    
+
     .dark & {
-        background: linear-gradient(to right, transparent, #ffffff98, transparent);
+        background: linear-gradient(
+            to right,
+            transparent,
+            #ffffff98,
+            transparent
+        );
     }
 }
 
@@ -91,25 +96,25 @@ hr {
     /* @apply bg-gradient-to-r from-black from-50% to-slate200 to-50% dark:from-white dark:to-slate900 dark:from-50% dark:to-50%; */
     border: 1px solid black;
     display: block;
-  
+
     background: linear-gradient(to right, black 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 .dark .about {
     background: linear-gradient(to right, white 50%, transparent 50%);
     background-size: 200% 100%;
     background-position: right bottom;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 
-.text-about{
+.text-about {
     text-align: center;
     font-size: 16px;
     line-height: 30px;
-    transition: all .6s ease-out;
+    transition: all 0.6s ease-out;
     display: block;
 }
 
@@ -232,64 +237,80 @@ pre {
     @apply mx-auto;
 }
 
-.blog-card{
-    background: linear-gradient(30deg, #ffffff 50%, rgb(240, 240, 240) 100%) padding-box;
+.blog-card {
+    background: linear-gradient(30deg, #ffffff 50%, rgb(240, 240, 240) 100%)
+        padding-box;
     border: 3px solid transparent;
 }
 
-.blog-card:hover{
+.blog-card:hover {
     background: linear-gradient(45deg, #ffffff 0%, #e0e0e0 100%) padding-box;
     /* border: 3px solid transparent; */
 }
 
-.dark .blog-card{
-    background: linear-gradient(30deg, rgba(57, 57, 58, 0.5) 50%, #1c1c1d 100%) padding-box;
+.dark .blog-card {
+    background: linear-gradient(30deg, rgba(57, 57, 58, 0.5) 50%, #1c1c1d 100%)
+        padding-box;
     border: 3px solid transparent;
 }
 
-.dark .blog-card:hover{
-    background: linear-gradient(45deg, rgba(57, 57, 58, 0.8) 0%, #1c1c1d 100%) padding-box;
+.dark .blog-card:hover {
+    background: linear-gradient(45deg, rgba(57, 57, 58, 0.8) 0%, #1c1c1d 100%)
+        padding-box;
     border: 3px solid transparent;
 }
 
-.input-field-blog{
-    background: linear-gradient( 30deg, #ffffff 50%, #e7e7e7 100%) padding-box,
-        radial-gradient(ellipse at top left, rgba(2, 132, 199, 0) 10%, #2eb2ff10 50%) border-box,
-        radial-gradient(ellipse at bottom right, #0284c710 , rgba(46, 178, 255, 0) 50%) border-box; 
-        /* rgb(var(--background-start-rgb)); */
+.input-field-blog {
+    background: linear-gradient(30deg, #ffffff 50%, #e7e7e7 100%) padding-box,
+        radial-gradient(
+                ellipse at top left,
+                rgba(2, 132, 199, 0) 10%,
+                #2eb2ff10 50%
+            )
+            border-box,
+        radial-gradient(
+                ellipse at bottom right,
+                #0284c710,
+                rgba(46, 178, 255, 0) 50%
+            )
+            border-box;
+    /* rgb(var(--background-start-rgb)); */
     border: 3px solid transparent;
 }
 
-.dark .input-field-blog{
-    background: linear-gradient( 30deg, #39393a 0%, #1c1c1d 100%) padding-box,
-        radial-gradient(ellipse at bottom left, #0284c740 10%, #2eb2ff10 50%) border-box,
-        radial-gradient(ellipse at top right, #0284c740 , #2eb2ff10 50%) border-box;
+.dark .input-field-blog {
+    background: linear-gradient(30deg, #39393a 0%, #1c1c1d 100%) padding-box,
+        radial-gradient(ellipse at bottom left, #0284c740 10%, #2eb2ff10 50%)
+            border-box,
+        radial-gradient(ellipse at top right, #0284c740, #2eb2ff10 50%)
+            border-box;
     border: 3px solid transparent;
 }
 
-@media screen and (min-width: 768px){
-    .flip-card{
+@media screen and (min-width: 768px) {
+    .flip-card {
         perspective: 1000px;
     }
-    
-    .inner-card{
+
+    .inner-card {
         transform-style: preserve-3d;
         transition: transform 0.5s;
     }
-    
-    .flip-card:hover .inner-card{
+
+    .flip-card:hover .inner-card {
         transform: rotateY(180deg);
     }
-    
-    .front, .back{
+
+    .front,
+    .back {
         backface-visibility: hidden;
     }
-    
-    .front{
+
+    .front {
         transform: rotateY(0deg);
     }
-    
-    .back{
+
+    .back {
         transform: rotateY(180deg);
     }
 }
