@@ -49,7 +49,7 @@ export default function TechStack() {
         <div className="flex flex-wrap w-full gap-2 mt-8 px-12">
             {techStack.map((tech, id) => {
                 return (
-                    <div className="tech dark:techdark flex h-10 gap-2 items-center border border-slate400 px-2 pl-1 pr-4 rounded-full">
+                    <div key={id} className="tech dark:techdark flex h-10 gap-2 items-center border border-slate400 px-2 pl-1 pr-4 rounded-full">
                         <Image
                             src="/author.jpg"
                             alt="me"

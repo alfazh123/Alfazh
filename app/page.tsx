@@ -45,7 +45,7 @@ export default function Home() {
                         <h1 className="flex justify-center text-2xl font-bold md:p-0 pt-8 px-8">Some Project</h1>
                         <div className="flex sm:flex-row gap-4 md:p-0 pb-8 sm:pl-8 px-8 overflow-x-scroll flex-col scroll-m-0">
                             {projects.map((project, id) => (
-                                <div className="sm:w-96">
+                                <div key={id} className="sm:w-96">
                                     <ProjectCard key={id} {...project} />
                                 </div>
                             ))}
