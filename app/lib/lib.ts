@@ -64,44 +64,16 @@ const projects = [
         href: "https://github.com/alfazh123/TanyaAja",
         tag: ["NextJS", "TailwindCSS", "PostgreSQL"],
     },
-    {
-        title: "The Chosen",
-        year: 2024,
-        description: "A website for picking a random name.",
-        src: "/project/thechosen.png",
-        href: "https://github.com/alfazh123/TheChosen",
-        tag: ["HTML", "CSS", "JavaScript"]
-    }
 ];
 
 const art = [
-    {
-        image: '/art-photo/art3.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
     {
         image: '/art-photo/art4.jpg',
         date: '2021-10-10',
         device: 'Samsung Galaxy A12',
     },
     {
-        image: '/art-photo/art5.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
-    {
         image: '/art-photo/art6.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
-    {
-        image: '/art-photo/art7.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
-    {
-        image: '/art-photo/art8.jpg',
         date: '2021-10-10',
         device: 'Samsung Galaxy A12',
     },
