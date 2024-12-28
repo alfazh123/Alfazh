@@ -35,7 +35,7 @@ const projects = [
         year: 2024,
         description: "An Android application for career recomendation.",
         src: "/project/pathxplorer.png",
-        href: "https://github.com/PathXplorer-C242-PS289/PathXplorer",
+        href: "pathxplorer",
         tag: ["Android", "Kotlin", "Firebase"],
     },
     {
@@ -44,7 +44,7 @@ const projects = [
         description:
             "An application for Campus Expo event on Qomaruddin boarding school.",
         src: "/project/ace2024.png",
-        href: "https://ace2024.vercel.app",
+        href: "ace-2024",
         tag: ["NextJS", "MDX"],
     },
     {
@@ -53,16 +53,8 @@ const projects = [
         description:
             "Redesign KediriKab website with NextJS, TailwindCSS DaisyUI.",
         src: "/project/kediriweb.png",
-        href: "https://github.com/alfazh123/redesign_kedirikab",
+        href: "redesign-kefirikab",
         tag: ["NextJS"],
-    },
-    {
-        title: "Tanya Aja",
-        year: 2024,
-        description: "A website for asking and answering questions when preparing.",
-        src: "/project/tanyaaja.png",
-        href: "https://github.com/alfazh123/TanyaAja",
-        tag: ["NextJS", "TailwindCSS", "PostgreSQL"],
     },
 ];
 

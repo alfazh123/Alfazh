@@ -11,7 +11,7 @@ function getPosts({
     tag?: string[];
 }) {
     // const dir = "./app/posts";
-    const dir = path.join(process.cwd(), "app/posts");
+    const dir = path.join(process.cwd(), "app/doc/posts");
 
     const files = fs.readdirSync(dir);
 
@@ -58,7 +58,7 @@ function getPosts({
 }
 
 function getTagsMDX() {
-    const dir = path.join(process.cwd(), "app/posts");
+    const dir = path.join(process.cwd(), "app/doc/posts");
 
     const files = fs.readdirSync(dir);
 
@@ -122,16 +122,39 @@ function getHeadings (content: string) {
 
 // get last update file
 function getUpdateDate({ slug }: { slug: string } ) {
-    const dir = path.join(process.cwd(), "app/posts");
+    const dir = path.join(process.cwd(), "app/doc/posts");
 
     const date = fs.statSync(path.join(dir, slug + ".mdx")).mtime;
 
     return date;
 }
 
+function getProject() {
+    const dir = path.join(process.cwd(), "app/doc/projects");
+
+    const files = fs.readdirSync(dir);
+
+    const contentFile = files.map((file) => {
+        return fs.readFileSync(`${dir}/${file}`, "utf8");
+    });
+
+    const slugs = files.map((file) => {
+        const slug = file.replace(".mdx", "");
+        return slug;
+    });
+
+    let posts = contentFile.map((file, id) => {
+        const {content, data} = matter(file);
+        return {posts : data, slug: slugs[id], content: content};
+    });
+
+    return posts
+}
+
 export {
     getPosts, 
     getTagsMDX, 
     getHeadings,
-    getUpdateDate
+    getUpdateDate,
+    getProject
 }
