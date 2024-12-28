@@ -31,6 +31,14 @@ const books = [
 
 const projects = [
     {
+        title: "PathXplorer",
+        year: 2024,
+        description: "An Android application for career recomendation.",
+        src: "/project/pathxplorer.png",
+        href: "https://github.com/PathXplorer-C242-PS289/PathXplorer",
+        tag: ["Android", "Kotlin", "Firebase"],
+    },
+    {
         title: "ACE 2024",
         year: 2024,
         description:
