@@ -35,7 +35,7 @@ const projects = [
         year: 2024,
         description: "An Android application for career recomendation.",
         src: "/project/pathxplorer.png",
-        href: "https://github.com/PathXplorer-C242-PS289/PathXplorer",
+        href: "pathxplorer",
         tag: ["Android", "Kotlin", "Firebase"],
     },
     {
@@ -44,64 +44,19 @@ const projects = [
         description:
             "An application for Campus Expo event on Qomaruddin boarding school.",
         src: "/project/ace2024.png",
-        href: "https://ace2024.vercel.app",
+        href: "ace-2024",
         tag: ["NextJS", "MDX"],
     },
-    {
-        title: "Redesign KediriKab",
-        year: 2023,
-        description:
-            "Redesign KediriKab website with NextJS, TailwindCSS DaisyUI.",
-        src: "/project/kediriweb.png",
-        href: "https://github.com/alfazh123/redesign_kedirikab",
-        tag: ["NextJS"],
-    },
-    {
-        title: "Tanya Aja",
-        year: 2024,
-        description: "A website for asking and answering questions when preparing.",
-        src: "/project/tanyaaja.png",
-        href: "https://github.com/alfazh123/TanyaAja",
-        tag: ["NextJS", "TailwindCSS", "PostgreSQL"],
-    },
-    {
-        title: "The Chosen",
-        year: 2024,
-        description: "A website for picking a random name.",
-        src: "/project/thechosen.png",
-        href: "https://github.com/alfazh123/TheChosen",
-        tag: ["HTML", "CSS", "JavaScript"]
-    }
 ];
 
 const art = [
-    {
-        image: '/art-photo/art3.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
     {
         image: '/art-photo/art4.jpg',
         date: '2021-10-10',
         device: 'Samsung Galaxy A12',
     },
     {
-        image: '/art-photo/art5.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
-    {
         image: '/art-photo/art6.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
-    {
-        image: '/art-photo/art7.jpg',
-        date: '2021-10-10',
-        device: 'Samsung Galaxy A12',
-    },
-    {
-        image: '/art-photo/art8.jpg',
         date: '2021-10-10',
         device: 'Samsung Galaxy A12',
     },

@@ -43,19 +43,19 @@ export default function RootLayout({
                 // style={{ backgroundImage: "url(/bg.svg)" }}
                 className={`transition-all ease-linear duration-300  bg-fixed bg-no-repeat bg-right bg-opacity-10`}
             >
-                {/* <ThemeProvider
+                <ThemeProvider
                     attribute="class"
                     defaultTheme="light"
                     enableSystem
                     disableTransitionOnChange
-                > */}
+                >
                     <Navbar />
                     <main className=" mx-auto lg:w-5/6 md:w-5/6 w-full justify-center items-center min-h-screen">
                         {children}
                         <Analytics />
                     </main>
                     <Footer />
-                {/* </ThemeProvider> */}
+                </ThemeProvider>
             </body>
         </html>
     );

@@ -37,7 +37,7 @@ export default function ProjectCard({
                 `hover:bg-slate100 dark:hover:bg-black100 bg-white dark:bg-black100 bg-opacity-30 dark:bg-opacity-30`,
                 `transition ease-in-out delay-150 duration-500`
             )}>
-                <Link href={href} className="project-card-inner m-2 space-y-6">
+                <Link href={`/project/${href}`} className="project-card-inner m-2 space-y-6">
                     <Suspense fallback={<ImageSkeleton />}>
                         <Image
                             src={src}
@@ -67,16 +67,15 @@ export default function ProjectCard({
                         </div>
 
                     </div>
-                    <div className="flex gap-4 mx-1 pb-4 group-hover:text-tosca100 transition-all duration-300 ease-in-out">
-                        {isGithub(href) ? (
-                            <IoLogoGithub className="text-2xl " />
-                        ) : (
-                            <IoLinkOutline className="text-2xl " />
-                        )} 
+                    {/* <div className="flex gap-2 mx-1 pb-4 group-hover:text-tosca100 transition-all duration-300 ease-in-out">
+                        <IoLinkOutline className="text-2xl " />
                         <p className="truncate font-semibold">
-                            {href}
+                            See Project
                         </p>
-                    </div>
+                        <p className="hidden group-hover:block transition-all duration-700 ease-in-out text-tosca100">
+                            {'>'}
+                        </p>
+                    </div> */}
 
                 </Link>
             </div>
