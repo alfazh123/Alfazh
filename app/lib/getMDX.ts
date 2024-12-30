@@ -34,10 +34,12 @@ function getPosts({
         tag.forEach((t) => {
             posts = posts.filter((file) => {
                 return (
-                    file.posts.tags.join(' ').toLowerCase().includes(t)
+                    file.posts.tags.join(' ').toLowerCase().includes(t.toLowerCase())
                 )
             })
         })
+    } else {
+        posts = posts;
     }
 
     if (search) {
@@ -51,6 +53,8 @@ function getPosts({
                 file.posts.tags.join(' ').toLowerCase().includes(searchs)
             );
         });
+    } else {
+        posts = posts;
     }
 
 
