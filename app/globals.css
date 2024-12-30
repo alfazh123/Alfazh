@@ -18,7 +18,7 @@
     --radial-color: 2, 132, 199, 0.5;
 }
 
-/* .dark {
+.dark {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 30, 30, 30;
     --background-end-rgb: 30, 30, 30;
@@ -28,7 +28,7 @@
     --sh-identifier: white;
     --sh-keyword: #f47067;
     --sh-string: #0fa295;
-} */
+}
 
 @media (prefers-color-scheme: dark) {
     :root {
@@ -47,7 +47,7 @@
         --radial-color: 2, 132, 199;
     }
 
-    /* .dark {
+    .dark {
         --foreground-rgb: 255, 255, 255;
         --background-start-rgb: 30, 30, 30;
         --background-end-rgb: 30, 30, 30;
@@ -57,7 +57,7 @@
         --sh-identifier: white;
         --sh-keyword: #c673cf;
         --sh-string: #0fa295;
-    } */
+    }
 }
 
 @layer utilities {

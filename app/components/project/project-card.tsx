@@ -67,16 +67,15 @@ export default function ProjectCard({
                         </div>
 
                     </div>
-                    <div className="flex gap-4 mx-1 pb-4 group-hover:text-tosca100 transition-all duration-300 ease-in-out">
-                        {isGithub(href) ? (
-                            <IoLogoGithub className="text-2xl " />
-                        ) : (
-                            <IoLinkOutline className="text-2xl " />
-                        )} 
+                    {/* <div className="flex gap-2 mx-1 pb-4 group-hover:text-tosca100 transition-all duration-300 ease-in-out">
+                        <IoLinkOutline className="text-2xl " />
                         <p className="truncate font-semibold">
-                            {`/project/${href}`}
+                            See Project
                         </p>
-                    </div>
+                        <p className="hidden group-hover:block transition-all duration-700 ease-in-out text-tosca100">
+                            {'>'}
+                        </p>
+                    </div> */}
 
                 </Link>
             </div>

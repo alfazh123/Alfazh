@@ -14,8 +14,6 @@ export default function Blog({ params }: { params: { slug: string } }) {
     const content = post?.content || '';
     const headings = getHeadings(content);
 
-    const lastChangeDate = getUpdateDate({ slug: params.slug });
-
     if (!post) {
         return <div>Post not found</div>;
     }
@@ -57,7 +55,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
                     <span className="md:hidden block mt-10 sticky top-14">
                         <TableOfContents headings={headings} />
                     </span>
-                    <article className="prose prose-quoteless prose-neutral dark:prose-invert mx-2 md:col-span-2 max-w-none flex flex-col md:px-4 px-2 text-black prose-headings:text-[#1e3a8a] dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
+                    <article className="prose prose-quoteless prose-neutral dark:prose-invert mx-2 md:col-span-2 max-w-none flex flex-col md:px-4 px-2 text-black prose-headings:text-black100 dark:text-white prose-headings:dark:text-white pb-20 prose-p:leading-normal prose-li:leading-4">
                         <CustomMDX source={post.content} />
                     </article>
                     <span className="max-w-96 w-full md:block hidden">

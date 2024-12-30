@@ -47,15 +47,6 @@ const projects = [
         href: "ace-2024",
         tag: ["NextJS", "MDX"],
     },
-    {
-        title: "Redesign KediriKab",
-        year: 2023,
-        description:
-            "Redesign KediriKab website with NextJS, TailwindCSS DaisyUI.",
-        src: "/project/kediriweb.png",
-        href: "redesign-kefirikab",
-        tag: ["NextJS"],
-    },
 ];
 
 const art = [
