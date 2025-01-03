@@ -55,17 +55,17 @@ const techStack = [
 export default function TechStack() {
     return (
 
-        <div className="flex flex-wrap w-full gap-2 mt-8 px-12">
+        <div className="flex flex-wrap w-full gap-2 mt-8 md:px-12 sm:px-8 px-4">
             {techStack.map((tech, id) => {
                 return (
-                    <div key={id} className="tech dark:techdark flex h-10 gap-2 items-center border border-slate400 px-2 pl-2 pr-4 rounded-full">
+                    <div key={id} className="tech dark:techdark flex h-10 gap-2 items-center border border-slate400 sm:pl-2 pl-1 pr-4 rounded-full">
                         <Image
                             src={tech.image}
                             alt="me"
                             width={30}
                             height={30}
-                            className="p-1"/>
-                        <p>{tech.label}</p>
+                            className="p-1 md:w-8 w-6"/>
+                        <p className="sm:text-base text-sm">{tech.label}</p>
                     </div>
                 );
             })}

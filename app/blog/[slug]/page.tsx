@@ -20,10 +20,10 @@ export default function Blog({ params }: { params: { slug: string } }) {
     return (
         <div className="md:pt-28 pt-16">
             <section
-                className={`px-4 md:pt-8 pt-8 backdrop-blur-2xl space-y-5 bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-25 md:rounded-xl rounded-lg ${inter.className}`}
+                className={`px-4 pt-8 backdrop-blur-2xl space-y-5 bg-white dark:bg-black bg-opacity-40 dark:bg-opacity-25 md:rounded-xl rounded-lg ${inter.className}`}
             >
 
-                <header className="flex md:flex-row justify-between flex-col gap-8 min-h-32 py-20">
+                <header className="flex md:flex-row justify-between flex-col gap-8 min-h-32 md:py-20 pb-10">
                     <div className="w-52">
                         <BackToBlogButton />
                     </div>

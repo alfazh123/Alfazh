@@ -13,7 +13,7 @@ export default function ArtCard({ image, device, date }: Art) {
 
     return (
         <div className="flex flex-col items-center justify-center w-full h-full">
-            <div className="lg:w-56 lg:h-56 w-52 h-52 cursor-pointer" onClick={toggleModal}>
+            <div className=" w-full h-full aspect-square cursor-pointer" onClick={toggleModal}>
                 <Image
                     src={image}
                     alt={image}

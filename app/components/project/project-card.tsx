@@ -33,7 +33,7 @@ export default function ProjectCard({
         // <Suspense fallback={<SkeletonProjectCard />}>
             // <div className="project-card group flex flex-col h-full border dark:border-x-slate600 border-x-slate400 border-y-slate300 dark:border-y-slate200 transition ease-in-out delay-150 hover:bg-slate200 dark:hover:bg-black100 bg-white dark:bg-black100 bg-opacity-30 dark:bg-opacity-30  duration-300 w-full rounded-lg">
             <div className={clsx(
-                `group flex flex-col sm:w-96 h-full w-full border rounded-lg border-x-slate400 border-y-slate300 dark:border-x-slate600 dark:border-y-slate400`,
+                `group flex flex-col sm:w-96 w-full h-full border rounded-lg border-x-slate400 border-y-slate300 dark:border-x-slate600 dark:border-y-slate400`,
                 `hover:bg-slate100 dark:hover:bg-black100 bg-white dark:bg-black100 bg-opacity-30 dark:bg-opacity-30`,
                 `transition ease-in-out delay-150 duration-500`
             )}>

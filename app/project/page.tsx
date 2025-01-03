@@ -8,9 +8,9 @@ export const metadata: Metadata = {
 
 export default function Project() {
     return (
-        <div className="flex flex-col gap-8 pt-32">
+        <div className="flex flex-col gap-8 px-4 md:pt-32 pt-20">
             <h1 className="font-bold text-4xl">Project</h1>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-wrap gap-4">
                 {projects.map((project, index) => (
                     <div key={index}>
                         <ProjectCard{...project} />
