@@ -8,9 +8,6 @@ export default function ProjectDetails({params}: {params: {slug: string}}) {
 
     const project = getProject().find((project) => project.slug === params.slug);
 
-    console.log(project);
-    console.log(params.slug);
-
     return (
         <div className="md:pt-28 pt-16">
             <section

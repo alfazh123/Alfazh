@@ -115,4 +115,17 @@ const hobbys = [
     },
 ];
 
-export { books, projects, art, hobbys };
+const experiences = [
+    {
+        title: "Android Developer",
+        company: "Bangkit Academy 2024 Batch 2",
+        year: "September 2024 - January 2025",
+        works: [
+            "Becoming Peer tutor for student group Mobile Development",
+            "Build PathXplorer an Android app for student who confusing when choosing major or career, this app is integrated with Machine Learning Model on device using LiteRT.",
+            "Become 1.000 Most Active Students in the ILT session (Tech and Soft Skills) and complete all mandatory classes 1 month before the deadline."
+        ]
+    }
+]
+
+export { books, projects, art, hobbys , experiences};
